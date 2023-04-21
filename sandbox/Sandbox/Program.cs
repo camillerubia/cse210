@@ -8,9 +8,10 @@ class Program
         Console.Write("Testing Write");
         Console.WriteLine("Testing WriteLine.");
         Console.WriteLine("What is your name?");
-        string user_input_name = Console.ReadLine();
+        string userName = Console.ReadLine();
 
-        Console.WriteLine($"Nice to meet you, {user_input_name}!");
+        Console.WriteLine($"Nice to meet you, {userName}!");
         
+        Console.WriteLine(userName.GetType());
     }
 }
