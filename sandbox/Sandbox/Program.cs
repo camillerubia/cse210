@@ -21,13 +21,19 @@ class Program
         // }
 
         
-        Console.Write("First: ");
-        int number = int.Parse(Console.ReadLine());
-        Console.WriteLine(number);
+        // Console.Write("First: ");
+        // int number = int.Parse(Console.ReadLine());
+        // Console.WriteLine(number);
 
-        Console.Write("Second: ");
-        number = int.Parse(Console.ReadLine());
-        Console.WriteLine(number);
+        // Console.Write("Second: ");
+        // number = int.Parse(Console.ReadLine());
+        // Console.WriteLine(number);
 
+        string response = "yes";
+        while (response == "yes")
+        {
+            Console.Write("Continue? ");
+            response = Console.ReadLine();
+        }
     }
 }

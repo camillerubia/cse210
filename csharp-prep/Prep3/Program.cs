@@ -6,8 +6,7 @@ class Program
     {
         Console.WriteLine("Prep 3 - Loops");
 
-        string playAgain = "";
-
+        string playAgain = "yes";
         while (playAgain == "yes")
         {
             Console.WriteLine();
@@ -43,8 +42,9 @@ class Program
                     Console.WriteLine("You guessed it!");
                 }
             }
-        }
+
             Console.Write("Do you want to play again? (yes or no): ");
             playAgain = Console.ReadLine();
+        }
     }
 }
