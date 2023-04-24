@@ -57,9 +57,6 @@ class Program
                     gradeEquivalent = gradeEquivalent.Replace(minus, "");
                 }
 
-            
-
-
         Console.WriteLine($"Grade Equivalent: {gradeEquivalent}");
 
         if (gradePercentage >= 70)
