@@ -29,11 +29,29 @@ class Program
         // number = int.Parse(Console.ReadLine());
         // Console.WriteLine(number);
 
-        string response = "yes";
-        while (response == "yes")
+        // string response = "yes";
+        // while (response == "yes")
+        // {
+        //     Console.Write("Continue? ");
+        //     response = Console.ReadLine();
+        // }
+
+        List<string> words = new List<string>() {"love", "independence", "stability"};
+
+        // for (int i = 0; i < words.Count; i++)
+        // {
+        //     Console.WriteLine(words[i]);
+        // }
+
+        for (int i = 0; i < words.Count; i++)
         {
-            Console.Write("Continue? ");
-            response = Console.ReadLine();
+            Console.WriteLine(i);
         }
+
+        // foreach (string word in words)
+        // {
+        //     Console.WriteLine(word);
+        // }
+
     }
 }
