@@ -5,9 +5,10 @@ class Program
     static void Main(string[] args)
     {
         Console.WriteLine("Prep 3 - Loops");
+        Console.WriteLine("Guess the magic number from 1-100.");
 
         Random randomizer = new Random();
-        int randomNumber = randomizer.Next(1, 11);
+        int randomNumber = randomizer.Next(1, 101);
 
         Console.WriteLine();
         Console.WriteLine($"What is the magic number? {randomNumber}");
@@ -16,6 +17,7 @@ class Program
 
         while (userGuess != randomNumber)
         {
+            Console.WriteLine();
             Console.Write("What is your guess? ");
             userGuess = int.Parse(Console.ReadLine());
 
