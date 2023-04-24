@@ -14,10 +14,20 @@ class Program
         
         // Console.WriteLine(userName.GetType());
 
-        int [] numbers = { 1, 2, 3 };
-        foreach (int number in numbers)
-        {
-            Console.WriteLine(number);
-        }
+        // int [] numbers = { 1, 2, 3 };
+        // foreach (int number in numbers)
+        // {
+        //     Console.WriteLine(number);
+        // }
+
+        
+        Console.Write("First: ");
+        int number = int.Parse(Console.ReadLine());
+        Console.WriteLine(number);
+
+        Console.Write("Second: ");
+        number = int.Parse(Console.ReadLine());
+        Console.WriteLine(number);
+
     }
 }

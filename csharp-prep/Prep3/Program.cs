@@ -11,13 +11,18 @@ class Program
 
         Console.WriteLine();
         Console.WriteLine($"What is the magic number? {randomNumber}");
-        Console.Write("What is your guess? ");
-        int userGuess = int.Parse(Console.ReadLine());
-
         
+       int userGuess = 0;
+
+        while (userGuess != randomNumber)
+        {
+            Console.Write("What is your guess? ");
+            userGuess = int.Parse(Console.ReadLine());
+
             if (userGuess < randomNumber)
             {
                 Console.WriteLine("Higher");
+
             }
             else if (userGuess > randomNumber)
             {
@@ -27,5 +32,7 @@ class Program
             {
                 Console.WriteLine("You guessed it!");
             }
+        }
+        
     }
 }
