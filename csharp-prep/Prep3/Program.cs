@@ -14,12 +14,15 @@ class Program
         Console.WriteLine($"What is the magic number? {randomNumber}");
         
        int userGuess = 0;
+       int guessCounter = 1;
 
         while (userGuess != randomNumber)
         {
             Console.WriteLine();
+            Console.WriteLine($"Guess #{guessCounter}");
             Console.Write("What is your guess? ");
             userGuess = int.Parse(Console.ReadLine());
+            guessCounter ++;
 
             if (userGuess < randomNumber)
             {
@@ -35,6 +38,5 @@ class Program
                 Console.WriteLine("You guessed it!");
             }
         }
-        
     }
 }
