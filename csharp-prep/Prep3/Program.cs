@@ -10,5 +10,9 @@ class Program
         int randomNumber = randomizer.Next(1, 11);
 
         Console.WriteLine($"What is the magic number? {randomNumber}");
+        Console.Write("What is your guess? ");
+        int userGuess = int.Parse(Console.ReadLine());
+
+
     }
 }
