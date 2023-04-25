@@ -26,8 +26,12 @@ class Program
 
         int sum = numbers.Sum();
         double average = numbers.Average();
+        int maxNumber = numbers.Max();
 
+        Console.WriteLine();
         Console.WriteLine($"The sum is {sum}");
         Console.WriteLine($"The average is {average}");
+        Console.WriteLine($"The largest number is {maxNumber}");
+        Console.WriteLine();
     }
 }
