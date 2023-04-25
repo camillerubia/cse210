@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 
 class Program
 {
@@ -16,9 +17,17 @@ class Program
         {
             Console.Write("Enter number: ");
             userNumber = int.Parse(Console.ReadLine());
-            numbers.Add(userNumber);
+
+            if (userNumber != 0)
+            {
+                numbers.Add(userNumber);
+            }
         }
 
-        Console.WriteLine(numbers);
+        int sum = numbers.Sum();
+        double average = numbers.Average();
+
+        Console.WriteLine($"The sum is {sum}");
+        Console.WriteLine($"The average is {average}");
     }
 }
