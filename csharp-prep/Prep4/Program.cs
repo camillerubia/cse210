@@ -27,11 +27,22 @@ class Program
         int sum = numbers.Sum();
         double average = numbers.Average();
         int maxNumber = numbers.Max();
+        List<int> posNum = numbers.Where(n => n > 0).ToList();
+        int minPosNumber = posNum.Min();
 
         Console.WriteLine();
         Console.WriteLine($"The sum is {sum}");
         Console.WriteLine($"The average is {average}");
         Console.WriteLine($"The largest number is {maxNumber}");
         Console.WriteLine();
+
+        Console.WriteLine($"The smallest positive number is: {minPosNumber}");
+        numbers.Sort();
+
+        Console.WriteLine("The sorted list is:");
+        foreach (int i in numbers)
+        {
+            Console.WriteLine(i);
+        }
     }
 }
