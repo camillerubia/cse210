@@ -2,6 +2,19 @@ using System;
 
 class Program
 {
+    static void Main(string[] args)
+    {
+        Console.WriteLine("Prep 5 - Functions");
+        Console.WriteLine();
+        DisplayWelcome();
+
+        string userName = PromptUserName();
+        int userNumber = PromptUserNumber();
+        int square = SquareNumber(userNumber);
+        
+        DisplayResult(userName, square);
+    }
+
     static void DisplayWelcome()
     {
         Console.WriteLine("Welcome to the Program!");
@@ -30,16 +43,5 @@ class Program
     static void DisplayResult(string userName, int square)
     {
         Console.WriteLine($"{userName}, the square of your number is {square}");
-    }
-
-    static void Main(string[] args)
-    {
-        Console.WriteLine("Prep 5 - Functions");
-        Console.WriteLine();
-        DisplayWelcome();
-        string userName = PromptUserName();
-        int userNumber = PromptUserNumber();
-        int square = SquareNumber(userNumber);
-        DisplayResult(userName, square);
     }
 }
