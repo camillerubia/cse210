@@ -12,22 +12,21 @@ class Program
         string jobTitle1 = job1._jobTitle;
         job1._company = "Microsoft";
         string company1 = job1._company;
-        job1._startYear = 2001;
+        job1._startYear = 2019;
         int startYear1 = job1._startYear;
-        job1._endYear = 2010;
+        job1._endYear = 2022;
         int endYear1 = job1._endYear;
-        Console.WriteLine(company1);
+        job1.DisplayJobDetails();
 
         Job job2 = new Job();
-        job2._jobTitle = "Software Engineer";
+        job2._jobTitle = "Backend Developer";
         string jobTitle2 = job2._jobTitle;
         job2._company = "Apple";
         string company2 = job2._company;
-        job2._startYear = 2010;
+        job2._startYear = 2022;
         int startYear2 = job2._startYear;
-        job2._endYear = 2017;
+        job2._endYear = 2023;
         int endYear2 = job2._endYear;
-        Console.WriteLine(company2);
-
+        job2.DisplayJobDetails(); 
     }
 }
