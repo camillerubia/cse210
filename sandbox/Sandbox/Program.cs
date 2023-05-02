@@ -58,8 +58,8 @@ class Program
 
         foreach (Person p in smithFamily._people)
         {
-        Console.WriteLine($"Name: {p._givenName} {p._familyName}");
-        p.ShowEasternName();
+            Console.WriteLine($"Name: {p._givenName} {p._familyName}");
+            p.ShowEasternName();
             p.ShowWesternName();
         }
     }

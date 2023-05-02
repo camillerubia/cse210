@@ -16,7 +16,7 @@ class Program
         int startYear1 = job1._startYear;
         job1._endYear = 2022;
         int endYear1 = job1._endYear;
-        job1.DisplayJobDetails();
+        // job1.DisplayJobDetails();
 
         Job job2 = new Job();
         job2._jobTitle = "Backend Developer";
@@ -27,6 +27,16 @@ class Program
         int startYear2 = job2._startYear;
         job2._endYear = 2023;
         int endYear2 = job2._endYear;
-        job2.DisplayJobDetails(); 
+        // job2.DisplayJobDetails(); 
+
+        Resume myResume = new Resume();
+        myResume._name = "Allison Rose";
+        string name = myResume._name;
+        myResume._jobs.Add(job1);
+        myResume._jobs.Add(job2);
+        myResume.DisplayResume();
+
+        // string firstJob = myResume._jobs[0]._jobTitle;
+        // Console.WriteLine(firstJob);
     }
 }
