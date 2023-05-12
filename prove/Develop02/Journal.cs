@@ -7,7 +7,7 @@ using System;
 public class Journal 
 {
     public string _journalEntry;
-    public string _userInput;
+    public int _userInput;
     public int _menuCount = 1;
     public List<string> _menuList = new List<string> {"Write", "Display", "Load", "Save", "Quit"}; 
 
@@ -24,5 +24,14 @@ public void Menu()
     {
        Console.WriteLine($"{i}. {_menuList[i]}");
     }
+
+    Console.WriteLine("What would you like to do?");
+    _userInput = int.Parse(Console.ReadLine());
 }
+
+    public FileManager _fileManager = new FileManager();
+    public Entry _entry = new Entry();
+    public PromptGenerator _prompt = new PromptGenerator();
+
+
 }

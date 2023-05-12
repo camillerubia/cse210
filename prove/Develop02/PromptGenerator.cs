@@ -6,3 +6,8 @@ using System.Collections.Generic;
 //  - read prompts from a file
 //  - contains list of prompts
 //  - randomizes and returns the random prompt
+
+public class PromptGenerator
+{
+    
+}
