@@ -18,9 +18,11 @@ public class Entry
     public string _entry;
     public List<string> _entryList = new List<string>();    
 
+    public PromptGenerator _prompt = new PromptGenerator();
+
     public void InputEntry()
     {
-
+        
     }
 
     public void JournalEntry()

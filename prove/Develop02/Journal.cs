@@ -8,8 +8,11 @@ public class Journal
 {
     public string _journalEntry;
     public int _userInput;
-    public int _menuCount = 1;
     public List<string> _menuList = new List<string> {"Write", "Display", "Load", "Save", "Quit"}; 
+
+    public FileManager _fileManager = new FileManager();
+    public Entry entry = new Entry();
+    
 
 public void DisplayJournal() 
 {
@@ -20,18 +23,24 @@ public void Menu()
 {
     Console.WriteLine("Please select one of the following choices:");
 
-    for (int i = 1; i < _menuList.Count; i++)
+    while (_userInput != 5)
     {
-       Console.WriteLine($"{i}. {_menuList[i]}");
+        for (int i = 0; i < _menuList.Count; i++)
+        {
+            Console.WriteLine($"{i+1}. {_menuList[i]}");
+        }
+
+        Console.Write("What would you like to do? ");
+        _userInput = int.Parse(Console.ReadLine());
+
+        if (_userInput == 1)
+        {
+            entry._prompt.RandomPrompt();
+        }
+
+
+
+
     }
-
-    Console.WriteLine("What would you like to do?");
-    _userInput = int.Parse(Console.ReadLine());
 }
-
-    public FileManager _fileManager = new FileManager();
-    public Entry _entry = new Entry();
-    public PromptGenerator _prompt = new PromptGenerator();
-
-
 }
