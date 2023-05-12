@@ -1,11 +1,22 @@
 using System;
 
+// Responsibilities:
+//  - acquires user response from the prompt
+//  - generates the current date
+//  - merges the response with the date and prompt
+//  - creates entry list
+
 public class Entry 
 {
+    static DateTime timeNow = DateTime.Now;
+    string _currentDate = timeNow.ToShortDateString();
+
+    int integer = Math.Abs(9);
+
     public string _response;
-    public string _currentDate;
+    
     public string _entry;
-    public List<string> _entryList = new List<string>();
+    public List<string> _entryList = new List<string>();    
 
     public void InputEntry()
     {
@@ -14,6 +25,6 @@ public class Entry
 
     public void JournalEntry()
     {
-        
+
     }
 }

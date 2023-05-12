@@ -1,13 +1,8 @@
 using System;
+using System.IO;
+using System.Collections.Generic;
 
-public class PromptGenerator
-{
-    public List<string> _promptList = new List<string>();
-    public string _randomPrompt;
-
-
-    public void RandomPrompt()
-    {
-        
-    }
-}
+// Responsibilities:
+//  - read prompts from a file
+//  - contains list of prompts
+//  - randomizes and returns the random prompt
