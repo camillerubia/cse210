@@ -9,9 +9,9 @@ using System;
 
 public class FileManager
 {
-    public string _saveFilename;
-    public string _loadFilename;
-
+    public static string _saveFilename;
+    
+    public static string _loadFilename;
     public void SaveFile()
     {
 
@@ -19,6 +19,8 @@ public class FileManager
 
     public void GetFileName()
     {
-        
+        Console.Write("What is the filename? ");
+        _loadFilename = Console.ReadLine();
     }
+    public string[] _loadJournal = System.IO.File.ReadAllLines(_loadFilename);
 }
