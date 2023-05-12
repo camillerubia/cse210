@@ -10,23 +10,26 @@ public class Entry
 {
     static DateTime timeNow = DateTime.Now;
     string _currentDate = timeNow.ToShortDateString();
-
-    int integer = Math.Abs(9);
-
     public string _response;
-    
     public string _entry;
+    public string entryPrompt;
+    public string _singleEntry;
     public List<string> _entryList = new List<string>();    
-
-    public PromptGenerator _prompt = new PromptGenerator();
+    public PromptGenerator prompt = new PromptGenerator();
 
     public void InputEntry()
     {
-        
+        Console.WriteLine("Prompt:");
+        entryPrompt = prompt.RandomPrompt();
+        Console.WriteLine(entryPrompt);
+        Console.Write("> ");
+        _response = Console.ReadLine();
+        Console.WriteLine();
     }
 
-    public void JournalEntry()
+    public string JournalEntry()
     {
-
+        _entry = $"Date: {_currentDate} - Prompt: {entryPrompt}\n{_response}";
+        return _entry;
     }
 }

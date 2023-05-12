@@ -15,12 +15,12 @@ public class PromptGenerator
 
     // Read from file
     public string[] _promptList = System.IO.File.ReadAllLines("prompts.csv");
-    public void RandomPrompt()
+    public string RandomPrompt()
     {
         Random rnd = new Random();
 
         // Get a random question from the list
         _randomPrompt = _promptList[rnd.Next(_promptList.Length)];
-        Console.WriteLine(_randomPrompt);
+        return _randomPrompt;
     }
 }
