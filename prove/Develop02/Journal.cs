@@ -6,7 +6,6 @@ using System;
 //  - display journal entries
 public class Journal 
 {
-    public string _journalEntry;
     public int _userInput;
     public List<string> _menuList = new List<string> {"Write", "Display", "Load", "Save", "Quit"}; 
 
@@ -14,6 +13,7 @@ public class Journal
     public Entry entry = new Entry();
     public bool saveStatus = false;
     string[] loadJournal;
+    public string filename;
     
 public void Menu()
 {
@@ -58,13 +58,14 @@ public void Menu()
 
         } else if (_userInput == 3) 
         {
-            loadJournal = fileManager.GetFileName();
+            filename = fileManager.GetFileName();
+            loadJournal = fileManager.LoadFile(filename);
             saveStatus = true;
 
         } else if (_userInput == 4) 
         {
-            fileManager.SaveFile();
-            
+            filename = fileManager.GetFileName();
+            fileManager.SaveFile(filename, entry._entryList);
             
         } else if (_userInput == 5)
         {
@@ -73,7 +74,5 @@ public void Menu()
             Console.WriteLine("Invalid choice. Please try again.");
         }
     }
-
-
 }
 }

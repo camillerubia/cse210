@@ -11,7 +11,6 @@ public class PromptGenerator
 {
     
     public string _randomPrompt;
-    public int index = 0;
 
     // Read from file
     public string[] _promptList = System.IO.File.ReadAllLines("prompts.csv");

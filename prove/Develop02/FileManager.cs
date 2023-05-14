@@ -8,32 +8,30 @@ using System;
 //  - display the file journal entries
 
 public class FileManager
-{
-    public static string _saveFilename;
-    
-    public static string _loadFilename;
+{    
     public string[] _loadJournal;
+    public string filename;
 
-    public Entry entry = new Entry();
-    public void SaveFile()
+    public string GetFileName()
     {
+        Console.WriteLine();
         Console.Write("What is the filename? ");
-        _saveFilename = Console.ReadLine();
-        using (StreamWriter saveFile = new StreamWriter(_saveFilename))
-        {
-            foreach (string line in entry._entryList)
-            {
-                saveFile.WriteLine(line);
-            }
-        }
+        filename = Console.ReadLine();
+        return filename;
     }
-
-    public string[] GetFileName()
+    public void SaveFile(string filename, List<string> _saveList)
     {
-        Console.Write("What is the filename? ");
-        _loadFilename = Console.ReadLine();
-       _loadJournal = System.IO.File.ReadAllLines(_loadFilename);
+        using (StreamWriter outputFile = new StreamWriter(filename))
+            {
+                foreach (string line in _saveList)
+                {
+                    outputFile.WriteLine(line);
+                }
+            }
+    }
+    public string[] LoadFile(string filename)
+    {
+       _loadJournal = System.IO.File.ReadAllLines(filename);
         return _loadJournal;
     }
-    
 }
