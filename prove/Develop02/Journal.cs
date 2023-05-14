@@ -56,19 +56,16 @@ public void Menu()
                 }
             }   
 
-        } else if (_userInput == 3) 
-        {
+        } else if (_userInput == 3) {
             filename = fileManager.GetFileName();
             loadJournal = fileManager.LoadFile(filename);
             saveStatus = true;
 
-        } else if (_userInput == 4) 
-        {
+        } else if (_userInput == 4) {
             filename = fileManager.GetFileName();
             fileManager.SaveFile(filename, entry._entryList);
             
-        } else if (_userInput == 5)
-        {
+        } else if (_userInput == 5) {
             break;
         } else {
             Console.WriteLine("Invalid choice. Please try again.");

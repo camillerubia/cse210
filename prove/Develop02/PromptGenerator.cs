@@ -9,11 +9,10 @@ using System.Collections.Generic;
 
 public class PromptGenerator
 {
-    
     public string _randomPrompt;
-
     // Read from file
     public string[] _promptList = System.IO.File.ReadAllLines("prompts.csv");
+    
     public string RandomPrompt()
     {
         Random rnd = new Random();

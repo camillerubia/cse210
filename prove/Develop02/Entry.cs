@@ -26,7 +26,7 @@ public class Entry
         _response = Console.ReadLine();
         Console.WriteLine();
     }
-
+    
     public string JournalEntry()
     {
         _entry = $"Date: {_currentDate} - Prompt: {entryPrompt}\n{_response}";

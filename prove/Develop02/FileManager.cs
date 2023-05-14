@@ -19,16 +19,18 @@ public class FileManager
         filename = Console.ReadLine();
         return filename;
     }
+
     public void SaveFile(string filename, List<string> _saveList)
     {
         using (StreamWriter outputFile = new StreamWriter(filename))
+        {
+            foreach (string line in _saveList)
             {
-                foreach (string line in _saveList)
-                {
-                    outputFile.WriteLine(line);
-                }
+                outputFile.WriteLine(line);
             }
+        }
     }
+    
     public string[] LoadFile(string filename)
     {
        _loadJournal = System.IO.File.ReadAllLines(filename);
