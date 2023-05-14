@@ -12,13 +12,9 @@ public class Journal
 
     public FileManager fileManager = new FileManager();
     public Entry entry = new Entry();
+    public bool saveStatus = false;
+    string[] loadJournal;
     
-
-public void DisplayJournal() 
-{
-
-}
-
 public void Menu()
 {
     Console.WriteLine("Please select one of the following choices:");
@@ -39,26 +35,38 @@ public void Menu()
             entry.InputEntry();
             entry._singleEntry = entry.JournalEntry();
             entry._entryList.Add(entry._singleEntry);
+            saveStatus = false;
 
         } else if (_userInput == 2) 
         {
             Console.WriteLine();
 
-            foreach (string line in entry._entryList)
+            if (saveStatus == false)
             {
-                Console.WriteLine(line);
-                Console.WriteLine();
-            }
+                foreach (string line in entry._entryList)
+                {
+                    Console.WriteLine(line);
+                    Console.WriteLine();
+                }
+            } else {
+                foreach (string line in loadJournal)
+                {
+                    Console.WriteLine(line);
+                    Console.WriteLine();
+                }
+            }   
 
         } else if (_userInput == 3) 
         {
-            fileManager.GetFileName();
+            loadJournal = fileManager.GetFileName();
+            saveStatus = true;
 
         } else if (_userInput == 4) 
         {
             fileManager.SaveFile();
             
-        } else if (_userInput == 5) 
+            
+        } else if (_userInput == 5)
         {
             break;
         } else {
