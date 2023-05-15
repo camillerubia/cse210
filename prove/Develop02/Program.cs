@@ -8,14 +8,26 @@ class Program
         Console.WriteLine("Journal Program");
         Console.WriteLine();
 
+        // Instantiates the Journal Class and stores it in the journal variable.
         Journal journal = new Journal();
+        // Calls the Menu method from the Journal Class.
         journal.Menu();
     }
 }
 
 // STRETCH
-// - Added an error catcher in the Journal (when the user inputs a string instead of an int, and
-// if the user wants to load and display non-journal file)
-// and FileManager Class (if the file doesn't exists)
-// .
-// - 
+
+// *** Journal Class ***
+// - Added an error catcher in the Journal Class (when the user inputs a string instead of 
+    // an int, and if the user wants to load and display non-journal file)
+// - Customized the quit option and asks the user for confirmation then loops back if the user
+    // has invalid choice.
+// - Has a flexible display ability in viewing CSV and non-CSV files.
+
+// *** FileManager Class *** 
+// - Added an error catcher as well in the FileManager Class (if the file doesn't exists)
+// - Formatted the strings to be Excel-readable with headings. 
+// - Contains different methods in reading/saving CSV and non-CSV files.
+
+// *** Entry Class ***
+// - Saves other information such as the time which is stored with every entry in the Entry Class.

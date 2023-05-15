@@ -53,6 +53,7 @@ public class Entry
     {
         // Formats the entry with the labels for quick display (display without saving/loading).
         _entry = $"Date: {_currentDate} Time: {_currentTime}\nPrompt: {entryPrompt}\n- {_response}";
+        // Returns the strings with labes.
         return _entry;
     }
 
@@ -61,6 +62,7 @@ public class Entry
     {
         // Simplifies the format without labels.
         _csvEntry = $"{_currentDate}| {_currentTime}| {entryPrompt}| {_response}";
+        // Returns the string without labels.
         return _csvEntry;
     }
 }
