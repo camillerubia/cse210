@@ -8,8 +8,9 @@ using System;
 
 public class Entry 
 {
-    static DateTime timeNow = DateTime.Now;
-    string _currentDate = timeNow.ToShortDateString();
+    static DateTime dateNow = DateTime.Now;
+    string _currentDate = dateNow.ToShortDateString();
+    static string _currentTime = DateTime.Now.ToString("h:mm tt").ToUpper();
     public string _response;
     public string _entry;
     public string entryPrompt;
@@ -31,13 +32,13 @@ public class Entry
     
     public string JournalEntry()
     {
-        _entry = $"Date: {_currentDate} - Prompt: {entryPrompt}\n{_response}";
+        _entry = $"Date: {_currentDate} Time: {_currentTime}\nPrompt: {entryPrompt}\n{_response}";
         return _entry;
     }
 
     public string SeparateEntries()
     {
-        _csvEntry = $"{_currentDate}| {entryPrompt}| {_response}";
+        _csvEntry = $"{_currentDate}| {_currentTime}| {entryPrompt}| {_response}";
         return _csvEntry;
     }
 }

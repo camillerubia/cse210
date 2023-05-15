@@ -59,12 +59,12 @@ public class FileManager
             string[] entryValues = entryString.Split(new char[] { '|' }, StringSplitOptions.RemoveEmptyEntries);
 
             string date = entryValues[0].Trim();
-            string prompt = entryValues[1].Trim();
-            string response = entryValues[2].Trim();
+            string time = entryValues[1].Trim();
+            string prompt = entryValues[2].Trim();
+            string response = entryValues[3].Trim();
 
-            string csvEntry = $"{date},{prompt},{response}";
+            string csvEntry = $"{date}~{time}~{prompt}~{response}";
             csvEntries.Add(csvEntry);
-        
         }
 
         using (StreamWriter outputFile = new StreamWriter(filename))

@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 
 // Responsibilities:
 //  - display overall menu (write, display, load, save, quit)
@@ -14,7 +15,18 @@ public class Journal
     public bool saveStatus = false;
     public string[] loadJournal;
     public string filename;
-    
+    public bool checker;
+
+public void DisplayCsvJournal(string filename)
+{
+   string[] csvJournal = System.IO.File.ReadAllLines(filename);
+
+   foreach (string line in csvJournal)
+   {
+    string[] row = line.Split('~');
+    Console.WriteLine($"Date: {row[0]} Time: {row[1]}\nPrompt: {row[2]}\n{row[3]}\n");
+   }
+}
 public void Menu()
 {
     Console.WriteLine("Please select one of the following choices:");
@@ -51,7 +63,7 @@ public void Menu()
         } else if (_userInput == 2) 
         {
             Console.WriteLine();
-
+            
             if (saveStatus == false)
             {
                 foreach (string line in entry._entryList)
@@ -60,12 +72,20 @@ public void Menu()
                     Console.WriteLine();
                 }
             } else {
-                foreach (string line in loadJournal)
+                checker = fileManager.FileChecker(filename);
+                
+                if (checker == true)
                 {
-                    Console.WriteLine(line);
-                    Console.WriteLine();
+                    DisplayCsvJournal(filename);
+                } else {
+                    foreach (string line in loadJournal)
+                    {
+                        Console.WriteLine(line);
+                        Console.WriteLine();
+                    }
                 }
-            }   
+                
+            }             
         
         // Load
         } else if (_userInput == 3) {
@@ -76,7 +96,7 @@ public void Menu()
         // Save
         } else if (_userInput == 4) {
             filename = fileManager.GetFileName();
-            bool checker = fileManager.FileChecker(filename);
+            checker = fileManager.FileChecker(filename);
             
             if (checker == true)
             {
