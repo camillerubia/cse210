@@ -36,10 +36,12 @@ public void DisplayCsvJournal(string filename)
         // Iterates the array, then skips the first line (header).
         foreach (string line in csvJournal.Skip(1))
         {        
-            // 
+            // Splits the lines with the specified pattern.
            string[] row = Regex.Split(line, ",(?=[^\"]*\")");
-           
-            if (row.Length >= 4)
+
+            // Makes sure that the rows contains only 4 values.
+            // Will display an error message.
+            if (row.Length == 4)
             {
                 // Displays the segregated values (using their indexes) with a format.
                 Console.WriteLine($"Date: {row[0]} Time: {row[1]}\nPrompt: {row[2]}\n- {row[3]}\n");
@@ -160,22 +162,28 @@ public void Menu()
         
         // 5. QUIT
         } if (_userInput == 5) {
+            // Reminds and asks user for exit confirmation.
             Console.WriteLine("All unsaved progress will be lost.");
             Console.Write("Are you sure you want to quit? (y or n): ");
             string confirmation = Console.ReadLine();
 
+            // Breaks the loop if the user answers "y".
             if (confirmation == "y")
             {
-                // Menu();
                 break;
-                
-            } if (confirmation == "n") {
-                // break;
+            } 
+            // Calls the Menu method from the Journal Class again to
+            // display the menu options
+            if (confirmation == "n")
+            {
                 Menu();
             } else {
+                // Error message when user inputs neither y or n.
+                // Then loop continues if user inputs a number.
                 Console.WriteLine($"Invalid choice. (y) or (n) only.\n");
             }
-            
+
+        // Displays message when user choice is out of 1-5 range.
         } else if (_userInput > 5) {
                 Console.WriteLine($"Please choose numbers 1-5 only.\n");
             }
