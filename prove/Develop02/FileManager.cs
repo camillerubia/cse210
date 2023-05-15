@@ -25,11 +25,9 @@ public class FileManager
     {
         if (filename.Contains("csv"))
         {
-            Console.WriteLine("Saved as CSV");
             return checker = true;
         }
         else {
-            Console.WriteLine("Not saved as CSV");
             return checker = false;
         }
     }
@@ -80,9 +78,17 @@ public class FileManager
 
     public string[] LoadFile(string filename)
     {
-        Console.WriteLine($"\nLoading file....");
-        _loadJournal = System.IO.File.ReadAllLines(filename);
-        Console.WriteLine($"\nFile loaded.\n");
+        Console.WriteLine($"Checking file....\n");
+        try
+        {
+            Console.WriteLine($"\nLoading file....");
+            _loadJournal = System.IO.File.ReadAllLines(filename);
+            Console.WriteLine($"\nFile loaded.\n");
+        }
+        catch (FileNotFoundException)
+        {
+            Console.WriteLine($"File not existing.\n");
+        }
         return _loadJournal;
     }
 }

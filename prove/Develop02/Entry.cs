@@ -32,7 +32,7 @@ public class Entry
     
     public string JournalEntry()
     {
-        _entry = $"Date: {_currentDate} Time: {_currentTime}\nPrompt: {entryPrompt}\n{_response}";
+        _entry = $"Date: {_currentDate} Time: {_currentTime}\nPrompt: {entryPrompt}\n- {_response}";
         return _entry;
     }
 

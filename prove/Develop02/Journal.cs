@@ -21,11 +21,20 @@ public void DisplayCsvJournal(string filename)
 {
    string[] csvJournal = System.IO.File.ReadAllLines(filename);
 
-   foreach (string line in csvJournal)
+   try
    {
-    string[] row = line.Split('~');
-    Console.WriteLine($"Date: {row[0]} Time: {row[1]}\nPrompt: {row[2]}\n{row[3]}\n");
+        foreach (string line in csvJournal)
+        {
+            string[] row = line.Split('~');
+            Console.WriteLine($"Date: {row[0]} Time: {row[1]}\nPrompt: {row[2]}\n- {row[3]}\n");
+        }
    }
+   catch (IndexOutOfRangeException)
+   {    
+        Console.WriteLine($"ERROR: File chosen is not a journal file.\n");
+   }
+
+   
 }
 public void Menu()
 {
@@ -69,7 +78,6 @@ public void Menu()
                 foreach (string line in entry._entryList)
                 {
                     Console.WriteLine(line);
-                    Console.WriteLine();
                 }
             } else {
                 checker = fileManager.FileChecker(filename);
@@ -81,17 +89,16 @@ public void Menu()
                     foreach (string line in loadJournal)
                     {
                         Console.WriteLine(line);
-                        Console.WriteLine();
                     }
                 }
-                
             }             
+            Console.WriteLine();
         
         // Load
         } else if (_userInput == 3) {
             filename = fileManager.GetFileName();
             loadJournal = fileManager.LoadFile(filename);
-            saveStatus = true;
+            saveStatus = true;          
         
         // Save
         } else if (_userInput == 4) {
@@ -106,8 +113,23 @@ public void Menu()
             }
         
         // Quit
-        } else if (_userInput == 5) {
-            break;
+        } if (_userInput == 5) {
+            Console.WriteLine("All unsaved progress will be lost.");
+            Console.Write("Are you sure you want to quit? (y or n): ");
+            string confirmation = Console.ReadLine();
+
+            if (confirmation == "y")
+            {
+                // Menu();
+                break;
+                
+            } if (confirmation == "n") {
+                // break;
+                Menu();
+            } else {
+                Console.WriteLine($"Invalid choice. (y) or (n) only.\n");
+            }
+            
         } else {
                 Console.WriteLine($"Please choose numbers 1-5 only.\n");
             }
