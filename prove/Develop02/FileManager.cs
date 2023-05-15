@@ -51,17 +51,19 @@ public class FileManager
         Console.WriteLine($"\nSaving csv file....");
 
         List<string> csvEntries = new List<string>();
+        string headline = "Date,Time,Prompt,Response";
+        csvEntries.Add(headline);
 
         foreach (string entryString in _saveList)
         {
             string[] entryValues = entryString.Split(new char[] { '|' }, StringSplitOptions.RemoveEmptyEntries);
 
-            string date = entryValues[0].Trim();
-            string time = entryValues[1].Trim();
-            string prompt = entryValues[2].Trim();
-            string response = entryValues[3].Trim();
+            string date = ExcelWriter(entryValues[0].Trim());
+            string time = ExcelWriter(entryValues[1].Trim());
+            string prompt = ExcelWriter(entryValues[2].Trim());
+            string response = ExcelWriter(entryValues[3].Trim());
 
-            string csvEntry = $"{date}~{time}~{prompt}~{response}";
+            string csvEntry = $"{date},{time},{prompt},{response}";
             csvEntries.Add(csvEntry);
         }
 
@@ -74,6 +76,15 @@ public class FileManager
         }
         
         Console.WriteLine($"\nFile saved.\n");
+    }
+
+    public string ExcelWriter(string line)
+    {
+        if (line.Contains(","))
+        {
+            line = $"\"{line}\"";
+        }
+        return line;
     }
 
     public string[] LoadFile(string filename)

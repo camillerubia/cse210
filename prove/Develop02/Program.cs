@@ -14,5 +14,5 @@ class Program
 }
 
 // STRETCH
-// - Added an error catcher in the Journal Class when the user inputs a 
-// string instead of an int.
+// - Added an error catcher in the Journal Class when the user inputs a string instead of an int.
+// - 
