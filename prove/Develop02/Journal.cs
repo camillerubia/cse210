@@ -12,7 +12,7 @@ public class Journal
     public FileManager fileManager = new FileManager();
     public Entry entry = new Entry();
     public bool saveStatus = false;
-    string[] loadJournal;
+    public string[] loadJournal;
     public string filename;
     
 public void Menu()
@@ -21,6 +21,7 @@ public void Menu()
 
     while (true)
     {
+        Console.WriteLine("=== JOURNAL MENU ===");
         for (int i = 0; i < _menuList.Count; i++)
         {
             Console.WriteLine($"{i+1}. {_menuList[i]}");
@@ -28,7 +29,15 @@ public void Menu()
 
         Console.WriteLine();
         Console.Write("What would you like to do? ");
-        _userInput = int.Parse(Console.ReadLine());
+
+        try 
+        {
+            _userInput = int.Parse(Console.ReadLine());
+        }
+        catch (FormatException)
+        {
+            Console.WriteLine("Invalid choice.");
+        }
 
         if (_userInput == 1)
         {
@@ -68,8 +77,9 @@ public void Menu()
         } else if (_userInput == 5) {
             break;
         } else {
-            Console.WriteLine("Invalid choice. Please try again.");
+                Console.WriteLine("Please choose numbers 1-5 only.");
+                Console.WriteLine();
+            }
         }
     }
-}
 }

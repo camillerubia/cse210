@@ -22,6 +22,7 @@ public class FileManager
 
     public void SaveFile(string filename, List<string> _saveList)
     {
+        Console.WriteLine($"\nSaving file....");
         using (StreamWriter outputFile = new StreamWriter(filename))
         {
             foreach (string line in _saveList)
@@ -29,11 +30,14 @@ public class FileManager
                 outputFile.WriteLine(line);
             }
         }
+        Console.WriteLine($"\nFile saved.\n");
     }
     
     public string[] LoadFile(string filename)
     {
-       _loadJournal = System.IO.File.ReadAllLines(filename);
+        Console.WriteLine($"\nLoading file....");
+        _loadJournal = System.IO.File.ReadAllLines(filename);
+        Console.WriteLine($"\nFile loaded.\n");
         return _loadJournal;
     }
 }
