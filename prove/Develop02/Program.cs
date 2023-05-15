@@ -19,15 +19,15 @@ class Program
 
 // *** Journal Class ***
 // - Added an error catcher in the Journal Class (when the user inputs a string instead of 
-    // an int, and if the user wants to load and display non-journal file)
+    // an int, and if the user wants to load and display a non-journal file)
 // - Customized the quit option and asks the user for confirmation then loops back if the user
     // has invalid choice.
-// - Has a flexible display ability in viewing CSV and non-CSV files.
+// - Has a flexible display ability for viewing CSV and non-CSV files.
 
 // *** FileManager Class *** 
-// - Added an error catcher as well in the FileManager Class (if the file doesn't exists)
+// - Added an error catcher as well in the FileManager Class (if the file doesn't exist)
 // - Formatted the strings to be Excel-readable with headings. 
-// - Contains different methods in reading/saving CSV and non-CSV files.
+// - Contains different methods for  reading/saving CSV and non-CSV files.
 
 // *** Entry Class ***
 // - Saves other information such as the time which is stored with every entry in the Entry Class.
