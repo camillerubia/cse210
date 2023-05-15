@@ -1,5 +1,6 @@
 using System;
 using System.Linq;
+using System.Text.RegularExpressions;
 
 // Responsibilities:
 //  - display overall menu (write, display, load, save, quit)
@@ -35,20 +36,14 @@ public void DisplayCsvJournal(string filename)
         // Iterates through the array, then splits the values using the specified
         // separator.
         foreach (string line in csvJournal.Skip(1))
-        {
-            string[] row = line.Split(',');
-            
+        {           
+           string[] row = Regex.Split(line, ",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)");
+
             if (row.Length >= 4)
             {
-                for (int i = 0; i < row.Length; i++)
-                {
-                    row[i] = fileManager.ExcelWriter(row[i]);
-                }
-                
                 // Displays the segregated values (using their indexes) with a format.
                 Console.WriteLine($"Date: {row[0]} Time: {row[1]}\nPrompt: {row[2]}\n- {row[3]}\n");
             }
-               
         }
    }
    catch (IndexOutOfRangeException)
