@@ -14,8 +14,7 @@ public class FileManager
 
     public string GetFileName()
     {
-        Console.WriteLine();
-        Console.Write("What is the filename? ");
+        Console.Write($"\nWhat is the filename? ");
         filename = Console.ReadLine();
         return filename;
     }

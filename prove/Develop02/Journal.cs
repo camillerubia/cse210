@@ -26,9 +26,8 @@ public void Menu()
         {
             Console.WriteLine($"{i+1}. {_menuList[i]}");
         }
-
-        Console.WriteLine();
-        Console.Write("What would you like to do? ");
+        
+        Console.Write($"\nWhat would you like to do? ");
 
         try 
         {
@@ -77,8 +76,7 @@ public void Menu()
         } else if (_userInput == 5) {
             break;
         } else {
-                Console.WriteLine("Please choose numbers 1-5 only.");
-                Console.WriteLine();
+                Console.WriteLine($"Please choose numbers 1-5 only.\n");
             }
         }
     }
