@@ -16,6 +16,8 @@ public class Entry
     public string _singleEntry;
     public List<string> _entryList = new List<string>();    
     public PromptGenerator prompt = new PromptGenerator();
+    public List<string> _csvList = new List<string>();
+    public string _csvEntry;
 
     public void InputEntry()
     {
@@ -31,5 +33,11 @@ public class Entry
     {
         _entry = $"Date: {_currentDate} - Prompt: {entryPrompt}\n{_response}";
         return _entry;
+    }
+
+    public string SeparateEntries()
+    {
+        _csvEntry = $"{_currentDate}| {entryPrompt}| {_response}";
+        return _csvEntry;
     }
 }

@@ -12,3 +12,7 @@ class Program
         journal.Menu();
     }
 }
+
+// STRETCH
+// - Added an error catcher in the Journal Class when the user inputs a 
+// string instead of an int.

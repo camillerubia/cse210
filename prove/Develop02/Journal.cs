@@ -26,7 +26,7 @@ public void Menu()
         {
             Console.WriteLine($"{i+1}. {_menuList[i]}");
         }
-        
+
         Console.Write($"\nWhat would you like to do? ");
 
         try 
@@ -37,7 +37,7 @@ public void Menu()
         {
             Console.WriteLine("Invalid choice.");
         }
-
+        // Write
         if (_userInput == 1)
         {
             entry.InputEntry();
@@ -45,6 +45,9 @@ public void Menu()
             entry._entryList.Add(entry._singleEntry);
             saveStatus = false;
 
+            entry._csvList.Add(entry.SeparateEntries());
+
+        //  Display
         } else if (_userInput == 2) 
         {
             Console.WriteLine();
@@ -63,16 +66,26 @@ public void Menu()
                     Console.WriteLine();
                 }
             }   
-
+        
+        // Load
         } else if (_userInput == 3) {
             filename = fileManager.GetFileName();
             loadJournal = fileManager.LoadFile(filename);
             saveStatus = true;
-
+        
+        // Save
         } else if (_userInput == 4) {
             filename = fileManager.GetFileName();
-            fileManager.SaveFile(filename, entry._entryList);
+            bool checker = fileManager.FileChecker(filename);
             
+            if (checker == true)
+            {
+                fileManager.SaveCsvFile(filename, entry._csvList);
+            } else {
+                fileManager.SaveFile(filename, entry._entryList);
+            }
+        
+        // Quit
         } else if (_userInput == 5) {
             break;
         } else {
