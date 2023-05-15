@@ -8,7 +8,7 @@ using System.Text.RegularExpressions;
 //  - display journal entries
 public class Journal 
 {
-    // A variable to store the user's input and set its initial type as int.
+    // A field to store the user's input and set its initial type as int.
     public int _userInput;
     // Pre-declared list containing the Menu to display.
     public List<string> _menuList = new List<string> {"Write", "Display", "Load", "Save", "Quit"}; 
@@ -18,7 +18,7 @@ public class Journal
     public Entry entry = new Entry();
     // An empty array to store the entries.
     public string[] loadJournal;
-    // An empty variable for storing the filename to be passed on various class methods.
+    // An empty field for storing the filename to be passed on various class methods.
     public string filename;
     // Booleans to check certain conditions which is necessary for complex display options.
     public bool saveStatus = false;
