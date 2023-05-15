@@ -33,12 +33,12 @@ public void DisplayCsvJournal(string filename)
     // Error catcher if the user has loaded a non-journal file.
    try
    {
-        // Iterates through the array, then splits the values using the specified
-        // separator.
+        // Iterates the array, then skips the first line (header).
         foreach (string line in csvJournal.Skip(1))
-        {           
-           string[] row = Regex.Split(line, ",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)");
-
+        {        
+            // 
+           string[] row = Regex.Split(line, ",(?=[^\"]*\")");
+           
             if (row.Length >= 4)
             {
                 // Displays the segregated values (using their indexes) with a format.
@@ -158,7 +158,7 @@ public void Menu()
                 fileManager.SaveFile(filename, entry._entryList);
             }
         
-        // Quit
+        // 5. QUIT
         } if (_userInput == 5) {
             Console.WriteLine("All unsaved progress will be lost.");
             Console.Write("Are you sure you want to quit? (y or n): ");

@@ -14,5 +14,8 @@ class Program
 }
 
 // STRETCH
-// - Added an error catcher in the Journal Class when the user inputs a string instead of an int.
+// - Added an error catcher in the Journal (when the user inputs a string instead of an int, and
+// if the user wants to load and display non-journal file)
+// and FileManager Class (if the file doesn't exists)
+// .
 // - 
