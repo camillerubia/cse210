@@ -8,28 +8,19 @@ class Program
         Console.WriteLine($"Encapsulation Learning Activity\n");
 
         Fraction f1 = new Fraction();
-        int f1Top = f1.GetTop();
-        f1Top = 1;
-        f1.SetTop(f1Top);
-        int f1Bottom = f1.GetBottom();
-        f1Bottom = 1;
-        f1.SetBottom(f1Bottom);
-        string f1Fraction = f1.GetFractionString();
-        double f1Decimal = f1.GetDecimalValue();
-        Console.WriteLine($"#1 Fraction: {f1Fraction}, Decimal {f1Decimal}");
+        Console.WriteLine($"Fraction #1: {f1.GetFractionString()}");
+        Console.WriteLine($"Decimal #1: {f1.GetDecimalValue()}\n");
 
-        Fraction f2 = new Fraction(6);
-        int f2Top = f2.GetTop();
-        f2Top = 1;
-        f2.SetTop(f2Top);
-        int f2Bottom = f2.GetBottom();
-        f2Bottom = 1;
-        f2.SetBottom(f2Bottom);
-        string f2Fraction = f2.GetFractionString();
-        double f2Decimal = f2.GetDecimalValue();
-        Console.WriteLine($"#1 Fraction: {f2Fraction}, Decimal {f2Decimal}");
+        Fraction f2 = new Fraction(5);
+        Console.WriteLine($"Fraction #2: {f2.GetFractionString()}");
+        Console.WriteLine($"Decimal #2: {f2.GetDecimalValue()}\n");
 
+        Fraction f3 = new Fraction(3,4);
+        Console.WriteLine($"Fraction #3: {f3.GetFractionString()}");
+        Console.WriteLine($"Decimal #3: {f3.GetDecimalValue()}\n");
 
-        Fraction f3 = new Fraction(6,7);
+        Fraction f4 = new Fraction(1,3);
+        Console.WriteLine($"Fraction #4: {f4.GetFractionString()}");
+        Console.WriteLine($"Decimal #4: {f4.GetDecimalValue()}\n");
     }
 }
