@@ -52,7 +52,7 @@ public class Fraction
 
     public double GetDecimalValue()
     {
-        double decimalNum = _top / _bottom;
+        double decimalNum = (double)_top / (double) _bottom;
         return decimalNum;
     }
 }
