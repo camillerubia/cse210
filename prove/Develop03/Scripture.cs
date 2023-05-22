@@ -17,27 +17,27 @@ public class Scripture
         text = "";
     }
 
-public void DisplayScripture(List<string> list)
-{
-
-}
-
-private void KeyReader()
-{
-
-}
-
-private bool ConfirmHide(List<string> newList)
-{
-   foreach (string item in newList)
+    public void DisplayScripture(List<string> list)
     {
-        if (item.Contains("hide"))
-        {
-            return true; // Hide
-        }
+
     }
 
-    return false; // Don't hide
-}
+    private void KeyReader()
+    {
+
+    }
+
+    private bool ConfirmHide(List<string> newList)
+    {
+    foreach (string item in newList)
+        {
+            if (item.Contains("hide"))
+            {
+                return _checker = true; // Hide
+            }
+        }
+
+        return _checker = false; // Don't hide
+    }
 
 }

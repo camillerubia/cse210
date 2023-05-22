@@ -7,8 +7,9 @@ public class Reference
 {
     private string _book;
     private int _chapter;
-    private string _verse;
-    private string _endVerse;
+    private int _verse;
+    private int _endVerse;
+    private string _text;
     private string _fullVerse;
 
     public Reference(string singleVerse)
