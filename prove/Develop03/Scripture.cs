@@ -13,8 +13,8 @@ public class Scripture
 
     public Scripture(string reference, string text)
     {
-        reference = "";
-        text = "";
+       _fullVerse = $"{reference} - {text}";
+       Console.WriteLine(_fullVerse);
     }
 
     public void DisplayScripture(List<string> list)
