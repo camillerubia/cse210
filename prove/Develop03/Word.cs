@@ -26,8 +26,11 @@ public class Word
             HideWord(_randomWord);
             Console.WriteLine($"Converted Word: {_convertedWord}");
             Console.WriteLine($"Index: {_wordIndex}");
+            _finalVerse = string.Join(" ", _textList);
+            
         }
-        Console.WriteLine($"New verse: {NewList(_wordIndex, _convertedWord)}");
+        Console.WriteLine(_finalVerse);
+        // Console.WriteLine($"New verse: {NewList(_wordIndex, _convertedWord)}");
     }
 
     private string Randomizer(string[] list)
@@ -39,16 +42,7 @@ public class Word
 
     private string HideWord(string randomWord)
     {
-        int GetIndex()
-        {
-            if (_textList.Contains(randomWord))
-            {
-            _wordIndex = Array.IndexOf(_textList, randomWord);
-            }
-            return _wordIndex;
-        }
-
-        GetIndex();
+        _wordIndex = Array.IndexOf(_textList, randomWord);
 
         StringBuilder builder = new StringBuilder();
 
@@ -57,14 +51,15 @@ public class Word
             builder.Append('_');
         }
 
-        _convertedWord = builder.ToString();
+       _textList[_wordIndex] = builder.ToString();
+       _convertedWord = _textList[_wordIndex];
         return _convertedWord;
     }
 
-    private string NewList(int index, string newWord)
-    {
-        _textList[index] = newWord;
-        _finalVerse = string.Join(" ", _textList);
-        return _finalVerse;
-    }
+    // private string NewList(int index, string newWord)
+    // {
+    //     _textList[index] = newWord;
+    //     _finalVerse = string.Join(" ", _textList);
+    //     return _finalVerse;
+    // }
 }
