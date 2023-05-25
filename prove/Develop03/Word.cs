@@ -8,14 +8,12 @@ using System.Text;
 public class Word
 {
     private string _convertedWord;
-    private List<string> _newList = new List<string>{};
+    private HashSet<string> _randomWordsList = new HashSet<string>();
     private string _randomWord;
     private int _wordIndex;
     public bool _displayReady;
     private string[] _textList;
     private string _finalVerse;
-    private int index;
-
     public Word(string text)
     {
         _textList = text.Split(" ");
@@ -27,16 +25,19 @@ public class Word
             Console.WriteLine($"Converted Word: {_convertedWord}");
             Console.WriteLine($"Index: {_wordIndex}");
             _finalVerse = string.Join(" ", _textList);
-            
         }
         Console.WriteLine(_finalVerse);
-        // Console.WriteLine($"New verse: {NewList(_wordIndex, _convertedWord)}");
     }
 
     private string Randomizer(string[] list)
     {
-        Random rnd = new Random();
-        _randomWord = list[rnd.Next(_textList.Length)];
+        do
+        {
+            Random rnd = new Random();
+            _randomWord = list[rnd.Next(_textList.Length)];
+        } while (_randomWordsList.Contains(_randomWord));
+        
+        _randomWordsList.Add(_randomWord);
         return _randomWord;
     }
 
@@ -55,11 +56,4 @@ public class Word
        _convertedWord = _textList[_wordIndex];
         return _convertedWord;
     }
-
-    // private string NewList(int index, string newWord)
-    // {
-    //     _textList[index] = newWord;
-    //     _finalVerse = string.Join(" ", _textList);
-    //     return _finalVerse;
-    // }
 }
