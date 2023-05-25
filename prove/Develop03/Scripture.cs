@@ -25,11 +25,7 @@ public class Scripture
 
     public void DisplayScripture(string reference, string text)
     {
-        if (_checker == false)
-        {
-            
-        }
-         
+        Console.WriteLine(_fullVerse);
         Console.WriteLine();
         Console.WriteLine("Press ENTER to continue or type \"quit\" to finish:");
         KeyReader();

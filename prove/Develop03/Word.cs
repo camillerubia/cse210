@@ -1,5 +1,6 @@
 using System;
 using System.Text;
+using System.Collections.Generic;
 
 // Responsibilities:
 // - keeps track of a single word (show or hidden).
@@ -14,6 +15,7 @@ public class Word
     public bool _displayReady;
     private string[] _textList;
     public string _finalVerse;
+    public string items;
     public Word(string text)
     {
         _textList = text.Split(" ");
@@ -26,14 +28,20 @@ public class Word
     }
 
     private string Randomizer(string[] list)
+
     {
-        do
+        items = "";
+        do 
         {
             Random rnd = new Random();
             _randomWord = list[rnd.Next(_textList.Length)];
-        } while (_randomWordsList.Contains(_randomWord));
-        
+            
+        }while(_randomWord.Contains("_"));
         _randomWordsList.Add(_randomWord);
+        foreach(string val in _randomWordsList){
+            items += val + " ";
+        }
+        Console.WriteLine(items);
         return _randomWord;
     }
 
