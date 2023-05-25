@@ -14,8 +14,5 @@ class Program
         string reference = referenceC.GetReference();
         string text = referenceC.GetText(); 
         Scripture scripture = new Scripture(reference, text);
-        scripture.DisplayScripture();
-        Word word = new Word(text);
-
     }
 }

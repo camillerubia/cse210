@@ -13,20 +13,16 @@ public class Word
     private int _wordIndex;
     public bool _displayReady;
     private string[] _textList;
-    private string _finalVerse;
+    public string _finalVerse;
     public Word(string text)
     {
         _textList = text.Split(" ");
         for (int i = 0; i < 3; i++)
         {
             Randomizer(_textList);
-            Console.WriteLine($"Random Word: {_randomWord}");
             HideWord(_randomWord);
-            Console.WriteLine($"Converted Word: {_convertedWord}");
-            Console.WriteLine($"Index: {_wordIndex}");
             _finalVerse = string.Join(" ", _textList);
         }
-        Console.WriteLine(_finalVerse);
     }
 
     private string Randomizer(string[] list)

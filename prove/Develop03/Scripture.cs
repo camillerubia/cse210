@@ -10,17 +10,28 @@ public class Scripture
 {
     private string _fullVerse;
     private bool _checker;
+    private string _reference;
+    private string _text;
 
     public Scripture(string reference, string text)
     {
-       _fullVerse = $"{reference} - \"{text}\"";
-       Console.WriteLine(_fullVerse);
+        _reference = reference;
+        _text = text;
+        Console.Clear();
+        _fullVerse = $"{_reference} - \"{_text}\"";
+        DisplayScripture(_reference, _text);
+
     }
 
-    public void DisplayScripture()
-    // public void DisplayScripture(List<string> list)
+    public void DisplayScripture(string reference, string text)
     {
-        Console.Write("What should you do? ");
+        if (_checker == false)
+        {
+            
+        }
+         
+        Console.WriteLine();
+        Console.WriteLine("Press ENTER to continue or type \"quit\" to finish:");
         KeyReader();
     }
 
@@ -30,9 +41,13 @@ public class Scripture
 
         if (keyPressed.Key == ConsoleKey.Enter)
         {
-            _checker = true;
             Console.Clear();
-            Console.WriteLine("Console Cleared");
+            Word word = new Word(_text);
+            _text = word._finalVerse;
+            _checker = true;
+            _fullVerse = $"{_reference} - \"{_text}\""; 
+            Console.WriteLine(_fullVerse);
+
         }
         else if (keyPressed.Key != ConsoleKey.Enter)
         {
@@ -42,15 +57,15 @@ public class Scripture
 
     private bool ConfirmHide(List<string> newList)
     {
-    foreach (string item in newList)
-        {
-            if (item.Contains("hide"))
+        foreach (string item in newList)
             {
-                return _checker = true; // Hide
+                if (item.Contains("hide"))
+                {
+                    return _checker = true; // Hide
+                }
             }
-        }
 
-        return _checker = false; // Don't hide
+            return _checker = false; // Don't hide
     }
 
 }
