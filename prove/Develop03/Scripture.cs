@@ -13,18 +13,31 @@ public class Scripture
 
     public Scripture(string reference, string text)
     {
-       _fullVerse = $"{reference} - {text}";
+       _fullVerse = $"{reference} - \"{text}\"";
        Console.WriteLine(_fullVerse);
     }
 
-    public void DisplayScripture(List<string> list)
+    public void DisplayScripture()
+    // public void DisplayScripture(List<string> list)
     {
-
+        Console.Write("What should you do? ");
+        KeyReader();
     }
 
     private void KeyReader()
     {
+        ConsoleKeyInfo keyPressed = Console.ReadKey();
 
+        if (keyPressed.Key == ConsoleKey.Enter)
+        {
+            _checker = true;
+            Console.Clear();
+            Console.WriteLine("Console Cleared");
+        }
+        else if (keyPressed.Key != ConsoleKey.Enter)
+        {
+            Console.WriteLine("Please type quit instead.");
+        }
     }
 
     private bool ConfirmHide(List<string> newList)
