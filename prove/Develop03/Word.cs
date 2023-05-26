@@ -9,16 +9,12 @@ using System.Collections.Generic;
 public class Word
 {
     private string _convertedWord;
-    private HashSet<string> _randomWordsList = new HashSet<string>();
-
-    private int _wordIndex;
     public bool _displayReady;
-    
-    public string _finalVerse;
-    public string items;
+    public string _word;
+
     public Word(string word)
     {
-        
+        this._word = word;
     }
 
     // private string Hide()

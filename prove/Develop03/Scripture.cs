@@ -13,8 +13,10 @@ public class Scripture
     private string _reference;
     private string _text;
     private string _randomWord;
+    private int _wordIndex;
+    private HashSet<string> _randomWordsList = new HashSet<string>();
     private string[] _textList;
-    List <Word> _scriptureVerse = new List<Word>{};
+    List <Word> _scriptureVerse = new List<Word>();
 
     public Scripture(string reference, string text)
     // - create List
@@ -24,21 +26,53 @@ public class Scripture
     {
         _reference = reference;
         _text = text;
-        Console.Clear();
+        // Console.Clear();
         _textList = text.Split(" ");
-        
+
+        foreach (string line in _textList)
+        {
+            _scriptureVerse.Add(new Word(line));
+        }
+        HideWords();
+        Display();
     }
+
+
 
     private void HideWords()
     // - hide 3 words
     {
+        for (int i = 0; i < 3; i++)
+        {
+            Randomizer(_scriptureVerse);
+        }
+
+    }
+
+    private string Randomizer(List<Word> list)
+    {
+        do 
+        {
+            Random rnd = new Random();
+            _randomWord = list[rnd.Next(list.Count)].ToString();
+            
+        } while(_randomWord.Contains("_"));
+        _randomWordsList.Add(_randomWord);
         
-        // for (int i = 0; i < 3; i++)
-        // {
-        //     Randomizer(_textList);
-        //     HideWord(_randomWord);
-        //     _finalVerse = string.Join(" ", _textList);
-        // }
+        return _randomWord;
+    }
+
+    private void Display()
+    {
+        foreach (string line in _randomWordsList)
+        {
+            Console.WriteLine(line);
+        }
+    }
+
+    public override string ToString()
+    {
+        return base.ToString();
     }
 
     private void GetRenderedText()
@@ -59,18 +93,7 @@ public class Scripture
         }
     }
 
-    // private string Randomizer(string[] list)
-    // {
-    //     do 
-    //     {
-    //         Random rnd = new Random();
-    //         _randomWord = list[rnd.Next(_textList.Length)];
-            
-    //     } while(_randomWord.Contains("_"));
-    //     _randomWordsList.Add(_randomWord);
-        
-    //     return _randomWord;
-    // }
+    
 
     // public void DisplayScripture(string reference, string text)
     // {
