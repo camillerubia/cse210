@@ -9,7 +9,6 @@ using System;
 public class Scripture
 {
     private string _fullVerse;
-    private bool _checker;
     private string _reference;
     private string _text;
 
@@ -19,31 +18,41 @@ public class Scripture
         _text = text;
         Console.Clear();
         _fullVerse = $"{_reference} - \"{_text}\"";
-        DisplayScripture(_reference, _text);
-    }
-
-    public void DisplayScripture(string reference, string text)
-    {
-        Console.WriteLine(_fullVerse);
-        Console.WriteLine();
-        Console.WriteLine("Press ENTER to continue or type \"quit\" to finish:");
-        KeyReader();
+        // DisplayScripture(_reference, _text);
     }
 
     private void HideWords()
+    // - hide 3 words
     {
 
     }
 
     private void GetRenderedText()
-    {
-
-    }
-
-    private void IsCompletelyHidden()
+    // - find index of the word
+    // - 
+    // - get the verse with the hidden word (?)
     {
         
     }
+
+    private void IsCompletelyHidden()
+    // - the trigger if words will be hidden(?)
+    {
+        ConsoleKeyInfo keyPressed = Console.ReadKey();
+
+        if (keyPressed.Key == ConsoleKey.Enter)
+        {
+            Console.Clear();
+        }
+    }
+
+    // public void DisplayScripture(string reference, string text)
+    // {
+    //     Console.WriteLine(_fullVerse);
+    //     Console.WriteLine();
+    //     Console.WriteLine("Press ENTER to continue or type \"quit\" to finish:");
+    //     KeyReader();
+    // }
 
     // private void KeyReader()
     // {

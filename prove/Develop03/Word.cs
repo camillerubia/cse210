@@ -21,28 +21,42 @@ public class Word
         _textList = text.Split(" ");
         for (int i = 0; i < 3; i++)
         {
-            Randomizer(_textList);
-            HideWord(_randomWord);
-            _finalVerse = string.Join(" ", _textList);
+        //     Randomizer(_textList);
+        //     HideWord(_randomWord);
+        //     _finalVerse = string.Join(" ", _textList);
         }
     }
 
     private void Hide()
+    // - hide the word and convert it (?)
     {
+    //     _wordIndex = Array.IndexOf(_textList, randomWord);
+    //     StringBuilder builder = new StringBuilder();
 
+    //     for (int i = 0; i <randomWord.Length; i++)
+    //     {
+    //         builder.Append('_');
+    //     }
+
+    //    _textList[_wordIndex] = builder.ToString();
+    //    _convertedWord = _textList[_wordIndex];
+    //     return _convertedWord;
     }
 
     private void Show()
+    // - show the word
     {
 
     }
 
     private void IsHidden()
+    // - check if the word is hidden
     {
 
     }
 
-    private void GetRenderedText()
+    public void GetRenderedText()
+    // - add the hidden word along with the text (?)
     {
         
     }
