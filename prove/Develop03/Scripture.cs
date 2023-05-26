@@ -1,5 +1,8 @@
 using System;
+using System.Linq;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
+
 
 // Responsibilities:
 //  - keeps track of the scripture reference and text
@@ -24,6 +27,7 @@ public class Scripture
     private string[] textList;
     List <string> _wordList = new List<string>();
     string hiddenText;
+    private string _renderedText;
     
 
     public Scripture(string reference, string text)
@@ -63,25 +67,13 @@ public class Scripture
             Console.WriteLine("Press ENTER to continue or type \"quit\" to finish:");
             keyPressed = Console.ReadLine();
             
-            _text = "";
-            if (keyPressed == "quit")
+            if (keyPressed == "quit" || IsCompletelyHidden())
             {
                 break;
             }
-            else
-            {
-                GetRenderedText();
-                // if (_isCompletelyHidden == true)
-                // {
-                //     break;
-                // }
-                // if ()
-            }
-            
-            
-        } while (keyPressed != "quit");
-
-
+            _text = "";
+            GetRenderedText();         
+        } while (true);
     }
 
 
@@ -123,61 +115,20 @@ public class Scripture
             _wordList[_wordIndex] = hiddenWord;
         }
 
-        
-
         foreach (string line in _wordList)
         {
             _fullVerse += $"{line} ";
         }
         _text = _fullVerse;
         Console.WriteLine($"{_reference} - \"{_text}\".");
-        Console.WriteLine(IsCompletelyHidden());
-
+        _renderedText = string.Join("", _wordList);      
     }
 
-    // private bool IsCompletelyHidden()
-    // // - the trigger when all words are all hiddden
-    // // - boolean
-    // {
-    //     // textList = _text.Split(" ");
-    //     // foreach (string line in textList)
-    //     // {
-    //     //     if (line.Contains("_"))
-    //     //     {
-    //     //         counter++;
-    //     //         Console.WriteLine(counter);
-    //     //         Console.Write(line);
-    //     //     }
-    //     // }
-
-    //     // if(counter == textList.Length){
-    //     //     Console.WriteLine("test");
-    //     //     _isCompletelyHidden = true;
-    //     // }
-    //     // else{
-    //     //     _isCompletelyHidden = false;
-    //     // }
-
-    //     bool containsOnlyUnderscores = _wordList.All(s => s.All(c => c == '_'));
-    //     _isCompletelyHidden = containsOnlyUnderscores;
-    // return _isCompletelyHidden;
-    // }
-
-    private string IsCompletelyHidden()
+    private bool IsCompletelyHidden()
+    // Make sure all the words are hidden.
     {
-        // bool isAlphabet = _text.All(Char.IsAsciiLetter);
-        
-        if (isAlphabet == false)
-        {
-            // hiddenText = "All hidden";
-            hiddenText = "NOTHING";
-        }
-        else
-        {
-            hiddenText = "hidden";
-        }
-
-        return hiddenText;
+       bool containsOnlyUnderscores = _wordList.All(word => word.All(c => c == '_'));
+        return containsOnlyUnderscores;
     }
 
 }
