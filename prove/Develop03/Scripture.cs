@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 // Responsibilities:
 //  - keeps track of the scripture reference and text
@@ -11,27 +12,39 @@ public class Scripture
     private string _fullVerse;
     private string _reference;
     private string _text;
+    private string _randomWord;
+    private string[] _textList;
+    List <Word> _scriptureVerse = new List<Word>{};
 
     public Scripture(string reference, string text)
+    // - create List
+    // - split words
+    // - create single Word objects
+    // - put in List
     {
         _reference = reference;
         _text = text;
         Console.Clear();
-        _fullVerse = $"{_reference} - \"{_text}\"";
-        // DisplayScripture(_reference, _text);
+        _textList = text.Split(" ");
+        
     }
 
     private void HideWords()
     // - hide 3 words
     {
-
+        
+        // for (int i = 0; i < 3; i++)
+        // {
+        //     Randomizer(_textList);
+        //     HideWord(_randomWord);
+        //     _finalVerse = string.Join(" ", _textList);
+        // }
     }
 
     private void GetRenderedText()
     // - find index of the word
-    // - 
     // - get the verse with the hidden word (?)
-    {
+    { 
         
     }
 
@@ -45,6 +58,19 @@ public class Scripture
             Console.Clear();
         }
     }
+
+    // private string Randomizer(string[] list)
+    // {
+    //     do 
+    //     {
+    //         Random rnd = new Random();
+    //         _randomWord = list[rnd.Next(_textList.Length)];
+            
+    //     } while(_randomWord.Contains("_"));
+    //     _randomWordsList.Add(_randomWord);
+        
+    //     return _randomWord;
+    // }
 
     // public void DisplayScripture(string reference, string text)
     // {

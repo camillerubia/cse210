@@ -19,6 +19,8 @@ class Program
         Reference reference = new Reference(book, chapter, verse);
         string firstReference = reference.GetReference();
         Console.WriteLine(firstReference);
+        // Scripture scripture = new Scripture(firstReference, text);
+        
 
 
         string secondLine = passage._secondPassage;
@@ -26,12 +28,7 @@ class Program
         Reference reference2 = new Reference(book, chapter, verse, endVerse);
         string secondReference = reference2.GetReference();
         Console.WriteLine(secondReference);
-
-
-        
-        // string reference = referenceC.GetReference();
-        // string text = referenceC.GetText(); 
-        // Scripture scripture = new Scripture(reference, text);
+        // Scripture scripture2 = new Scripture(secondReference, text);
 
 
     }

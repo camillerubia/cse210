@@ -40,7 +40,8 @@ public class Reference
 
     public string GetReference()
     {
-        if (string.IsNullOrEmpty(_endVerse))
+        // if (string.IsNullOrEmpty(_endVerse))
+        if (_endVerse == null)
         {
             return SingleVerse();
         }
@@ -49,33 +50,4 @@ public class Reference
             return MultiVerse();
         }
     }
-
-    // public Reference(string singleVerse)
-    // {
-    //     _referenceList = singleVerse.Split(", ").ToList();
-    //     _book = _referenceList[0];
-    //     _chapter = _referenceList[1];
-    //     _verse = _referenceList[2];
-    //     _text = _referenceList[3];
-    // }
-
-    // public Reference(string firstVerse, string secondVerse)
-    // {
-    //     _referenceList = singleVerse.Split(", ").ToList();
-    //     _book = _referenceList[0];
-    //     _chapter = _referenceList[1];
-    //     _verse = _referenceList[2];
-    //     _text = _referenceList[3];
-    // }
-
-    // public string GetReference()
-    // {
-    //     _reference = $"{_book} {_chapter}:{_verse}";
-    //     return _reference;
-    // }
-
-    // public string GetText()
-    // {
-    //     return _text;
-    // }
 }    

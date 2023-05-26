@@ -10,26 +10,20 @@ public class Word
 {
     private string _convertedWord;
     private HashSet<string> _randomWordsList = new HashSet<string>();
-    private string _randomWord;
+
     private int _wordIndex;
     public bool _displayReady;
-    private string[] _textList;
+    
     public string _finalVerse;
     public string items;
-    public Word(string text)
+    public Word(string word)
     {
-        _textList = text.Split(" ");
-        for (int i = 0; i < 3; i++)
-        {
-        //     Randomizer(_textList);
-        //     HideWord(_randomWord);
-        //     _finalVerse = string.Join(" ", _textList);
-        }
+        
     }
 
-    private void Hide()
-    // - hide the word and convert it (?)
-    {
+    // private string Hide()
+    // // - hide the word and convert it (?)
+    // {
     //     _wordIndex = Array.IndexOf(_textList, randomWord);
     //     StringBuilder builder = new StringBuilder();
 
@@ -41,7 +35,7 @@ public class Word
     //    _textList[_wordIndex] = builder.ToString();
     //    _convertedWord = _textList[_wordIndex];
     //     return _convertedWord;
-    }
+    // }
 
     private void Show()
     // - show the word
@@ -55,24 +49,13 @@ public class Word
 
     }
 
-    public void GetRenderedText()
-    // - add the hidden word along with the text (?)
+    public void GetRenderedWord()
+    // - access the converted word
     {
         
     }
 
-    // private string Randomizer(string[] list)
-    // {
-    //     do 
-    //     {
-    //         Random rnd = new Random();
-    //         _randomWord = list[rnd.Next(_textList.Length)];
-            
-    //     } while(_randomWord.Contains("_"));
-    //     _randomWordsList.Add(_randomWord);
-        
-    //     return _randomWord;
-    // }
+    
 
     // private string HideWord(string randomWord)
     // {
