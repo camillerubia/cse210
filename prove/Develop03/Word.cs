@@ -33,7 +33,7 @@ public class Word
             {
                 _word = _word.Replace(",", "");
             }
-            else
+            if (_word.Contains("."))
             {
                 _word = _word.Replace(".", "");
             }
@@ -47,7 +47,7 @@ public class Word
             {
                 builder.Append(',');
             }
-            else 
+            if (_word.Contains(".")) 
             {
                 builder.Append('.');
             }

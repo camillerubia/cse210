@@ -20,15 +20,9 @@ public class Scripture
     private string hiddenWord;
     private string showWord;
     private string _scriptureVerse;
-    private bool _isCompletelyHidden;
-    private int counter = 0;
     private HashSet<string> _randomWordsList = new HashSet<string>();
     private string[] _textList;
-    private string[] textList;
     List <string> _wordList = new List<string>();
-    string hiddenText;
-    private string _renderedText;
-    
 
     public Scripture(string reference, string text)
     // - create List
@@ -45,7 +39,7 @@ public class Scripture
 
         foreach (string line in _textList)
         {
-            _wordList.Add(new string(line));
+            _wordList.Add(line);
             
         }
         Console.Clear();
@@ -67,27 +61,31 @@ public class Scripture
             Console.WriteLine("Press ENTER to continue or type \"quit\" to finish:");
             keyPressed = Console.ReadLine();
             
-            if (keyPressed == "quit" || IsCompletelyHidden())
+            if (keyPressed == "quit")
             {
                 break;
             }
             _text = "";
-            GetRenderedText();         
+            GetRenderedText();
+
+            if (IsCompletelyHidden())
+            {
+                break;
+            }      
         } while (true);
     }
 
-
     private void HideWords()
-    // - hide 3 words
+    // - hide single words
     {
-        
-            Randomizer(_wordList);
-            Word word = new Word(_randomWord);
-            hiddenWord = word.GetRenderedWord();
-            showWord = word.Show();
+        Randomizer(_wordList);
+        Word word = new Word(_randomWord);
+        hiddenWord = word.GetRenderedWord();
+        showWord = word.Show();
     }
 
     private string Randomizer(List<string> list)
+    // - randomize words
     {
         do 
         {
@@ -105,7 +103,6 @@ public class Scripture
     // - find index of the word
     // - get the verse with the hidden word (?)
     { 
-        
         Console.Clear();
         _fullVerse = "";
         for (int i = 0; i < 3; i++)
@@ -120,8 +117,7 @@ public class Scripture
             _fullVerse += $"{line} ";
         }
         _text = _fullVerse;
-        Console.WriteLine($"{_reference} - \"{_text}\".");
-        _renderedText = string.Join("", _wordList);      
+        Console.WriteLine($"{_reference} - \"{_text}\".");     
     }
 
     private bool IsCompletelyHidden()
@@ -130,5 +126,4 @@ public class Scripture
        bool containsOnlyUnderscores = _wordList.All(word => word.All(c => c == '_'));
         return containsOnlyUnderscores;
     }
-
 }
