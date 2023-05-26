@@ -14,9 +14,16 @@ public class Scripture
     private string _text;
     private string _randomWord;
     private int _wordIndex;
+    private string hiddenWord;
+    private string showWord;
+    private string _scriptureVerse;
+    private bool _isCompletelyHidden;
+    private int counter = 0;
     private HashSet<string> _randomWordsList = new HashSet<string>();
     private string[] _textList;
-    List <Word> _scriptureVerse = new List<Word>();
+    private string[] textList;
+    List <string> _wordList = new List<string>();
+    string hiddenText;
     
 
     public Scripture(string reference, string text)
@@ -27,61 +34,78 @@ public class Scripture
     {
         _reference = reference;
         _text = text;
-        Console.Clear();
-        _textList = text.Split(" ");
+        _scriptureVerse = $"{_reference} - \"{_text}\"";
+        
+        // _textList = text.Split(new string[] { ", ", ".", " " }, StringSplitOptions.RemoveEmptyEntries);
+        _textList = _text.Split(" ");
 
         foreach (string line in _textList)
         {
-            _scriptureVerse.Add(new Word(line));
+            _wordList.Add(new string(line));
             
         }
-
-        HideWords();
-        // Display();
+        Console.Clear();
+        Display();
     
     }
 
+    public override string ToString()
+    {
+        return _text;
+    }
+
+    private void Display()
+    {
+        string keyPressed = "";
+        Console.WriteLine(_scriptureVerse);
+        do
+        {
+            Console.WriteLine("Press ENTER to continue or type \"quit\" to finish:");
+            keyPressed = Console.ReadLine();
+            
+            _text = "";
+            if (keyPressed == "quit")
+            {
+                break;
+            }
+            else
+            {
+                GetRenderedText();
+                // if (_isCompletelyHidden == true)
+                // {
+                //     break;
+                // }
+                // if ()
+            }
+            
+            
+        } while (keyPressed != "quit");
+
+
+    }
 
 
     private void HideWords()
     // - hide 3 words
     {
-        for (int i = 0; i < 3; i++)
-        {
-            Randomizer(_scriptureVerse);
+        
+            Randomizer(_wordList);
             Word word = new Word(_randomWord);
-            string hiddenWord = word.GetRenderedWord();
-            string showWord = word.Show();
-            Console.WriteLine(showWord);
-            Console.WriteLine(hiddenWord);
-        }
-
+            hiddenWord = word.GetRenderedWord();
+            showWord = word.Show();
     }
 
-    private string Randomizer(List<Word> list)
+    private string Randomizer(List<string> list)
     {
         do 
         {
             Random rnd = new Random();
             _randomWord = list[rnd.Next(list.Count)].ToString();
-            
-        // } while(_randomWord.Contains("_"));
-        } while (_randomWordsList.Contains(_randomWord));
+
+        // } while (_randomWordsList.Contains(_randomWord));
+        } while (_randomWord.Contains("_"));
         _randomWordsList.Add(_randomWord);
         
-        return _randomWord;
-    }
-
-    private void Display()
-    {
-        foreach (string line in _randomWordsList)
-        {
-            Console.WriteLine(line);
-        }
-    }
-
-    public override string ToString()
-    {
         return _randomWord;
     }
 
@@ -90,58 +114,70 @@ public class Scripture
     // - get the verse with the hidden word (?)
     { 
         
-    }
-
-    private void IsCompletelyHidden()
-    // - the trigger if words will be hidden(?)
-    {
-        ConsoleKeyInfo keyPressed = Console.ReadKey();
-
-        if (keyPressed.Key == ConsoleKey.Enter)
+        Console.Clear();
+        _fullVerse = "";
+        for (int i = 0; i < 3; i++)
         {
-            Console.Clear();
+            HideWords();
+            _wordIndex = _wordList.FindIndex(w => w ==_randomWord);
+            _wordList[_wordIndex] = hiddenWord;
         }
+
+        
+
+        foreach (string line in _wordList)
+        {
+            _fullVerse += $"{line} ";
+        }
+        _text = _fullVerse;
+        Console.WriteLine($"{_reference} - \"{_text}\".");
+        Console.WriteLine(IsCompletelyHidden());
+
     }
 
-    
-
-    // public void DisplayScripture(string reference, string text)
+    // private bool IsCompletelyHidden()
+    // // - the trigger when all words are all hiddden
+    // // - boolean
     // {
-    //     Console.WriteLine(_fullVerse);
-    //     Console.WriteLine();
-    //     Console.WriteLine("Press ENTER to continue or type \"quit\" to finish:");
-    //     KeyReader();
+    //     // textList = _text.Split(" ");
+    //     // foreach (string line in textList)
+    //     // {
+    //     //     if (line.Contains("_"))
+    //     //     {
+    //     //         counter++;
+    //     //         Console.WriteLine(counter);
+    //     //         Console.Write(line);
+    //     //     }
+    //     // }
+
+    //     // if(counter == textList.Length){
+    //     //     Console.WriteLine("test");
+    //     //     _isCompletelyHidden = true;
+    //     // }
+    //     // else{
+    //     //     _isCompletelyHidden = false;
+    //     // }
+
+    //     bool containsOnlyUnderscores = _wordList.All(s => s.All(c => c == '_'));
+    //     _isCompletelyHidden = containsOnlyUnderscores;
+    // return _isCompletelyHidden;
     // }
 
-    // private void KeyReader()
-    // {
-    //     ConsoleKeyInfo keyPressed = Console.ReadKey();
-    //     if (keyPressed.Key == ConsoleKey.Enter)
-    //     {
-    //         Console.Clear();
-    //         Word word = new Word(_text);
-    //         _text = word._finalVerse;
-    //         _checker = true;
-    //         _fullVerse = $"{_reference} - \"{_text}\""; 
-    //         Console.WriteLine(_fullVerse);
-    //     }
-    //     else if (keyPressed.Key != ConsoleKey.Enter)
-    //     {
-    //         Console.WriteLine("Please type quit instead.");
-    //     }
-    // }
+    private string IsCompletelyHidden()
+    {
+        // bool isAlphabet = _text.All(Char.IsAsciiLetter);
+        
+        if (isAlphabet == false)
+        {
+            // hiddenText = "All hidden";
+            hiddenText = "NOTHING";
+        }
+        else
+        {
+            hiddenText = "hidden";
+        }
 
-    // private bool ConfirmHide(List<string> newList)
-    // {
-    //     foreach (string item in newList)
-    //         {
-    //             if (item.Contains("hide"))
-    //             {
-    //                 return _checker = true; // Hide
-    //             }
-    //         }
-
-    //         return _checker = false; // Don't hide
-    // }
+        return hiddenText;
+    }
 
 }

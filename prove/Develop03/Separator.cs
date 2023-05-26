@@ -11,7 +11,7 @@ public class Separator
     public void Separate(string line)
     {
         List<string> verseList;
-        verseList = line.Split(", ").ToList();
+        verseList = line.Split("| ").ToList();
 
         if (verseList.Count == 4)
         {

@@ -10,25 +10,11 @@ public class Word
 {
     private string _convertedWord;
     public bool _displayReady;
-    private String _word;
+    public string _word;
 
-    public Word(String word)
+    public Word(string word)
     {
         _word = word;
-    }
-
-    private string Hide()
-    // - hide the word and convert it
-    {
-        StringBuilder builder = new StringBuilder();
-
-        for (int i = 0; i <_word.Length; i++)
-        {
-            builder.Append('_');
-        }
-
-       _convertedWord = builder.ToString();
-        return _convertedWord;
     }
 
     public override string ToString()
@@ -36,19 +22,62 @@ public class Word
         return _word;
     }
 
-    public string Show()
+    private String Hide()
+    // - hide the word and convert it
+    {
+        StringBuilder builder = new StringBuilder();
+
+        if (_word.Contains(",") || _word.Contains("."))
+        {
+            if (_word.Contains(","))
+            {
+                _word = _word.Replace(",", "");
+            }
+            else
+            {
+                _word = _word.Replace(".", "");
+            }
+            
+            for (int i = 0; i <_word.Length; i++)
+            {
+                builder.Append('_');
+            }
+            
+            if (_word.Contains(","))
+            {
+                builder.Append(',');
+            }
+            else 
+            {
+                builder.Append('.');
+            }
+        }
+
+        else
+        {
+            for (int i = 0; i <_word.Length; i++)
+            {
+                builder.Append('_');
+            }
+        }
+
+       _convertedWord = builder.ToString();
+        return _convertedWord;
+    }
+
+    public String Show()
     // - show the word
     {
         return _word;
     }
 
     private void IsHidden()
-    // - check if the word is hidden
+    // - check if the word is hidden?
     {
 
     }
 
-    public string GetRenderedWord()
+    public String GetRenderedWord()
     // - access the converted word
     {
         Hide();
