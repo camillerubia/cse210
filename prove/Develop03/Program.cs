@@ -23,7 +23,7 @@ class Program
         string firstReference = reference.GetReference();
         // Console.WriteLine(text);
         // Console.WriteLine($"{firstReference} - \"{text}\" ");
-        Scripture scripture = new Scripture(firstReference, text);
+        // Scripture scripture = new Scripture(firstReference, text);
      
 
 
@@ -41,8 +41,8 @@ class Program
         string secondReference = reference2.GetReference();
         
         // Console.WriteLine("Second scripture");
-        // Scripture scripture2 = new Scripture(secondReference, text2);
         // Console.WriteLine($"{secondReference} - \"{text2}\" ");
+        // Scripture scripture2 = new Scripture(secondReference, text2);
 
 
 

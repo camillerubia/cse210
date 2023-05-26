@@ -17,6 +17,7 @@ public class Scripture
     private HashSet<string> _randomWordsList = new HashSet<string>();
     private string[] _textList;
     List <Word> _scriptureVerse = new List<Word>();
+    
 
     public Scripture(string reference, string text)
     // - create List
@@ -26,15 +27,18 @@ public class Scripture
     {
         _reference = reference;
         _text = text;
-        // Console.Clear();
+        Console.Clear();
         _textList = text.Split(" ");
 
         foreach (string line in _textList)
         {
             _scriptureVerse.Add(new Word(line));
+            
         }
+
         HideWords();
-        Display();
+        // Display();
+    
     }
 
 
@@ -45,6 +49,11 @@ public class Scripture
         for (int i = 0; i < 3; i++)
         {
             Randomizer(_scriptureVerse);
+            Word word = new Word(_randomWord);
+            string hiddenWord = word.GetRenderedWord();
+            string showWord = word.Show();
+            Console.WriteLine(showWord);
+            Console.WriteLine(hiddenWord);
         }
 
     }
@@ -56,7 +65,8 @@ public class Scripture
             Random rnd = new Random();
             _randomWord = list[rnd.Next(list.Count)].ToString();
             
-        } while(_randomWord.Contains("_"));
+        // } while(_randomWord.Contains("_"));
+        } while (_randomWordsList.Contains(_randomWord));
         _randomWordsList.Add(_randomWord);
         
         return _randomWord;
@@ -72,7 +82,7 @@ public class Scripture
 
     public override string ToString()
     {
-        return base.ToString();
+        return _randomWord;
     }
 
     private void GetRenderedText()

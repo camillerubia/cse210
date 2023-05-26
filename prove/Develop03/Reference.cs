@@ -28,26 +28,16 @@ public class Reference
         _endVerse = endVerse;
     }
 
-    private string SingleVerse()
-    {
-        return $"{_book} {_chapter}:{_verse}";
-    }
-
-    private string MultiVerse()
-    {
-        return $"{_book} {_chapter}:{_verse}-{_endVerse}";
-    }
-
     public string GetReference()
     {
         // if (string.IsNullOrEmpty(_endVerse))
         if (_endVerse == null)
         {
-            return SingleVerse();
+            return $"{_book} {_chapter}:{_verse}";
         }
         else
         {
-            return MultiVerse();
+            return $"{_book} {_chapter}:{_verse}-{_endVerse}";
         }
     }
 }    

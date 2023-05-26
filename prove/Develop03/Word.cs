@@ -10,33 +10,36 @@ public class Word
 {
     private string _convertedWord;
     public bool _displayReady;
-    public string _word;
+    private String _word;
 
-    public Word(string word)
+    public Word(String word)
     {
-        this._word = word;
+        _word = word;
     }
 
-    // private string Hide()
-    // // - hide the word and convert it (?)
-    // {
-    //     _wordIndex = Array.IndexOf(_textList, randomWord);
-    //     StringBuilder builder = new StringBuilder();
+    private string Hide()
+    // - hide the word and convert it
+    {
+        StringBuilder builder = new StringBuilder();
 
-    //     for (int i = 0; i <randomWord.Length; i++)
-    //     {
-    //         builder.Append('_');
-    //     }
+        for (int i = 0; i <_word.Length; i++)
+        {
+            builder.Append('_');
+        }
 
-    //    _textList[_wordIndex] = builder.ToString();
-    //    _convertedWord = _textList[_wordIndex];
-    //     return _convertedWord;
-    // }
+       _convertedWord = builder.ToString();
+        return _convertedWord;
+    }
 
-    private void Show()
+    public override string ToString()
+    {
+        return _word;
+    }
+
+    public string Show()
     // - show the word
     {
-
+        return _word;
     }
 
     private void IsHidden()
@@ -45,10 +48,11 @@ public class Word
 
     }
 
-    public void GetRenderedWord()
+    public string GetRenderedWord()
     // - access the converted word
     {
-        
+        Hide();
+        return _convertedWord;
     }
 
     
