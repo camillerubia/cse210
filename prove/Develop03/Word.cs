@@ -27,37 +27,52 @@ public class Word
         }
     }
 
-    private string Randomizer(string[] list)
-
+    private void Hide()
     {
-        items = "";
-        do 
-        {
-            Random rnd = new Random();
-            _randomWord = list[rnd.Next(_textList.Length)];
+
+    }
+
+    private void Show()
+    {
+
+    }
+
+    private void IsHidden()
+    {
+
+    }
+
+    private void GetRenderedText()
+    {
+        
+    }
+
+    // private string Randomizer(string[] list)
+    // {
+    //     do 
+    //     {
+    //         Random rnd = new Random();
+    //         _randomWord = list[rnd.Next(_textList.Length)];
             
-        }while(_randomWord.Contains("_"));
-        _randomWordsList.Add(_randomWord);
-        foreach(string val in _randomWordsList){
-            items += val + " ";
-        }
-        Console.WriteLine(items);
-        return _randomWord;
-    }
+    //     } while(_randomWord.Contains("_"));
+    //     _randomWordsList.Add(_randomWord);
+        
+    //     return _randomWord;
+    // }
 
-    private string HideWord(string randomWord)
-    {
-        _wordIndex = Array.IndexOf(_textList, randomWord);
+    // private string HideWord(string randomWord)
+    // {
+    //     _wordIndex = Array.IndexOf(_textList, randomWord);
 
-        StringBuilder builder = new StringBuilder();
+    //     StringBuilder builder = new StringBuilder();
 
-        for (int i = 0; i <randomWord.Length; i++)
-        {
-            builder.Append('_');
-        }
+    //     for (int i = 0; i <randomWord.Length; i++)
+    //     {
+    //         builder.Append('_');
+    //     }
 
-       _textList[_wordIndex] = builder.ToString();
-       _convertedWord = _textList[_wordIndex];
-        return _convertedWord;
-    }
+    //    _textList[_wordIndex] = builder.ToString();
+    //    _convertedWord = _textList[_wordIndex];
+    //     return _convertedWord;
+    // }
 }

@@ -20,7 +20,6 @@ public class Scripture
         Console.Clear();
         _fullVerse = $"{_reference} - \"{_text}\"";
         DisplayScripture(_reference, _text);
-
     }
 
     public void DisplayScripture(string reference, string text)
@@ -31,37 +30,50 @@ public class Scripture
         KeyReader();
     }
 
-    private void KeyReader()
+    private void HideWords()
     {
-        ConsoleKeyInfo keyPressed = Console.ReadKey();
 
-        if (keyPressed.Key == ConsoleKey.Enter)
-        {
-            Console.Clear();
-            Word word = new Word(_text);
-            _text = word._finalVerse;
-            _checker = true;
-            _fullVerse = $"{_reference} - \"{_text}\""; 
-            Console.WriteLine(_fullVerse);
-
-        }
-        else if (keyPressed.Key != ConsoleKey.Enter)
-        {
-            Console.WriteLine("Please type quit instead.");
-        }
     }
 
-    private bool ConfirmHide(List<string> newList)
+    private void GetRenderedText()
     {
-        foreach (string item in newList)
-            {
-                if (item.Contains("hide"))
-                {
-                    return _checker = true; // Hide
-                }
-            }
 
-            return _checker = false; // Don't hide
     }
+
+    private void IsCompletelyHidden()
+    {
+        
+    }
+
+    // private void KeyReader()
+    // {
+    //     ConsoleKeyInfo keyPressed = Console.ReadKey();
+    //     if (keyPressed.Key == ConsoleKey.Enter)
+    //     {
+    //         Console.Clear();
+    //         Word word = new Word(_text);
+    //         _text = word._finalVerse;
+    //         _checker = true;
+    //         _fullVerse = $"{_reference} - \"{_text}\""; 
+    //         Console.WriteLine(_fullVerse);
+    //     }
+    //     else if (keyPressed.Key != ConsoleKey.Enter)
+    //     {
+    //         Console.WriteLine("Please type quit instead.");
+    //     }
+    // }
+
+    // private bool ConfirmHide(List<string> newList)
+    // {
+    //     foreach (string item in newList)
+    //         {
+    //             if (item.Contains("hide"))
+    //             {
+    //                 return _checker = true; // Hide
+    //             }
+    //         }
+
+    //         return _checker = false; // Don't hide
+    // }
 
 }

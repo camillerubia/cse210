@@ -24,7 +24,11 @@ public class Reference
 
     public Reference(string firstVerse, string secondVerse)
     {
-
+        _referenceList = singleVerse.Split(", ").ToList();
+        _book = _referenceList[0];
+        _chapter = _referenceList[1];
+        _verse = _referenceList[2];
+        _text = _referenceList[3];
     }
 
     public string GetReference()
