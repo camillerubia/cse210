@@ -1,5 +1,10 @@
 using System;
 
+// Exceeding Requirements
+// - program have a library of scriptures to work on
+// - loads from a default file then chooses 1 random scripture
+// - hides 3 words at once.
+
 class Program
 {
 
