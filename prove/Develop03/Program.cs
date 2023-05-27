@@ -10,13 +10,13 @@ class Program
         Console.WriteLine("Scripture Memorizer");
 
         Passage passage = new Passage();
-        
-        // string line = passage._passage;
-        // Separator separator = new Separator();
-        // separator.Separate(line);
+        string scriptVerse = passage.GetPassage();
+        Separator separator = new Separator();
+        separator.Separate(scriptVerse);
+    
 
-        string secondLine = passage._secondPassage;
-        Separator separator2 = new Separator();
-        separator2.Separate(secondLine);
+        // string secondLine = passage._secondPassage;
+        // Separator separator2 = new Separator();
+        // separator2.Separate(secondLine);
     }
 }

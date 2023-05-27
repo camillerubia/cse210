@@ -56,7 +56,7 @@ public class Scripture
     private void Display()
     {
         string keyPressed = "";
-        Console.WriteLine(_scriptureVerse);
+        Console.WriteLine($"{_scriptureVerse}\n");
         do
         {
             Console.WriteLine("Press ENTER to continue or type \"quit\" to finish:");
@@ -133,17 +133,28 @@ public class Scripture
             _wordList[_wordIndex] = hiddenWord;
         }
 
+        int ctr = 0;
+
         foreach (string line in _wordList)
         {
-            _fullVerse += $"{line} ";
+            if(ctr == 0)
+            {
+                _fullVerse += $"{line}";
+                ctr++;
+            }
+            else
+            {
+                _fullVerse += $" {line}";
+            }
+            
         }
         _text = _fullVerse;
-        Console.WriteLine($"{_reference} - \"{_text}\"");     
+        Console.WriteLine($"{_reference} - \"{_text}\"\n");    
     }
     private bool IsCompletelyHidden()
     // Make sure all the words are hidden.
     {
-        bool containsOnlyUnderscores = _wordList.All(word => word.All(c => c == '_' || c == '.' || c == ','));
+        bool containsOnlyUnderscores = _wordList.All(word => word.All(c => c == '_' || c == '.' || c == ',' || c == ';'));
         return containsOnlyUnderscores;
         
     }

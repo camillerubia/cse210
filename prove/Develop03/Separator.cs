@@ -8,6 +8,11 @@ public class Separator
     private string _text;
     private string _endVerse;
     private string _reference;
+
+    // public Separator(string verse)
+    // {
+    //     Separate(verse);
+    // }
     
     public void Separate(string line)
     {

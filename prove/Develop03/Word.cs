@@ -32,8 +32,7 @@ public class Word
             {
                 builder.Append('_');
             }
-            builder.Append(',');
-            
+            builder.Append(','); 
         }
         else if (_word.Contains("."))
         {
@@ -44,7 +43,16 @@ public class Word
                 builder.Append('_');
             }
             builder.Append('.');
-            
+        }
+        else if (_word.Contains(";"))
+        {
+            _word = _word.Replace(";", "");
+                
+            for (int i = 0; i <_word.Length; i++)
+            {
+                builder.Append('_');
+            }
+            builder.Append(';');
         }
         else
         {
@@ -57,7 +65,7 @@ public class Word
        _convertedWord = builder.ToString();
         return _convertedWord;
     }
-    
+
     public String Show()
     // - show the word
     {
