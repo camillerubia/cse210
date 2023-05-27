@@ -21,28 +21,36 @@ public class Separator
     // separated data to respective classes.
     public void Separate(string line)
     {
-        List<string> verseList = line.Split("| ").ToList();
-    
-        // Checks the count of the splitted string and instantiates the Reference class 
-        // to get the reference and pass appropriate data.
-        if (verseList.Count == 4)
+        try
         {
-            _book = verseList[0];
-            _chapter = verseList[1];
-            _verse = verseList[2];
-            _text = verseList[3];
-            Reference reference = new Reference(_book, _chapter, _verse);
-            _reference = reference.GetReference();         
+            List<string> verseList = line.Split("| ").ToList();
+
+            // Checks the count of the splitted string and instantiates the Reference class 
+            // to get the reference and pass appropriate data.
+            if (verseList.Count == 4)
+            {
+                _book = verseList[0];
+                _chapter = verseList[1];
+                _verse = verseList[2];
+                _text = verseList[3];
+                Reference reference = new Reference(_book, _chapter, _verse);
+                _reference = reference.GetReference();         
+            }
+            else
+            {
+                _book = verseList[0];
+                _chapter = verseList[1];
+                _verse = verseList[2];
+                _endVerse = verseList[3];
+                _text = verseList[4];
+                Reference reference = new Reference(_book, _chapter, _verse, _endVerse);
+                _reference = reference.GetReference();         
+            }
         }
-        else
+        catch (NullReferenceException ex)
         {
-            _book = verseList[0];
-            _chapter = verseList[1];
-            _verse = verseList[2];
-            _endVerse = verseList[3];
-            _text = verseList[4];
-            Reference reference = new Reference(_book, _chapter, _verse, _endVerse);
-            _reference = reference.GetReference();         
+            Console.WriteLine("NullReferenceException occurred: " + ex.Message);
+            Console.WriteLine("Please make sure that the delimiter is `|`.");
         }
         
         // Instantiates the Scripture class and passes on the reference from the Reference Class
