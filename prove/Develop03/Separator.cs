@@ -8,16 +8,10 @@ public class Separator
     private string _text;
     private string _endVerse;
     private string _reference;
-
-    // public Separator(string verse)
-    // {
-    //     Separate(verse);
-    // }
     
     public void Separate(string line)
     {
-        List<string> verseList;
-        verseList = line.Split("| ").ToList();
+        List<string> verseList = line.Split("| ").ToList();
 
         if (verseList.Count == 4)
         {

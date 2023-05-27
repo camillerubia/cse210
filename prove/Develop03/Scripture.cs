@@ -33,11 +33,9 @@ public class Scripture
     {
         _reference = reference;
         _text = text;
-        _scriptureVerse = $"{_reference} - \"{_text}\"";
+       
         
-        // _textList = text.Split(new string[] { ", ", ".", " " }, StringSplitOptions.RemoveEmptyEntries);
         _textList = _text.Split(" ");
-
         foreach (string line in _textList)
         {
             _wordList.Add(line);
@@ -56,6 +54,7 @@ public class Scripture
     private void Display()
     {
         string keyPressed = "";
+        _scriptureVerse = $"{_reference} - \"{_text}\"";
         Console.WriteLine($"{_scriptureVerse}\n");
         do
         {
@@ -89,15 +88,15 @@ public class Scripture
     private string Randomizer(List<string> list)
     // - randomize words
     {
+        Random rnd = new Random();
         do 
         {
-            Random rnd = new Random();
+            
             _randomWord = list[rnd.Next(list.Count)].ToString();
 
-        // } while (_randomWordsList.Contains(_randomWord));
         } while (_randomWord.Contains("_"));
+
         _randomWordsList.Add(_randomWord);
-        
         return _randomWord;
     }
 
@@ -107,6 +106,7 @@ public class Scripture
     { 
         Console.Clear();
         _fullVerse = "";
+        _scriptureVerse = "";
 
         if (counter < (_wordList.Count - 2))
         {
@@ -133,23 +133,14 @@ public class Scripture
             _wordList[_wordIndex] = hiddenWord;
         }
 
-        int ctr = 0;
-
         foreach (string line in _wordList)
         {
-            if(ctr == 0)
-            {
-                _fullVerse += $"{line}";
-                ctr++;
-            }
-            else
-            {
-                _fullVerse += $" {line}";
-            }
-            
+            _fullVerse += $"{line} ";
         }
-        _text = _fullVerse;
-        Console.WriteLine($"{_reference} - \"{_text}\"\n");    
+        
+        _text = _fullVerse.TrimEnd();
+        _scriptureVerse = $"{_reference} - \"{_text}\"";
+        Console.WriteLine($"{_scriptureVerse}\n");
     }
     private bool IsCompletelyHidden()
     // Make sure all the words are hidden.

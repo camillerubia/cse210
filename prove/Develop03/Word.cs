@@ -18,6 +18,7 @@ public class Word
     {
         return _word;
     }
+    
     private String Hide()
     // - hide the word and convert it
     {
