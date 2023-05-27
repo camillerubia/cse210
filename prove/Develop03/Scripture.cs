@@ -17,13 +17,13 @@ public class Scripture
     private string _text;
     private string _randomWord;
     private int _wordIndex;
-    private string hiddenWord;
-    private string showWord;
+    private string _hiddenWord;
+    private string _showWord;
     private string _scriptureVerse;
     private HashSet<string> _randomWordsList = new HashSet<string>();
     private string[] _textList;
     List <string> _wordList = new List<string>();
-    private int counter;
+    private int _counter;
 
     public Scripture(string reference, string text)
     // - create List
@@ -34,21 +34,23 @@ public class Scripture
         _reference = reference;
         _text = text;
        
-        
-        _textList = _text.Split(" ");
-        foreach (string line in _textList)
-        {
-            _wordList.Add(line);
-            
-        }
         Console.Clear();
-        Display();
-    
+        Splitter();
+        Display();   
     }
 
     public override string ToString()
     {
         return _text;
+    }
+
+    private void Splitter()
+    {
+        _textList = _text.Split(" ");
+        foreach (string line in _textList)
+        {
+            _wordList.Add(line);
+        }
     }
 
     private void Display()
@@ -78,11 +80,11 @@ public class Scripture
     private void HideWords()
     // - hide single words
     {
-        counter++;
+        _counter++;
         Randomizer(_wordList);
         Word word = new Word(_randomWord);
-        hiddenWord = word.GetRenderedWord();
-        showWord = word.Show();
+        _hiddenWord = word.GetRenderedWord();
+        _showWord = word.Show();
     }
 
     private string Randomizer(List<string> list)
@@ -108,29 +110,29 @@ public class Scripture
         _fullVerse = "";
         _scriptureVerse = "";
 
-        if (counter < (_wordList.Count - 2))
+        if (_counter < (_wordList.Count - 2))
         {
             for (int i = 0; i < 3; i++)
             {
                 HideWords();
                 _wordIndex = _wordList.FindIndex(w => w ==_randomWord);
-                _wordList[_wordIndex] = hiddenWord;
+                _wordList[_wordIndex] = _hiddenWord;
             }
         }
-        else if ((counter < (_wordList.Count - 1)))
+        else if ((_counter < (_wordList.Count - 1)))
         {
             for (int i = 0; i < 2; i++)
             {
                 HideWords();
                 _wordIndex = _wordList.FindIndex(w => w ==_randomWord);
-                _wordList[_wordIndex] = hiddenWord;
+                _wordList[_wordIndex] = _hiddenWord;
             }
         }
         else
         {
             HideWords();
             _wordIndex = _wordList.FindIndex(w => w ==_randomWord);
-            _wordList[_wordIndex] = hiddenWord;
+            _wordList[_wordIndex] = _hiddenWord;
         }
 
         foreach (string line in _wordList)

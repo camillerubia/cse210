@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 // Responsibilities:
 //  - keeps track of the book, chapter and verse information.
@@ -9,8 +10,7 @@ public class Reference
     private string _chapter;
     private string _verse;
     private string _endVerse;
-    private List<string> _referenceList = new List<string>{};
-
+    
     public Reference (string book, string chapter, string verse)
     {
         _book = book;
