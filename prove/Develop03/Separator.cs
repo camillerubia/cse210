@@ -7,6 +7,7 @@ public class Separator
     private string _verse;
     private string _text;
     private string _endVerse;
+    private string _reference;
     
     public void Separate(string line)
     {
@@ -19,6 +20,8 @@ public class Separator
             _chapter = verseList[1];
             _verse = verseList[2];
             _text = verseList[3];
+            Reference reference = new Reference(_book, _chapter, _verse);
+            _reference = reference.GetReference();         
         }
         else
         {
@@ -27,31 +30,10 @@ public class Separator
             _verse = verseList[2];
             _endVerse = verseList[3];
             _text = verseList[4];
+            Reference reference = new Reference(_book, _chapter, _verse, _endVerse);
+            _reference = reference.GetReference();         
         }
-    }
-
-    public string GetBook()
-    {
-        return _book;
-    }
-
-    public string GetChapter()
-    {
-        return _chapter;
-    }
-
-    public string GetVerse()
-    {
-        return _verse;
-    }
-
-    public string GetEndVerse()
-    {
-        return _endVerse;
-    }
-
-    public string GetText()
-    {
-        return _text;
+        
+        Scripture scripture = new Scripture(_reference, _text);
     }
 }

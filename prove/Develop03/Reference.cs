@@ -9,8 +9,6 @@ public class Reference
     private string _chapter;
     private string _verse;
     private string _endVerse;
-    // private string _text;
-    private string _reference;
     private List<string> _referenceList = new List<string>{};
 
     public Reference (string book, string chapter, string verse)
@@ -30,7 +28,6 @@ public class Reference
 
     public string GetReference()
     {
-        // if (string.IsNullOrEmpty(_endVerse))
         if (_endVerse == null)
         {
             return $"{_book} {_chapter}:{_verse}";

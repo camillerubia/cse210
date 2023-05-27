@@ -23,6 +23,7 @@ public class Scripture
     private HashSet<string> _randomWordsList = new HashSet<string>();
     private string[] _textList;
     List <string> _wordList = new List<string>();
+    private int counter;
 
     public Scripture(string reference, string text)
     // - create List
@@ -78,6 +79,7 @@ public class Scripture
     private void HideWords()
     // - hide single words
     {
+        counter++;
         Randomizer(_wordList);
         Word word = new Word(_randomWord);
         hiddenWord = word.GetRenderedWord();
@@ -105,7 +107,26 @@ public class Scripture
     { 
         Console.Clear();
         _fullVerse = "";
-        for (int i = 0; i < 3; i++)
+
+        if (counter < (_wordList.Count - 2))
+        {
+            for (int i = 0; i < 3; i++)
+            {
+                HideWords();
+                _wordIndex = _wordList.FindIndex(w => w ==_randomWord);
+                _wordList[_wordIndex] = hiddenWord;
+            }
+        }
+        else if ((counter < (_wordList.Count - 1)))
+        {
+            for (int i = 0; i < 2; i++)
+            {
+                HideWords();
+                _wordIndex = _wordList.FindIndex(w => w ==_randomWord);
+                _wordList[_wordIndex] = hiddenWord;
+            }
+        }
+        else
         {
             HideWords();
             _wordIndex = _wordList.FindIndex(w => w ==_randomWord);
@@ -117,13 +138,13 @@ public class Scripture
             _fullVerse += $"{line} ";
         }
         _text = _fullVerse;
-        Console.WriteLine($"{_reference} - \"{_text}\".");     
+        Console.WriteLine($"{_reference} - \"{_text}\"");     
     }
-
     private bool IsCompletelyHidden()
     // Make sure all the words are hidden.
     {
-       bool containsOnlyUnderscores = _wordList.All(word => word.All(c => c == '_'));
+        bool containsOnlyUnderscores = _wordList.All(word => word.All(c => c == '_' || c == '.' || c == ','));
         return containsOnlyUnderscores;
+        
     }
 }
