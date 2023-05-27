@@ -154,8 +154,7 @@ public class Scripture
     private bool IsCompletelyHidden()
     // Make sure all the words are hidden.
     {
-        bool containsOnlyUnderscores = _wordList.All(word => word.All(c => c == '_' || c == '.' || c == ',' || c == ';'));
+        bool containsOnlyUnderscores = _wordList.All(word => word.All(c => !Char.IsLetter(c)));
         return containsOnlyUnderscores;
-        
     }
 }

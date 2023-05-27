@@ -7,7 +7,6 @@ using System.Collections.Generic;
 public class Passage
 {
     private string _passage;
-    // public string _secondPassage = "Book2| 2| 40| 44| Second passage with a lot of verse.";
     private List<string> _passageList = new List<string>{};
 
     public Passage()

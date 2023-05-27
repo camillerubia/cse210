@@ -7,8 +7,7 @@ using System.Collections.Generic;
 public class Word
 {
     private string _convertedWord;
-    public bool _displayReady;
-    public string _word;
+    private string _word;
 
     public Word(string word)
     {
@@ -24,44 +23,17 @@ public class Word
     {
         StringBuilder builder = new StringBuilder();
 
-        if (_word.Contains(","))
+        foreach (char c in _word)
         {
-            _word = _word.Replace(",", "");
-                
-            for (int i = 0; i <_word.Length; i++)
+            if (Char.IsLetter(c))
             {
                 builder.Append('_');
             }
-            builder.Append(','); 
-        }
-        else if (_word.Contains("."))
-        {
-            _word = _word.Replace(".", "");
-                
-            for (int i = 0; i <_word.Length; i++)
+            else
             {
-                builder.Append('_');
-            }
-            builder.Append('.');
-        }
-        else if (_word.Contains(";"))
-        {
-            _word = _word.Replace(";", "");
-                
-            for (int i = 0; i <_word.Length; i++)
-            {
-                builder.Append('_');
-            }
-            builder.Append(';');
-        }
-        else
-        {
-            for (int i = 0; i <_word.Length; i++)
-            {
-                builder.Append('_');
+                builder.Append(c);
             }
         }
-
        _convertedWord = builder.ToString();
         return _convertedWord;
     }
