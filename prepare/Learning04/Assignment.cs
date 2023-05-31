@@ -2,12 +2,11 @@ using System;
 
 public class Assignment
 {
-    protected string _studentName;
-    protected string _topic;
+    private string _studentName;
+    private string _topic;
 
     public Assignment (string name, string topic)
     {
-        Console.Clear();
         _studentName = name;
         _topic = topic;
     }
