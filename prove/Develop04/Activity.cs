@@ -5,12 +5,14 @@ public class Activity
     protected string _activityName;
     protected string _description;
     protected int _duration;
-    private int countdown;
+    protected int _countdown;
     private string randomprompt;
+    protected string _instruction;
+    protected string _userInput;
 
     public Activity()
     {
-        
+
     }
 
     protected void StartMessage()
@@ -25,13 +27,13 @@ public class Activity
 
     protected int GetCountDown()
     {
-        return countdown;
+        return _countdown;
     }
 
     protected int InitialCountdown()
     {
-        countdown = 5;
-        return countdown;
+        _countdown = 5;
+        return _countdown;
     }
 
     protected string RandomPrompt(List<string> list)
@@ -42,6 +44,21 @@ public class Activity
     protected void DisplayPrompt()
     {
 
+    }
+
+    protected void DisplayInstructions()
+    {
+
+    }
+
+    protected string GetUserInput()
+    {
+        return _userInput;
+    }
+
+    protected void DisplaySpinner()
+    {
+        
     }
 
 }

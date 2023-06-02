@@ -2,6 +2,8 @@ using System;
 
 public class BreathingActivity : Activity
 {
+    private int _inDuration;
+    private int _outDuration;
     public BreathingActivity()
     {
         _activityName = "Breathing";
