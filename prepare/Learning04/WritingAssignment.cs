@@ -9,6 +9,11 @@ public class WritingAssignment : Assignment
         _title = title;
     }
 
+    public WritingAssignment()
+    {
+        _studentName = "Sunny";
+    }
+
     public string GetWritingInformation()
     {
         string _studentName = GetName();
