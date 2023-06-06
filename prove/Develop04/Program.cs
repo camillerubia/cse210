@@ -15,7 +15,6 @@ class Program
         int userChoice = 0;
         Console.Clear();
         
-
         while (true)
         {
             Console.WriteLine("Menu Options:");
@@ -38,7 +37,20 @@ class Program
 
             if (userChoice == 1)
             {
+                BreathingActivity breathing = new BreathingActivity();
+                Console.WriteLine("Breathing Activity\n");
+            }
 
+            if (userChoice == 2)
+            {
+                ReflectingActivity reflecting = new ReflectingActivity();
+                Console.WriteLine("Reflecting Activity\n");
+            }
+
+            if (userChoice == 3)
+            {
+                ListingActivity listing = new ListingActivity();
+                Console.WriteLine("Listing Activity\n");
             }
 
             // 4. QUIT

@@ -8,17 +8,13 @@ public class BreathingActivity : Activity
     {
         _activityName = "Breathing";
         _description = "This activity will help you relax by walking your through breathing in and out slowly."
-                        +"Clear your mind and focus on your breathing.";
+                        +" Clear your mind and focus on your breathing.";
         DisplayBreathing(_duration);
+        StartMessage();
     }
 
     private void DisplayBreathing(int duration)
     {
 
-    }
-
-    public void Display()
-    {
-        DisplaySpinner();
     }
 }
