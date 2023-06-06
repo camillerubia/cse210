@@ -10,7 +10,8 @@ public class ListingActivity : Activity
     {
         _activityName = "Listing";
         _description = "This activity will help you reflect on the good things in your life by having you list as many things as you can in a certain area.";
-        StartMessage();    
+        StartMessage();
+        EndMessage();
     }
 
     private List<string> GetListingInput()

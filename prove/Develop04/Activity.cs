@@ -65,15 +65,14 @@ public class Activity
     }
     protected void EndMessage()
     {
-
+        Console.WriteLine("Well done!!\n");
+        Console.WriteLine($"You have completed another {_duration} seconds of the {_activityName} Activity.");
     }
 
     protected int GetCountDown()
     {
         return _countdown;
     }
-
-    
 
     protected string RandomPrompt(List<string> list)
     {

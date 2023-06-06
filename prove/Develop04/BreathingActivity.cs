@@ -9,12 +9,15 @@ public class BreathingActivity : Activity
         _activityName = "Breathing";
         _description = "This activity will help you relax by walking your through breathing in and out slowly."
                         +" Clear your mind and focus on your breathing.";
-        DisplayBreathing(_duration);
         StartMessage();
+        DisplayBreathing(_duration);
+        
+        EndMessage();
     }
 
     private void DisplayBreathing(int duration)
     {
-
+        _inDuration = duration / 2;
+        Console.WriteLine(_inDuration);
     }
 }
