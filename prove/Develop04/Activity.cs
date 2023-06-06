@@ -11,6 +11,8 @@ public class Activity
     protected string _instruction;
     protected string _userInput;
     private List<string> _spinnerList = new List<string>();
+    protected string _prompt;
+    protected string _endInstruction;
     
 
     public Activity()
@@ -54,7 +56,7 @@ public class Activity
         _duration = int.Parse(Console.ReadLine());
         Console.Clear();
         Console.WriteLine("Get ready...");
-        _countdown = 10;
+        _countdown = 3;
         DisplaySpinner(_countdown);
     }
 
@@ -76,19 +78,28 @@ public class Activity
 
     protected string RandomPrompt(List<string> list)
     {
+        Random rnd = new Random();
+        
+        // Get a random line from the list
+        randomprompt = list[rnd.Next(list.Count)];
+        
+        // Returns the random line.
         return randomprompt;
     }
 
-    protected void DisplayPrompt()
+    protected void DisplayInstructions(string prompt)
     {
-
+        Console.WriteLine($"{_instruction}:\n");
+        Console.WriteLine($"---- {prompt} ----\n");
+        Console.WriteLine(_endInstruction);
     }
 
-    protected void DisplayInstructions()
+    protected List<string> ReadFile(string filename)
     {
-
+        List<string> list = new List<string>();
+        list = System.IO.File.ReadAllLines(filename).ToList();
+        return list;
     }
-
     protected string GetUserInput()
     {
         return _userInput;
