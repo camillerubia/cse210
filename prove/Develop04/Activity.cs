@@ -13,6 +13,7 @@ public class Activity
     private List<string> _spinnerList = new List<string>();
     protected string _prompt;
     protected string _endInstruction;
+    protected string _followUp;
     
 
     public Activity()
@@ -47,6 +48,23 @@ public class Activity
         }
     }
 
+    protected void DisplayInstructions(string prompt, bool checker)
+    {
+        Console.WriteLine($"{_instruction}:\n");
+        Console.WriteLine($"---- {prompt} ----\n");
+
+        if (checker)
+        {
+            Console.WriteLine(_endInstruction);
+            Console.WriteLine();
+        }
+        else
+        {
+            Console.Write(_endInstruction);
+        }
+        
+    }
+
     protected void StartMessage()
     {
         Console.Clear();
@@ -60,11 +78,6 @@ public class Activity
         DisplaySpinner(_countdown);
     }
 
-    protected int InitialCountdown()
-    {
-        _countdown = 5;
-        return _countdown;
-    }
     protected void EndMessage()
     {
         Console.WriteLine("\nWell done!!\n");
@@ -72,6 +85,18 @@ public class Activity
         Console.WriteLine($"You have completed another {_duration} seconds of the {_activityName} Activity.");
         DisplaySpinner(_countdown);
         Console.Clear();
+    }
+
+    protected void FollowUp()
+    {
+        Console.Clear();
+        Console.Write(_followUp);
+    }
+
+    protected int InitialCountdown()
+    {
+        _countdown = 5;
+        return _countdown;
     }
 
     protected void GetCountDown(int duration)
@@ -95,13 +120,7 @@ public class Activity
         return randomprompt;
     }
 
-    protected void DisplayInstructions(string prompt)
-    {
-        Console.WriteLine($"{_instruction}:\n");
-        Console.WriteLine($"---- {prompt} ----\n");
-        Console.WriteLine(_endInstruction);
-        Console.WriteLine();
-    }
+
 
     protected List<string> ReadFile(string filename)
     {
@@ -111,6 +130,7 @@ public class Activity
     }
     protected string GetUserInput()
     {
+        _userInput = Console.ReadLine();
         return _userInput;
     }
 }

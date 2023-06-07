@@ -21,11 +21,17 @@ public class ListingActivity : Activity
     {
         _listingQuestionsList = ReadFile("listingPrompt.txt");
         _prompt = RandomPrompt(_listingQuestionsList);
-        DisplayInstructions(_prompt);
+        DisplayInstructions(_prompt, false);
+        GetCountDown(5);
+        GetListingInput();
     }
 
     private List<string> GetListingInput()
     {
+        Console.WriteLine();
+        Console.Write("> ");
+        string input = GetUserInput();
+        _inputList.Add(input);
         return _inputList;
     }
 }
