@@ -67,13 +67,21 @@ public class Activity
     }
     protected void EndMessage()
     {
-        Console.WriteLine("Well done!!\n");
+        Console.WriteLine("\nWell done!!\n");
+        DisplaySpinner(_countdown);
         Console.WriteLine($"You have completed another {_duration} seconds of the {_activityName} Activity.");
+        DisplaySpinner(_countdown);
+        Console.Clear();
     }
 
-    protected int GetCountDown()
+    protected void GetCountDown(int duration)
     {
-        return _countdown;
+        for (int i = duration; i > 0; i--)
+        {
+            Console.Write(i);
+            Thread.Sleep(1000);
+            Console.Write("\b \b");
+        }
     }
 
     protected string RandomPrompt(List<string> list)
@@ -92,6 +100,7 @@ public class Activity
         Console.WriteLine($"{_instruction}:\n");
         Console.WriteLine($"---- {prompt} ----\n");
         Console.WriteLine(_endInstruction);
+        Console.WriteLine();
     }
 
     protected List<string> ReadFile(string filename)
@@ -104,7 +113,4 @@ public class Activity
     {
         return _userInput;
     }
-
-
-
 }
