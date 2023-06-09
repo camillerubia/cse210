@@ -12,12 +12,19 @@ public class Activity
     protected string _userInput;
     private List<string> _spinnerList = new List<string>();
     protected string _prompt;
-    protected string _endInstruction;
-    protected string _followUp;    
+    protected string _endInstruction;  
+    protected DateTime _endTime;
 
     public Activity()
     {
 
+    }
+
+    protected DateTime AddSeconds(int countdown)
+    {
+        DateTime startTime = DateTime.Now;
+        DateTime endTime = startTime.AddSeconds(countdown);
+        return endTime;
     }
 
     protected void DisplaySpinner(int countdown)
@@ -27,15 +34,14 @@ public class Activity
         _spinnerList.Add("/");
         _spinnerList.Add("-");
     
-        DateTime startTime = DateTime.Now;
-        DateTime endTime = startTime.AddSeconds(countdown);
+        _endTime = AddSeconds(countdown);
 
         int i = 0;
-        while (DateTime.Now < endTime)
+        while (DateTime.Now < _endTime)
         {
             string s = _spinnerList[i];
             Console.Write(s);
-            Thread.Sleep(400);
+            Thread.Sleep(600);
             Console.Write("\b \b");
 
             i++;
@@ -83,12 +89,6 @@ public class Activity
         Console.WriteLine($"You have completed another {_duration} seconds of the {_activityName} Activity.");
         DisplaySpinner(_countdown);
         Console.Clear();
-    }
-
-    protected void FollowUp()
-    {
-        Console.Clear();
-        Console.Write(_followUp);
     }
 
     protected int InitialCountdown()

@@ -13,21 +13,26 @@ public class ReflectingActivity: Activity
         _description = "This activity will help you reflect on times in your life when you have shown strength and resilience. This will help you recognize the power you have and how you can use it in other aspects of your life.";
         _instruction = "Consider the following prompt";
         _endInstruction = "When you have something in mind, press enter to continue.";
-        _followUp = "Now ponder on each of the following questions as they related to this experience.\n You may begin in: ";
         StartMessage();
         Reflection();
-        FollowUp();
-        GetNumCountDown(InitialCountdown());
+        DisplayFollowUp();
         DisplayQuestion();
         EndMessage();
     }
 
     private void Reflection()
     {
+        Console.Clear();
         _reflectPromptList = ReadFile("reflectionPrompt.txt");
         _prompt = RandomPrompt(_reflectPromptList);
         DisplayInstructions(_prompt, true);
         GetUserInput();
+    }
+
+    private void DisplayFollowUp()
+    {
+        Console.WriteLine("Now ponder on each of the following questions as they related to this experience.\n You may begin in: ");
+        GetNumCountDown(InitialCountdown());
     }
     private void DisplayQuestion()
     {

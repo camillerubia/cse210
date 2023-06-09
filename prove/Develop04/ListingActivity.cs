@@ -33,19 +33,18 @@ public class ListingActivity : Activity
     {
         string input = "";
 
-        DateTime startTime = DateTime.Now;
-        DateTime endTime = startTime.AddSeconds(_duration);
+         _endTime = AddSeconds(_duration);
         Console.WriteLine();
         
-        while (DateTime.Now < endTime)
+        while (DateTime.Now < _endTime)
         {
-            Console.Write(">");
+            Console.Write("> ");
             input = GetUserInput();
             _inputList.Add(input);
         }
-        _itemCounter = _inputList.Count();
 
-        Console.WriteLine($"You listed {_itemCounter} items!");
+        _itemCounter = _inputList.Count();
+        Console.WriteLine($"\nYou listed {_itemCounter} items!");
     }
 
 }
