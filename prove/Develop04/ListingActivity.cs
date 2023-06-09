@@ -32,6 +32,8 @@ public class ListingActivity : Activity
         Console.Write("> ");
         string input = GetUserInput();
         _inputList.Add(input);
+        // Thread.Sleep((int)(_determiner * 1000));
+        
         return _inputList;
     }
 }

@@ -5,6 +5,7 @@ public class ReflectingActivity: Activity
     private List<string> _reflectPromptList = new List<string>();
     private List<string> _questionList = new List<string>();
     private string _question;
+    private int _determiner;
 
     public ReflectingActivity()
     {
@@ -32,11 +33,12 @@ public class ReflectingActivity: Activity
     {
         Console.Clear();
         _questionList = ReadFile("questionPrompt.txt");
+        _determiner = _duration / _questionList.Count();
         // _question = RandomPrompt(_questionList);
         foreach (string line in _questionList)
         {
             Console.WriteLine($"> {line}");
-            DisplaySpinner(3);
+            DisplaySpinner(_determiner);
         }
     }
 

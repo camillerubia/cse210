@@ -13,8 +13,7 @@ public class Activity
     private List<string> _spinnerList = new List<string>();
     protected string _prompt;
     protected string _endInstruction;
-    protected string _followUp;
-    
+    protected string _followUp;    
 
     public Activity()
     {
@@ -29,7 +28,7 @@ public class Activity
         _spinnerList.Add("-");
     
         DateTime startTime = DateTime.Now;
-        DateTime endTime = startTime.AddSeconds(_countdown);
+        DateTime endTime = startTime.AddSeconds(countdown);
 
         int i = 0;
         while (DateTime.Now < endTime)
@@ -74,7 +73,7 @@ public class Activity
         _duration = int.Parse(Console.ReadLine());
         Console.Clear();
         Console.WriteLine("Get ready...");
-        _countdown = 3;
+        _countdown = 10;
         DisplaySpinner(_countdown);
     }
 
@@ -119,9 +118,7 @@ public class Activity
         // Returns the random line.
         return randomprompt;
     }
-
-
-
+    
     protected List<string> ReadFile(string filename)
     {
         List<string> list = new List<string>();
