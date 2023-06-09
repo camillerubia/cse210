@@ -22,19 +22,20 @@ public class BreathingActivity : Activity
         if (duration >= 10)
         {
             _lastNumber = duration % 10;
-
-            if (_lastNumber > 0)
-                {
-                    duration = duration /10 * 10;
-                    _batchCounter = 1;
-                    DisplayBreathing(_lastNumber);
-                }
+            duration = duration - _lastNumber;
 
             if (duration % 10 == 0)
             {
                 _batchCounter = duration / 10;
                 duration = 10;
-                DisplayBreathing(duration);   
+                DisplayBreathing(duration);
+
+                if (_lastNumber > 0)
+                {
+                    duration = duration /10 * 10;
+                    _batchCounter = 1;
+                    DisplayBreathing(_lastNumber);
+                }  
             }            
         }
         else

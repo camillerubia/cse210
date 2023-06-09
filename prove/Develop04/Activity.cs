@@ -35,7 +35,7 @@ public class Activity
         {
             string s = _spinnerList[i];
             Console.Write(s);
-            Thread.Sleep(1000);
+            Thread.Sleep(400);
             Console.Write("\b \b");
 
             i++;
@@ -61,7 +61,6 @@ public class Activity
         {
             Console.Write(_endInstruction);
         }
-        
     }
 
     protected void StartMessage()
@@ -73,7 +72,7 @@ public class Activity
         _duration = int.Parse(Console.ReadLine());
         Console.Clear();
         Console.WriteLine("Get ready...");
-        _countdown = 10;
+        _countdown = 3;
         DisplaySpinner(_countdown);
     }
 

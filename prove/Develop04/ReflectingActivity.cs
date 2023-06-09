@@ -33,11 +33,13 @@ public class ReflectingActivity: Activity
     {
         Console.Clear();
         _questionList = ReadFile("questionPrompt.txt");
-        _determiner = _duration / _questionList.Count();
+        _prompt = RandomPrompt(_questionList);
+        _determiner = _duration / 2;
 
-        foreach (string line in _questionList)
+        for (int i = 2; i > 0; i--)
         {
-            Console.WriteLine($"> {line}");
+            _prompt = RandomPrompt(_questionList);
+            Console.WriteLine($"> {_prompt}");
             DisplaySpinner(_determiner);
         }
     }
