@@ -17,7 +17,7 @@ public class ReflectingActivity: Activity
         StartMessage();
         Reflection();
         FollowUp();
-        GetCountDown(5);
+        GetNumCountDown(InitialCountdown());
         DisplayQuestion();
         EndMessage();
     }
@@ -34,13 +34,11 @@ public class ReflectingActivity: Activity
         Console.Clear();
         _questionList = ReadFile("questionPrompt.txt");
         _determiner = _duration / _questionList.Count();
-        // _question = RandomPrompt(_questionList);
+
         foreach (string line in _questionList)
         {
             Console.WriteLine($"> {line}");
             DisplaySpinner(_determiner);
         }
     }
-
-    
 }

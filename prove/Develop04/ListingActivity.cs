@@ -22,7 +22,7 @@ public class ListingActivity : Activity
         _listingQuestionsList = ReadFile("listingPrompt.txt");
         _prompt = RandomPrompt(_listingQuestionsList);
         DisplayInstructions(_prompt, false);
-        GetCountDown(5);
+        GetNumCountDown(InitialCountdown());
         GetListingInput();
     }
 
@@ -33,7 +33,6 @@ public class ListingActivity : Activity
         string input = GetUserInput();
         _inputList.Add(input);
         // Thread.Sleep((int)(_determiner * 1000));
-        
         return _inputList;
     }
 }

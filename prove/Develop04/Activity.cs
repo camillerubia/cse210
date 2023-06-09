@@ -98,7 +98,7 @@ public class Activity
         return _countdown;
     }
 
-    protected void GetCountDown(int duration)
+    protected void GetNumCountDown(int duration)
     {
         for (int i = duration; i > 0; i--)
         {
@@ -118,7 +118,7 @@ public class Activity
         // Returns the random line.
         return randomprompt;
     }
-    
+
     protected List<string> ReadFile(string filename)
     {
         List<string> list = new List<string>();

@@ -52,9 +52,9 @@ public class BreathingActivity : Activity
         for (int i = _batchCounter; i > 0; i--)
         {
             Console.Write("\nBreathe in... ");
-            GetCountDown(_inDuration);
+            GetNumCountDown(_inDuration);
             Console.Write("\nNow breathe out... ");
-            GetCountDown(_outDuration);
+            GetNumCountDown(_outDuration);
             Console.WriteLine();
         }
     }  

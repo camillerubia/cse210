@@ -45,15 +45,13 @@ class Program
             if (userChoice == 2)
             {
                 Console.WriteLine("Reflecting Activity\n");
-                ReflectingActivity reflecting = new ReflectingActivity();
-                
+                ReflectingActivity reflecting = new ReflectingActivity();  
             }
 
             if (userChoice == 3)
             {
                 Console.WriteLine("Listing Activity\n");
-                ListingActivity listing = new ListingActivity();
-                
+                ListingActivity listing = new ListingActivity();      
             }
 
             // 4. QUIT
@@ -67,8 +65,6 @@ class Program
             {
                 Console.WriteLine($"Please choose numbers 1-4 only.\n");
             }
-
         }
-
     }
 }
