@@ -1,9 +1,11 @@
 using System;
+using System.Collections.Generic;
 
 public class ReflectingActivity: Activity
 {
     private List<string> _reflectPromptList = new List<string>();
     private List<string> _questionList = new List<string>();
+    private List<string> _randomQuestions = new List<string>();
     private string _question;
     private int _determiner;
 
@@ -44,6 +46,12 @@ public class ReflectingActivity: Activity
         for (int i = 2; i > 0; i--)
         {
             _prompt = RandomPrompt(_questionList);
+            _randomQuestions.Add(_prompt);
+
+            if (_randomQuestions.Contains(_prompt))
+            {
+                _prompt = RandomPrompt(_questionList);
+            }
             Console.WriteLine($"> {_prompt}");
             DisplaySpinner(_determiner);
         }

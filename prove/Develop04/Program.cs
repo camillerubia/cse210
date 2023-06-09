@@ -38,8 +38,7 @@ class Program
             if (userChoice == 1)
             {
                 Console.WriteLine("Breathing Activity\n");
-                BreathingActivity breathing = new BreathingActivity();
-                
+                BreathingActivity breathing = new BreathingActivity();      
             }
 
             if (userChoice == 2)
