@@ -13,7 +13,7 @@ using System.IO;
 public class LogManager
 {
     // A pre-set list for the log options to display inside a method.
-    public List<string> _logOptions = new List<string> {"Display", "Save", "Load"};
+    private List<string> _logOptions = new List<string> {"Display", "Save", "Load"};
     // A list to store the lines of strings from a file.
     private List<string> _fileLogSummary = new List<string>();
     // A list to store all the logs either for saving to a file later or for displaying.

@@ -26,7 +26,7 @@ public class Activity
     // A field that stores the added seconds from the start time
     protected DateTime _endTime;
     // A field that is not inherited by the random prompt from a list.
-    private string randomprompt;
+    private string _randomprompt;
     // A list uninherited by the subclasses to store the characters of the spinner
     private List<string> _spinnerList = new List<string>();
     // A list that checks if there are random prompts
@@ -162,10 +162,10 @@ public class Activity
         Random rnd = new Random();
         
         // Get a random line from the list
-        randomprompt = list[rnd.Next(list.Count)];
+        _randomprompt = list[rnd.Next(list.Count)];
         
         // Returns the random line.
-        return randomprompt;
+        return _randomprompt;
     }
 
     // A method that acquires the prompt and is used by the subclasses
