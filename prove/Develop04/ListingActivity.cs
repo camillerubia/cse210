@@ -65,8 +65,8 @@ public class ListingActivity : Activity
             _inputList.Add(input);
         }
 
-        // Counts all items in the list and stores it to a fields
-        _itemCounter = _inputList.Count();
+        // Counts all items in the list and stores it in a field
+        _itemCounter = _inputList.Count;
         // Displays the total items with a specified format
         Console.WriteLine($"\nYou listed {_itemCounter} items!");
     }

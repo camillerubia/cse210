@@ -173,22 +173,24 @@ public class Activity
     // filename as a parameter which then returns the prompt
     protected string GetPrompt(string filename)
     {
-        // Instantiates a list
-        List<string> list = new List<string>();
-        // Calls the local method and stores it in the list
-        list = ReadFile(filename);
+        // Instantiates a list and calls the local method to read from a file
+        List<string> list = ReadFile(filename);
         // Calls the local method to randomize from the list
         string prompt = RandomPrompt(list);
-        // Adds the prompt to the list
-        _promptList.Add(prompt);
 
-         // Checks if there is a duplicate prompt which then calls
+        // Checks if there is a duplicate prompt which then calls
         // the local method again.
         if (_promptList.Contains(_prompt))
         {
-            prompt = RandomPrompt(list);
+            while(_promptList.Contains(_prompt))
+            {
+                prompt = RandomPrompt(list);
+                break;
+            }
+            
         }
-
+        // Adds the prompt to the list
+        _promptList.Add(prompt);
         // Returns the randomized prompt
         return prompt;
     }

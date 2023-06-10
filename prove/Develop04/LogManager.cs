@@ -26,13 +26,10 @@ public class LogManager
     private int _userChoice;
     // A field to store the filename.
     private string _filename;
-
-    // Declares the Datetime and stores it into a static field.
-    static DateTime dateNow = DateTime.Now;
     // Stores the current date into a local variable.
-    string _currentDate = dateNow.ToShortDateString();
+    string _currentDate = DateTime.Now.ToShortDateString();
     // Declares a static field with the current time and converted it to uppercase.
-    static string _currentTime = dateNow.ToString("h:mm tt").ToUpper();
+    static string _currentTime = DateTime.Now.ToString("h:mm tt").ToUpper();
 
     // A method to display the log functionalities/options. 
     public void DisplayLogOptions()
