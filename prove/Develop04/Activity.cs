@@ -126,7 +126,7 @@ public class Activity
 
     protected int SpinnerDuration()
     {
-        _countdown = 10;
+        _countdown = 2;
         return _countdown;
     }
 
