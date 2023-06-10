@@ -25,8 +25,8 @@ public class ListingActivity : Activity
     {
         _listingQuestionsList = ReadFile("listingPrompt.txt");
         _prompt = RandomPrompt(_listingQuestionsList);
-        DisplayInstructions(_prompt, false);
-        GetNumCountDown(InitialCountdown());
+        DisplayInstructions(_prompt);
+        NumberCountDown(InitialCountdown());
     }
 
     private void ListingInput()

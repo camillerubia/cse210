@@ -27,14 +27,15 @@ public class ReflectingActivity: Activity
         Console.Clear();
         _reflectPromptList = ReadFile("reflectionPrompt.txt");
         _prompt = RandomPrompt(_reflectPromptList);
-        DisplayInstructions(_prompt, true);
+        DisplayInstructions(_prompt);
+        Console.WriteLine();
         GetUserInput();
     }
 
     private void DisplayFollowUp()
     {
         Console.Write($"Now ponder on each of the following questions as they related to this experience.\nYou may begin in: ");
-        GetNumCountDown(InitialCountdown());
+        NumberCountDown(InitialCountdown());
     }
     private void DisplayQuestion()
     {

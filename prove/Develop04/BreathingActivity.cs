@@ -53,9 +53,9 @@ public class BreathingActivity : Activity
         for (int i = _batchCounter; i > 0; i--)
         {
             Console.Write("\nBreathe in... ");
-            GetNumCountDown(_inDuration);
+            NumberCountDown(_inDuration);
             Console.Write("\nNow breathe out... ");
-            GetNumCountDown(_outDuration);
+            NumberCountDown(_outDuration);
             Console.WriteLine();
         }
     }  
