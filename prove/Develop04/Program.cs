@@ -8,7 +8,6 @@ class Program
     static int reflectingCounter;
     static int listingCounter;
 
-
     static void Main(string[] args)
     {
         Console.WriteLine("Hello Develop04 World!");
@@ -45,7 +44,7 @@ class Program
             if (userChoice == 1)
             {
                 BreathingActivity breathing = new BreathingActivity();
-                breathingCounter ++;   
+                breathingCounter ++;
             }
 
              // 2. REFLECTING
@@ -84,9 +83,10 @@ class Program
 
     static void DisplaySummary()
     {
-        Console.WriteLine("\nHere is your Mindfulness Summary:");
-        Console.WriteLine($"{breathingCounter} times of Breathing Activity.");
-        Console.WriteLine($"{reflectingCounter} times of Reflecting Activity.");
-        Console.WriteLine($"{listingCounter} times of Listing Activity.\n");
+        Console.Clear();
+        Console.WriteLine("\nHere is your Mindfulness Summary:\n");
+        Console.WriteLine($"Breathing Activity: {breathingCounter} times.");
+        Console.WriteLine($"Reflecting Activity: {reflectingCounter} times.");
+        Console.WriteLine($"Listing Activity: {listingCounter} times.\n");
     }
 }
