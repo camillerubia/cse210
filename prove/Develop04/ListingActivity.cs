@@ -46,5 +46,4 @@ public class ListingActivity : Activity
         _itemCounter = _inputList.Count();
         Console.WriteLine($"\nYou listed {_itemCounter} items!");
     }
-
 }

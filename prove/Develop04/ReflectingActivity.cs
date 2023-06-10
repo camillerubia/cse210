@@ -33,7 +33,7 @@ public class ReflectingActivity: Activity
 
     private void DisplayFollowUp()
     {
-        Console.WriteLine("Now ponder on each of the following questions as they related to this experience.\n You may begin in: ");
+        Console.Write($"Now ponder on each of the following questions as they related to this experience.\nYou may begin in: ");
         GetNumCountDown(InitialCountdown());
     }
     private void DisplayQuestion()
@@ -52,6 +52,7 @@ public class ReflectingActivity: Activity
             {
                 _prompt = RandomPrompt(_questionList);
             }
+
             Console.WriteLine($"> {_prompt}");
             DisplaySpinner(_determiner);
         }

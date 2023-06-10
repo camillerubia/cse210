@@ -33,6 +33,7 @@ public class Activity
         _spinnerList.Add("|");
         _spinnerList.Add("/");
         _spinnerList.Add("-");
+
     
         _endTime = AddSeconds(countdown);
 
@@ -61,7 +62,6 @@ public class Activity
         if (checker)
         {
             Console.WriteLine(_endInstruction);
-            Console.WriteLine();
         }
         else
         {

@@ -3,7 +3,12 @@ using System.Collections.Generic;
 
 class Program
 {
-    static List<string> menuList = new List<string> {"Start breathing activity", "Start reflecting activity", "Start listing activity", "Quit"};
+    static List<string> menuList = new List<string> {"Start breathing activity", "Start reflecting activity", "Start listing activity", "Summary","Quit"};
+    static int breathingCounter;
+    static int reflectingCounter;
+    static int listingCounter;
+
+
     static void Main(string[] args)
     {
         Console.WriteLine("Hello Develop04 World!");
@@ -18,6 +23,7 @@ class Program
         while (true)
         {
             Console.WriteLine("Menu Options:");
+
             for (int i = 0; i < menuList.Count; i++)
             {
                 Console.WriteLine($"{i+1}. {menuList[i]}");
@@ -35,35 +41,52 @@ class Program
                 Console.WriteLine("Invalid choice.\n");
             }
 
+            // 1. BREATHING
             if (userChoice == 1)
             {
-                Console.WriteLine("Breathing Activity\n");
-                BreathingActivity breathing = new BreathingActivity();      
+                BreathingActivity breathing = new BreathingActivity();
+                breathingCounter ++;   
             }
 
+             // 2. REFLECTING
             if (userChoice == 2)
             {
-                Console.WriteLine("Reflecting Activity\n");
                 ReflectingActivity reflecting = new ReflectingActivity();  
+                reflectingCounter ++;
             }
 
+             // 3. LISTING
             if (userChoice == 3)
             {
-                Console.WriteLine("Listing Activity\n");
-                ListingActivity listing = new ListingActivity();      
+                ListingActivity listing = new ListingActivity();  
+                listingCounter ++;    
             }
 
-            // 4. QUIT
+            // 4. SUMMARY
             if (userChoice == 4) 
             {
+                DisplaySummary();
+            }
+
+            // 5. QUIT
+            if (userChoice == 5)
+            {
                 break;
-            } 
+            }
 
             // Displays message when user choice is out of 1-4 range.
-            else if (userChoice > 4) 
+            else if (userChoice > 5) 
             {
                 Console.WriteLine($"Please choose numbers 1-4 only.\n");
             }
         }
+    }
+
+    static void DisplaySummary()
+    {
+        Console.WriteLine("\nHere is your Mindfulness Summary:");
+        Console.WriteLine($"{breathingCounter} times of Breathing Activity.");
+        Console.WriteLine($"{reflectingCounter} times of Reflecting Activity.");
+        Console.WriteLine($"{listingCounter} times of Listing Activity.\n");
     }
 }
