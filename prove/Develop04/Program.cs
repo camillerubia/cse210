@@ -3,10 +3,9 @@ using System.Collections.Generic;
 
 class Program
 {
-    static List<string> menuList = new List<string> {"Start breathing activity", "Start reflecting activity", "Start listing activity", "Summary","Quit"};
-    static int breathingCounter;
-    static int reflectingCounter;
-    static int listingCounter;
+    static List<string> menuList = new List<string> {"Start breathing activity", "Start reflecting activity", "Start listing activity", "Summary log","Quit"};
+    static LogManager logmanager = new LogManager();
+    static Activity activity = new Activity();
 
     static void Main(string[] args)
     {
@@ -44,27 +43,29 @@ class Program
             if (userChoice == 1)
             {
                 BreathingActivity breathing = new BreathingActivity();
-                breathingCounter ++;
+                logmanager._breathingCounter ++;
             }
 
              // 2. REFLECTING
             if (userChoice == 2)
             {
                 ReflectingActivity reflecting = new ReflectingActivity();  
-                reflectingCounter ++;
+                logmanager._reflectingCounter ++;
             }
 
              // 3. LISTING
             if (userChoice == 3)
             {
                 ListingActivity listing = new ListingActivity();  
-                listingCounter ++;    
+                logmanager._listingCounter ++;    
             }
 
             // 4. SUMMARY
             if (userChoice == 4) 
             {
-                DisplaySummary();
+                logmanager.DisplayLogOptions();
+                string input = activity.GetUserInput();
+                Console.Clear();
             }
 
             // 5. QUIT
@@ -79,14 +80,5 @@ class Program
                 Console.WriteLine($"Please choose numbers 1-4 only.\n");
             }
         }
-    }
-
-    static void DisplaySummary()
-    {
-        Console.Clear();
-        Console.WriteLine("\nHere is your Mindfulness Summary:\n");
-        Console.WriteLine($"Breathing Activity: {breathingCounter} times.");
-        Console.WriteLine($"Reflecting Activity: {reflectingCounter} times.");
-        Console.WriteLine($"Listing Activity: {listingCounter} times.\n");
     }
 }

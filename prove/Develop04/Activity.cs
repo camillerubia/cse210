@@ -75,7 +75,7 @@ public class Activity
         Console.WriteLine($"Welcome to the {_activityName} Activity. \n");
         Console.WriteLine($"{_description}\n");
         Console.Write("How long (in seconds) would you like for your session? ");
-        _duration = int.Parse(Console.ReadLine());
+        _duration = int.Parse(GetUserInput());
         Console.Clear();
         Console.WriteLine("Get ready...");
         _countdown = 3;
@@ -124,9 +124,15 @@ public class Activity
         list = System.IO.File.ReadAllLines(filename).ToList();
         return list;
     }
-    protected string GetUserInput()
+
+    public string GetUserInput()
     {
         _userInput = Console.ReadLine();
         return _userInput;
+    }
+
+    public int GetDuration()
+    {
+        return _duration;
     }
 }
