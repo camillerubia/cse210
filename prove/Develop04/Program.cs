@@ -2,6 +2,9 @@ using System;
 using System.Collections.Generic;
 
 // STRETCH
+// - Created another uninherited class for Activity log keeping
+// - Made sure that prompts/questions doesn't repeat at least twice
+// - Can save logs and load from a file
 
 class Program
 {

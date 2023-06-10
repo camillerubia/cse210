@@ -96,16 +96,24 @@ public class LogManager
     // A method that displays the log summary from a list as a parameter.
     public void DisplaySummary(List<string> logSummary)
     {
-        Console.Clear();
-        
-        // Summary heading
-        Console.WriteLine("Mindfulness Summary:\n");
-
-        // Iterates through each line in the list and displays them.
-        foreach (string line in logSummary)
+        // Checks if the list is empty, then displays a specific message if it is.
+        if (logSummary.Count == 0)
         {
-            Console.WriteLine(line);
+            Console.WriteLine("No summary available.");
         }
+        else
+        {
+            Console.Clear();
+            // Summary heading
+            Console.WriteLine("Mindfulness Summary:\n");
+
+            // Iterates through each line in the list and displays them.
+            foreach (string line in logSummary)
+            {
+                Console.WriteLine(line);
+            }
+        }     
+        
     }
 
     // A method that receives a list as a parameter and saves it in a file.
