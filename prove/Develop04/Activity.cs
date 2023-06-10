@@ -23,12 +23,14 @@ public class Activity
     protected string _userInput;
     // A field/property that stores the prompt for the subclasses to use and inherit.
     protected string _prompt;
-    
+    // A field that stores the added seconds from the start time
     protected DateTime _endTime;
     // A field that is not inherited by the random prompt from a list.
     private string randomprompt;
     // A list uninherited by the subclasses to store the characters of the spinner
     private List<string> _spinnerList = new List<string>();
+    // A list that checks if there are random prompts
+    private List<string> _promptList = new List<string>();
 
     // A method that receives the countdown as a parameter and returns the end time.
     protected DateTime AddSeconds(int countdown)
@@ -126,7 +128,7 @@ public class Activity
 
     protected int SpinnerDuration()
     {
-        _countdown = 2;
+        _countdown = 10;
         return _countdown;
     }
 
@@ -142,8 +144,19 @@ public class Activity
         }
     }
 
+    // A method that reads from a file, receives the filename as a parameter and returns a list
+    private List<string> ReadFile(string filename)
+    {
+        // Initializes a list to store the strings from the file.
+        List<string> list = new List<string>();
+        // Reads the file and converts it into a List then stores it.
+        list = System.IO.File.ReadAllLines(filename).ToList();
+        // Returns the list
+        return list;
+    }
+
     // A method that randomizes from a list (which it receives as a parameter) and returns a random prompt.
-    protected string RandomPrompt(List<string> list)
+    private string RandomPrompt(List<string> list)
     {
         // Instantiates random and stores it in a variable.
         Random rnd = new Random();
@@ -155,15 +168,29 @@ public class Activity
         return randomprompt;
     }
 
-    // A method that reads from a file, receives the filename as a parameter and returns a list
-    protected List<string> ReadFile(string filename)
+    // A method that acquires the prompt and is used by the subclasses
+    // Calls the local methods to perform their tasks and receives the 
+    // filename as a parameter which then returns the prompt
+    protected string GetPrompt(string filename)
     {
-        // Initializes a list to store the strings from the file.
+        // Instantiates a list
         List<string> list = new List<string>();
-        // Reads the file and converts it into a List then stores it.
-        list = System.IO.File.ReadAllLines(filename).ToList();
-        // Returns the list
-        return list;
+        // Calls the local method and stores it in the list
+        list = ReadFile(filename);
+        // Calls the local method to randomize from the list
+        string prompt = RandomPrompt(list);
+        // Adds the prompt to the list
+        _promptList.Add(prompt);
+
+         // Checks if there is a duplicate prompt which then calls
+        // the local method again.
+        if (_promptList.Contains(_prompt))
+        {
+            prompt = RandomPrompt(list);
+        }
+
+        // Returns the randomized prompt
+        return prompt;
     }
 
     // A method that gets the user input
