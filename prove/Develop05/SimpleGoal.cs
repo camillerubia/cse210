@@ -15,22 +15,22 @@ public class SimpleGoal : Goal
 
     protected override bool IsComplete()
     {
-        throw new NotImplementedException();
+        return _checker;
     }
 
     protected override void DisplayGoals()
     {
-        throw new NotImplementedException();
+        
     }
 
     protected override string GetUserInput()
     {
-        throw new NotImplementedException();
+        return _userInput;
     }
 
     protected override int GetPoints()
     {
-        throw new NotImplementedException();
+     return _simplePoints;
     }
 
 }
