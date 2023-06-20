@@ -6,7 +6,8 @@ public class EternalGoal : Goal
 
     public EternalGoal()
     {
-
+        GetUserInput();
+        _eternalPoints = GetPoints();
     }
 
     protected override void RecordEvent()

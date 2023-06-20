@@ -8,7 +8,8 @@ public class ChecklistGoal : Goal
 
     public ChecklistGoal()
     {
-
+        GetUserInput();
+        _checklistPoints = GetPoints();
     }
 
     protected override void RecordEvent()
@@ -20,5 +21,10 @@ public class ChecklistGoal : Goal
         return _checker;
     }
 
+    private void FollowUp()
+    {
+        Console.Write("How many times does this goal need to be accomplished for a bonus? ");
+
+    }
 
 }
