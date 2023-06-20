@@ -5,6 +5,7 @@ class Program
     static void Main(string[] args)
     {
         Console.WriteLine("Hello Develop05 World!");
-        SimpleGoal simple = new SimpleGoal();
+        // SimpleGoal simple = new SimpleGoal();
+        ChecklistGoal checklist =  new ChecklistGoal();
     }
 }

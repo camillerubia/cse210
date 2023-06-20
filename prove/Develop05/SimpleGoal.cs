@@ -8,6 +8,7 @@ public class SimpleGoal : Goal
     {
         GetUserInput();
         _simplePoints = GetPoints();
+        DisplayGoals();
     }
 
     protected override void RecordEvent()

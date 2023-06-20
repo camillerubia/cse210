@@ -37,7 +37,7 @@ public abstract class Goal
         Console.Clear();
         Console.Write("What is the name of your goal? ");
         _goalName = Console.ReadLine();
-        _goalList.Add(_goalName);
+        // _goalList.Add(_goalName);
         Console.Write("What is a short description of it? ");
         _description = Console.ReadLine();
         Console.Write("What is the amount of points associated with this goal? ");
@@ -45,8 +45,9 @@ public abstract class Goal
     }
     protected int GetPoints()
     {
-        Console.Write("What is the amount of points associated with this goal? ");
-        int points = int.Parse(Console.ReadLine());
+        // Console.Write("What is the amount of points associated with this goal? ");
+        // int points = int.Parse(Console.ReadLine());
+        int points = 0;
         return points;
     }
 

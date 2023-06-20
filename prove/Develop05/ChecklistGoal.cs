@@ -10,6 +10,7 @@ public class ChecklistGoal : Goal
     {
         GetUserInput();
         _checklistPoints = GetPoints();
+        FollowUp();
     }
 
     protected override void RecordEvent()
@@ -24,7 +25,9 @@ public class ChecklistGoal : Goal
     private void FollowUp()
     {
         Console.Write("How many times does this goal need to be accomplished for a bonus? ");
-
+        _targetGoal = int.Parse(Console.ReadLine());
+        Console.Write("What is the bonus for accomplishing it that many times? ");
+        _bonusPoints = int.Parse(Console.ReadLine());
     }
 
 }
