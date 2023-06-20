@@ -13,8 +13,20 @@ public abstract class Goal
 
     protected abstract void RecordEvent();
     protected abstract bool IsComplete();
-    protected abstract void DisplayGoals();
-    protected abstract string GetUserInput();
-    protected abstract int GetPoints();
+
+
+    protected void DisplayGoals()
+    {
+
+    }
+    protected string GetUserInput()
+    {
+        return _userInput;
+    }
+    protected int GetPoints()
+    {
+        int points = 0;
+        return points;
+    }
 
 }

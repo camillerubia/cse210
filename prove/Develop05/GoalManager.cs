@@ -18,20 +18,6 @@ public class GoalManager : Goal
         return _checker;
     }
 
-    protected override void DisplayGoals()
-    {
-        
-    }
-
-    protected override string GetUserInput()
-    {
-        return _userInput;
-    }
-
-    protected override int GetPoints()
-    {
-     return _totalPoints;
-    }
 
     public void SaveFile()
     {

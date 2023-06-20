@@ -18,19 +18,5 @@ public class SimpleGoal : Goal
         return _checker;
     }
 
-    protected override void DisplayGoals()
-    {
-        
-    }
-
-    protected override string GetUserInput()
-    {
-        return _userInput;
-    }
-
-    protected override int GetPoints()
-    {
-     return _simplePoints;
-    }
 
 }
