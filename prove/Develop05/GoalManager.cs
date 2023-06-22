@@ -19,9 +19,16 @@ public class GoalManager : Goal
         return _checker;
     }
 
+    private void GetFileName()
+    {
+        Console.Clear();
+        Console.Write("What is the filename? ");
+        _filename = Console.ReadLine();
+    }
 
     public void SaveFile()
     {
+        GetFileName();
          // A display message before storing the entries into a file.
         Console.WriteLine($"\nSaving file....");
         
@@ -41,24 +48,25 @@ public class GoalManager : Goal
 
     public List<string> LoadFile()
     {
+        GetFileName();
         // Calls the method to get the filename.
         // _filename = GetFileName();
 
-        // try
-        // {
-        //     Console.WriteLine($"\nLoading file....");
+        try
+        {
+            Console.WriteLine($"\nLoading file....");
         //     // Reads the file and converts it into a List then stores it.
         //     _fileLogSummary = System.IO.File.ReadAllLines(_filename).ToList();
 
-        //     // A confirmation message that announces the loading of file is successful.
-        //     Console.WriteLine($"\nFile loaded.\n");
-        // }
+            // A confirmation message that announces the loading of file is successful.
+            Console.WriteLine($"\nFile loaded.\n");
+        }
 
-        // catch (FileNotFoundException)
-        // {
-        //     // Displays an error message if the file is not found within the containind folder.
-        //     Console.WriteLine($"File not existing.\n");
-        // }
+        catch (FileNotFoundException)
+        {
+            // Displays an error message if the file is not found within the containind folder.
+            Console.WriteLine($"File not existing.\n");
+        }
         // // Returns the loaded strings into a List.
         return _loadGoalList;
     }

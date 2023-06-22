@@ -60,10 +60,6 @@ public class GoalMenu
              // 2. LIST GOALS
             if (userChoice == 2)
             {
-                SimpleGoal
-                goalList = simple.GetList();
-
-                Console.WriteLine(goalList.Count);
                 // foreach (string goalLine in goalList)
                 // {
                 //     string[] goalComponents = goalLine.Split(',');
@@ -81,23 +77,23 @@ public class GoalMenu
                 // }
             }
 
-            //  // 3. LISTING
-            // if (userChoice == 3)
-            // {
-            //     ListingActivity listing = new ListingActivity();  
-            //     logmanager._listingCounter ++;    
-            // }
+             // 3. SAVE GOAL
+            if (userChoice == 3)
+            {
+                manager.SaveFile(); 
+            }
 
-            // // 4. SUMMARY
-            // if (userChoice == 4) 
-            // {
-            //     Console.Clear();
-            //     // Calls the method to display the log options (display, save and load) for the user.
-            //     logmanager.DisplayLogOptions();
-            //     // A buffer to wait before the Menu options show up again which will clear the console after.
-            //     string buffer = Console.ReadLine();
-            //     Console.Clear();
-            // }
+            // 4. LOAD GOAL
+            if (userChoice == 4) 
+            {
+                manager.LoadFile(); 
+            }
+
+            // 5. RECORD EVENT
+            if (userChoice == 5)
+            {
+
+            }
 
             // 6. QUIT
             if (userChoice == 6)
