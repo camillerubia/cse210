@@ -10,7 +10,7 @@ public abstract class Goal
     protected int _totalPoints;
     protected int _points;
     protected bool _checker;
-    private char _complete;
+    private string _complete;
     protected List<string> _goalList = new List<string>();
 
     protected abstract void RecordEvent();
@@ -21,27 +21,21 @@ public abstract class Goal
     {
         if (_checker)
         {
-            _complete = 'X';
+            _complete = "X";
         }
-
-        Console.WriteLine("The goals are:");
-
-        for (int i = 0; i < _goalList.Count; i++)
-            {
-                Console.WriteLine($"{i+1}. [{_complete}] {_goalName} ({_description})");
-            }
-
     }
+
     protected void GetUserInput()
     {
         Console.Clear();
         Console.Write("What is the name of your goal? ");
         _goalName = Console.ReadLine();
-        // _goalList.Add(_goalName);
         Console.Write("What is a short description of it? ");
         _description = Console.ReadLine();
         Console.Write("What is the amount of points associated with this goal? ");
         _points = int.Parse(Console.ReadLine());
+        string goalLine = $"{_complete}, {_goalName}, {_description}, {_points.ToString()}";
+        _goalList.Add(goalLine);
     }
     protected int GetPoints()
     {
@@ -50,5 +44,7 @@ public abstract class Goal
         int points = 0;
         return points;
     }
+
+    
 
 }

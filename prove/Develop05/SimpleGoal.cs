@@ -8,7 +8,6 @@ public class SimpleGoal : Goal
     {
         GetUserInput();
         _simplePoints = GetPoints();
-        DisplayGoals();
     }
 
     protected override void RecordEvent()
@@ -20,5 +19,9 @@ public class SimpleGoal : Goal
         return _checker;
     }
 
+    public List<string> GetList()
+    {
+        return _goalList;
+    }
 
 }

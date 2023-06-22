@@ -3,7 +3,7 @@ using System;
 public class GoalManager : Goal
 {
     private string _filename;
-    private List<string> _goalList = new List<string>();
+    private List<string> _loadGoalList = new List<string>();
 
     public GoalManager()
     {
@@ -60,7 +60,6 @@ public class GoalManager : Goal
         //     Console.WriteLine($"File not existing.\n");
         // }
         // // Returns the loaded strings into a List.
-        return _goalList;
+        return _loadGoalList;
     }
-
 }
