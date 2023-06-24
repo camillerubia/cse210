@@ -19,33 +19,34 @@ public abstract class Goal
 
     protected void GetUserInput()
     {
-
-        try
+        Console.Clear();
+        while (true)
         {
-            Console.Clear();
             Console.Write("What is the name of your goal? ");
-            _goalName = Console.ReadLine();
-        }
-        catch (FormatException)
-        {
-            Console.WriteLine("Please input the correct type.");
-        }
+            _goalName = Console.ReadLine();       
             Console.Write("What is a short description of it? ");
             _description = Console.ReadLine();
-            Console.Write("What is the amount of points associated with this goal? ");
-            _points = int.Parse(Console.ReadLine());
-            string goalLine = $"{_goalType}, {_complete}, {_goalName}, {_description}, {_points.ToString()}";
-            Goal._goalList.Add(goalLine);
+        
+            try
+            {
+                Console.Write("What is the amount of points associated with this goal? ");
+                _points = int.Parse(Console.ReadLine());
+                break;
+            }
+            catch (FormatException)
+            {
+                Console.Clear();
+                Console.WriteLine("Please input the correct type.");
+            }
+            Console.Clear();
+        }
 
-        
-        
+        string goalLine = $"{_goalType}, {_complete}, {_goalName}, {_description}, {_points.ToString()}";
+        Goal._goalList.Add(goalLine);
     }
     protected int GetPoints()
     {
-        // Console.Write("What is the amount of points associated with this goal? ");
-        // int points = int.Parse(Console.ReadLine());
         int points = 0;
         return points;
     }
-
 }

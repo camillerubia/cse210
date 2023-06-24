@@ -1,7 +1,8 @@
 using System;
 using System.Collections.Generic;
+using System.Xml.Serialization;
 
-public class GoalMenu : Goal
+public class GoalMenu: Goal
 {
     // Creates a set list for displaying menu options.
     private List<string> menuList = new List<string> {"Create New Goal", "List Goals", "Save Goals", "Load Goals", "Record Event", "Quit"};
@@ -47,7 +48,7 @@ public class GoalMenu : Goal
 
         if (userGoalType == 1)
         {
-            SimpleGoal simple = new SimpleGoal();
+            SimpleGoal simple = new SimpleGoal(false);
         }
 
         if (userGoalType == 2)

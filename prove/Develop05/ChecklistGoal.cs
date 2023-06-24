@@ -47,4 +47,5 @@ public class ChecklistGoal : Goal
         return _completeTarget;
     }
 
+
 }

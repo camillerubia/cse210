@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-public class GoalManager : Goal
+public class GoalManager:Goal
 {
     private string _filename;
     private List<string> _loadGoalList = new List<string>();
@@ -34,15 +34,15 @@ public class GoalManager : Goal
         Console.WriteLine($"\nSaving file....");
         
         // Instantiates the SteamWriter using the outputFile variable and uses the filename 
-        // // field as its file title.
-        // using (StreamWriter outputFile = new StreamWriter(_filename))
-        // {
-        //     // Writes each line from the list in the created file.
-        //     foreach (string line in _saveList)
-        //     {
-        //         outputFile.WriteLine(line);
-        //     }
-        // }
+        // field as its file title.
+        using (StreamWriter outputFile = new StreamWriter(_filename))
+        {
+            // Writes each line from the list in the created file.
+            foreach (string line in _loadGoalList)
+            {
+                outputFile.WriteLine(line);
+            }
+        }
         // A confirmation indicating the process has been completed.
         Console.WriteLine($"\nFile saved.\n");
     }
@@ -71,5 +71,4 @@ public class GoalManager : Goal
         // // Returns the loaded strings into a List.
         return _loadGoalList;
     }
-
 }

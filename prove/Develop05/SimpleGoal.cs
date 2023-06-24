@@ -19,6 +19,11 @@ public class SimpleGoal : Goal
     protected override void RecordEvent()
     {
         _simplePoints = GetPoints();
+
+        if (_goalList.Contains("SimpleGoal"))
+        {
+
+        }
     }
 
     protected override bool IsComplete()

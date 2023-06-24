@@ -19,6 +19,4 @@ public class EternalGoal : Goal
     {
         return _checker;
     }
-
-
 }
