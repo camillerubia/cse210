@@ -6,22 +6,24 @@ public class SimpleGoal : Goal
 
     public SimpleGoal()
     {
+        _goalType = "SimpleGoal";
         GetUserInput();
-        _simplePoints = GetPoints();
+        
+    }
+
+    public SimpleGoal(bool checker)
+    {
+        RecordEvent();
     }
 
     protected override void RecordEvent()
     {
+        _simplePoints = GetPoints();
     }
 
     protected override bool IsComplete()
     {
         return _checker;
-    }
-
-    public List<string> GetList()
-    {
-        return _goalList;
     }
 
 }

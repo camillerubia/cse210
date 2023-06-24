@@ -5,12 +5,14 @@ public class ChecklistGoal : Goal
     private int _checklistPoints;
     private int _bonusPoints;
     private int _targetGoal;
+    private int _completeTarget;
 
     public ChecklistGoal()
     {
+        _goalType = "ChecklistGoal";
         GetUserInput();
-        _checklistPoints = GetPoints();
         FollowUp();
+        _checklistPoints = GetPoints();
     }
 
     protected override void RecordEvent()
@@ -28,6 +30,21 @@ public class ChecklistGoal : Goal
         _targetGoal = int.Parse(Console.ReadLine());
         Console.Write("What is the bonus for accomplishing it that many times? ");
         _bonusPoints = int.Parse(Console.ReadLine());
+    }
+
+    public int GetBonus()
+    {
+        return _bonusPoints;
+    }
+
+    public int GetTarget()
+    {
+        return _targetGoal;
+    }
+
+    public int GetCompleteTarget()
+    {
+        return _completeTarget;
     }
 
 }

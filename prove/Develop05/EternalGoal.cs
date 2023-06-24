@@ -6,6 +6,7 @@ public class EternalGoal : Goal
 
     public EternalGoal()
     {
+        _goalType = "EternalGoal";
         GetUserInput();
         _eternalPoints = GetPoints();
     }
