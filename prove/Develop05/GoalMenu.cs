@@ -1,6 +1,7 @@
 using System;
+using System.Collections.Generic;
 
-public class GoalMenu
+public class GoalMenu : Goal
 {
     // Creates a set list for displaying menu options.
     private List<string> menuList = new List<string> {"Create New Goal", "List Goals", "Save Goals", "Load Goals", "Record Event", "Quit"};
@@ -17,6 +18,14 @@ public class GoalMenu
         DisplayMenu();
     }
 
+    protected override void RecordEvent()
+    {
+    }
+
+    protected override bool IsComplete()
+    {
+        return _checker;
+    }
     private void DisplayMenu()
     {
         // Initializes the user input to 0.
@@ -26,6 +35,8 @@ public class GoalMenu
         //  A loop to continuously display the menu for the user.
         while (true)
         {
+            Console.WriteLine($"You have {_totalPoints} total points./n");
+
             Console.WriteLine("Menu Options:");
 
             // A loop that iterates through the List above to display in numbered format.
@@ -40,6 +51,7 @@ public class GoalMenu
                 Console.Write("\nSelect a choice from the menu: ");
                 userChoice = int.Parse(Console.ReadLine());
                 Console.WriteLine();
+                
             }
 
             // An error handler when the user inputs a letter and not a number.
@@ -60,21 +72,22 @@ public class GoalMenu
              // 2. LIST GOALS
             if (userChoice == 2)
             {
-                // foreach (string goalLine in goalList)
-                // {
-                //     string[] goalComponents = goalLine.Split(',');
-                //     complete = goalComponents[0].Trim();
-                //     goalName = goalComponents[1].Trim();
-                //     description = goalComponents[2].Trim();
-                //     points = int.Parse(goalComponents[3].Trim());
-                // }
+                // goalList = simple1.GetList();
+                foreach (string goalLine in goalList)
+                {
+                    string[] goalComponents = goalLine.Split(',');
+                    complete = goalComponents[0].Trim();
+                    goalName = goalComponents[1].Trim();
+                    description = goalComponents[2].Trim();
+                    points = int.Parse(goalComponents[3].Trim());
+                }
 
-                // Console.WriteLine("The goals are:");
+                Console.WriteLine("The goals are:");
 
-                // for (int i = 0; i < goalList.Count; i++)
-                // {
-                //     Console.WriteLine($"{i+1}. [{complete}] {goalName} ({description})");
-                // }
+                for (int i = 0; i < goalList.Count; i++)
+                {
+                    Console.WriteLine($"{i+1}. [{complete}] {goalName} ({description})");
+                }
             }
 
              // 3. SAVE GOAL
@@ -101,10 +114,10 @@ public class GoalMenu
                 break;
             }
 
-            // Displays message when user choice is out of 1-5 range.
-            else if (userChoice > 5) 
+            // Displays message when user choice is out of 1-6 range.
+            else if (userChoice > 6) 
             {
-                Console.WriteLine($"Please choose numbers 1-5 only.\n");
+                Console.WriteLine($"Please choose numbers 1-6 only.\n");
             }
         }
     }

@@ -45,6 +45,4 @@ public abstract class Goal
         return points;
     }
 
-    
-
 }

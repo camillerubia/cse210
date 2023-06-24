@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 public class GoalManager : Goal
 {
@@ -7,7 +8,7 @@ public class GoalManager : Goal
 
     public GoalManager()
     {
-
+        
     }
 
     protected override void RecordEvent()
@@ -70,4 +71,5 @@ public class GoalManager : Goal
         // // Returns the loaded strings into a List.
         return _loadGoalList;
     }
+
 }
