@@ -9,7 +9,7 @@ public class GoalManager
     private string _filename;
     private List<string> menuList = new List<string> {"Create New Goal", "List Goals", "Save Goals", "Load Goals", "Record Event", "Quit"};
     private List<string> goalTypes = new List<string> {"Simple Goal", "Eternal Goal", "Checklist Goal"};
-
+    private static List<Goal> goalList = new List<Goal>();
     public GoalManager()
     {
         goals = new List<Goal>();
@@ -97,9 +97,52 @@ public class GoalManager
         Console.WriteLine("Goals saved successfully!");
     }
 
-    public void LoadGoals()
+    public List<Goal> LoadGoals()
     {
+        GetFilename();
+        
 
+        if (File.Exists(_filename))
+        {
+            string[] lines = File.ReadAllLines(_filename);
+
+            foreach (string line in lines)
+            {
+                string[] goalData = line.Split(':');
+                string goalType = goalData[0].Trim();
+                string[] goalParams = goalData[1].Split(',');
+
+                string goalName = goalParams[0].Trim();
+                string goalDescription = goalParams[1].Trim();
+                int points = int.Parse(goalParams[2].Trim());
+
+                Goal goal;
+
+                if (goalType == "SimpleGoal")
+                {
+                    goal = new SimpleGoal(goalName, goalDescription, points);
+                }
+                else if (goalType == "EternalGoal")
+                {
+                    goal = new EternalGoal(goalName, goalDescription, points);
+                }
+                else if (goalType == "ChecklistGoal")
+                {
+                    int bonusPoints = int.Parse(goalParams[3].Trim());
+                    int targetGoal = int.Parse(goalParams[4].Trim());
+                    goal = new ChecklistGoal(goalName, goalDescription, points, bonusPoints, targetGoal);
+                }
+                else
+                {
+                    // Handle unknown goal type or invalid data
+                    continue;
+                }
+
+                goalList.Add(goal);
+            }
+        }
+
+        return goalList;
     }
 
     public void RecordEvent()
