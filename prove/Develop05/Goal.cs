@@ -14,8 +14,8 @@ public abstract class Goal
     protected string _complete;
     protected static List<string> _goalList = new List<string>();
 
-    protected abstract void RecordEvent();
-    protected abstract bool IsComplete();
+    public abstract void RecordEvent();
+    public abstract bool IsComplete();
 
     protected void GetUserInput()
     {
@@ -33,11 +33,13 @@ public abstract class Goal
                 _points = int.Parse(Console.ReadLine());
                 break;
             }
+
             catch (FormatException)
             {
                 Console.Clear();
                 Console.WriteLine("Please input the correct type.");
             }
+            
             Console.Clear();
         }
 

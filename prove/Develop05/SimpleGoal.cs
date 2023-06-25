@@ -16,17 +16,17 @@ public class SimpleGoal : Goal
         RecordEvent();
     }
 
-    protected override void RecordEvent()
+    public override void RecordEvent()
     {
         _simplePoints = GetPoints();
 
         if (_goalList.Contains("SimpleGoal"))
         {
-
+            _checker = true;
         }
     }
 
-    protected override bool IsComplete()
+    public override bool IsComplete()
     {
         return _checker;
     }

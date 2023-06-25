@@ -11,11 +11,11 @@ public class EternalGoal : Goal
         _eternalPoints = GetPoints();
     }
 
-    protected override void RecordEvent()
+    public override void RecordEvent()
     {
     }
 
-    protected override bool IsComplete()
+    public override bool IsComplete()
     {
         return _checker;
     }
