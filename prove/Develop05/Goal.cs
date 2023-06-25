@@ -8,7 +8,7 @@ public abstract class Goal
     protected string _userInput;
     protected string _goalType;
     protected int _menuChoice;
-    protected int _totalPoints;
+    protected static int _totalPoints;
     protected int _points;
     protected bool _checker;
     protected string _complete;
@@ -39,7 +39,7 @@ public abstract class Goal
                 Console.Clear();
                 Console.WriteLine("Please input the correct type.");
             }
-            
+
             Console.Clear();
         }
 
@@ -48,7 +48,6 @@ public abstract class Goal
     }
     protected int GetPoints()
     {
-        int points = 0;
-        return points;
+        return _points;
     }
 }

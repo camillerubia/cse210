@@ -8,6 +8,8 @@ public class GoalManager : Goal
     private List<string> menuList = new List<string> {"Create New Goal", "List Goals", "Save Goals", "Load Goals", "Record Event", "Quit"};
     private List<string> goalType = new List<string> {"Simple Goal", "Eternal Goal", "Checklist Goal"};
     private List<string> goalNames = new List<string>();
+    private List<int> goalPoints = new List<int>();
+
     FileManager manager = new FileManager();
     private static int bonus;
     private static int target;
@@ -49,7 +51,7 @@ public class GoalManager : Goal
 
         if (userGoalType == 1)
         {
-            SimpleGoal simple = new SimpleGoal(false);
+            SimpleGoal simple = new SimpleGoal();
         }
 
         if (userGoalType == 2)
@@ -91,7 +93,6 @@ public class GoalManager : Goal
                 Console.Write("\nSelect a choice from the menu: ");
                 userChoice = int.Parse(Console.ReadLine());
                 Console.WriteLine();
-                
             }
 
             // An error handler when the user inputs a letter and not a number.
@@ -122,6 +123,7 @@ public class GoalManager : Goal
                     _description = goalComponents[3].Trim();
                     _points = int.Parse(goalComponents[4].Trim());
                     goalNames.Add(_goalName);
+                    goalPoints.Add(_points);
 
                     if (_goalType == "ChecklistGoal")
                     {
@@ -173,11 +175,25 @@ public class GoalManager : Goal
         Console.WriteLine("The goals are");
         for (int i = 0; i < goalNames.Count; i++)
         {
-            Console.WriteLine($"{i + 1} {goalNames[i]}");
+            Console.WriteLine($"{i + 1}. {goalNames[i]}");
         }
+        goalNames.Clear();
 
         Console.WriteLine("Which goal did you accomplish? ");
         int userChoice = int.Parse(Console.ReadLine());
+        int index = userChoice -1;
+        string goalName = goalNames[index];
+        int goalPoint = goalPoints[index];
+        
+        if (_goalList[index].Contains("SimpleGoal"))
+        {
+            SimpleGoal simple = new SimpleGoal(true, goalName);
+        }
+        
+        _totalPoints += goalPoint;
+
+        Console.WriteLine($"Congratulations! You have earned {goalPoint} points!");
+        Console.WriteLine($"You now have {_totalPoints}.");
     }
 
     public override bool IsComplete()
