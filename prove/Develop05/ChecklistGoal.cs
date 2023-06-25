@@ -47,4 +47,19 @@ public class ChecklistGoal : Goal
             Console.WriteLine($"Congratulations! You have earned {_points} points!");
         }
     }
+
+    public int GetTargetGoal()
+    {
+        return _targetGoal;
+    }
+
+    public int GetBonus()
+    {
+        return _bonusPoints;
+    }
+
+    public int GetCompletedCount()
+    {
+        return _completedCount;
+    }
 }

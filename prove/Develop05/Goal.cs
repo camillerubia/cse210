@@ -60,4 +60,14 @@ public abstract class Goal
         }
         return _goalStatus;
     }
+
+    public virtual string GetGoalName()
+    {
+        return _goalName;
+    }
+
+    public virtual string GetDescription()
+    {
+        return _description;
+    }
 }

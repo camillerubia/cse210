@@ -10,4 +10,9 @@ public class SimpleGoal : Goal
     {
 
     }
+
+    public bool IsCompleted()
+    {
+        return _completed;
+    }
 }
