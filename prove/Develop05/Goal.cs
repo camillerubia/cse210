@@ -7,7 +7,7 @@ public abstract class Goal
     protected string _description;
     protected int _points;
     protected bool _completed;
-    private string _goalStatus;
+    public string _goalStatus;
 
     // Initialize the values of each property with specific values 
     // when a class instantiation is created.
@@ -26,9 +26,10 @@ public abstract class Goal
         Console.WriteLine($"{goalStatus} {_goalName} ({_description})");
     }
 
-    public virtual void IsComplete()
+    public virtual void CompleteGoal()
     {
-
+        _completed = true;
+        Console.WriteLine($"Congratulations! You have earned {_points} points!");
     }
 
     public int GetPoints()
@@ -36,7 +37,7 @@ public abstract class Goal
         return _points;
     }
 
-    private string GoalStatus()
+    public virtual string GoalStatus()
     {
         if (_completed)
         {

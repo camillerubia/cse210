@@ -5,6 +5,7 @@ using System.Xml.Serialization;
 public class GoalManager 
 {
     public List<string> goals = new List<string>();
+    private int _totalPoints;
     public GoalManager()
     {
 

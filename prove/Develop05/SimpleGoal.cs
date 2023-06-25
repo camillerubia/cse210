@@ -2,8 +2,8 @@ using System;
 
 public class SimpleGoal : Goal
 {
-    public SimpleGoal()
+    public SimpleGoal(string goalName, string description, int points) : base (goalName, description, points)
     {
-        
+
     }
 }
