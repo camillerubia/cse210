@@ -8,6 +8,7 @@ using System;
 // - overriddes the goalstatus to set unmarked even if completed.
 public class EternalGoal : Goal
 {
+    // Sets parameters for class constructor
     public EternalGoal(string goalName, string description, int points) : base (goalName, description, points)
     {
 

@@ -33,13 +33,17 @@ public class ChecklistGoal : Goal
     // target goal and completed goal count
     public override void CompleteGoal()
     {
+        // Increments the count when the goal is completed each time.
         _completedCount++;
 
+        // A condition used to check if the user has completed all the target goal count, adds
+        // the bonus point if it is, but adds the regular points if not.
         if (_completedCount == _targetGoal)
         {
+            // Set the boolean to true.
             _completed = true;
+            // Adds the bonus points to the regular point.
             int totalPoints = _points + _bonusPoints;
-
             Console.WriteLine($"Congratulations! You have earned {totalPoints} points!");
         }
         else
@@ -48,6 +52,7 @@ public class ChecklistGoal : Goal
         }
     }
 
+    // Allows external source to access the target goal count, bonus points and completed count.
     public int GetTargetGoal()
     {
         return _targetGoal;
@@ -63,6 +68,7 @@ public class ChecklistGoal : Goal
         return _completedCount;
     }
 
+    // Allows external access to set the goal status. (used for saving in a file)
     public void SetCompletedCount(int completedCount)
     {
         _completedCount = completedCount;

@@ -48,12 +48,12 @@ public abstract class Goal
         return _points;
     }
 
-    public  string GetGoalName()
+    public string GetGoalName()
     {
         return _goalName;
     }
 
-    public  string GetDescription()
+    public string GetDescription()
     {
         return _description;
     }
