@@ -1,3 +1,0 @@
-10SimpleGoal: SIMPLE, asdfasdf, 10, False
-20EternalGoal: ET, asdfasdfa, 20
-30ChecklistGoal: CCHECK, asdfasd, 30, 40, 3, 0

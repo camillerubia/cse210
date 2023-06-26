@@ -15,4 +15,9 @@ public class SimpleGoal : Goal
     {
         return _completed;
     }
+
+    public void SetCompleted(bool completed)
+    {
+        _completed = completed;
+    }
 }

@@ -25,7 +25,7 @@ public class ChecklistGoal : Goal
     // Overrides the inherited method to display specific goal type format.
     public override void DisplayGoal()
     {
-        string goalStatus = base.GoalStatus();
+        string goalStatus = _completed ? "[X]" : "[ ]";
         Console.WriteLine($"{goalStatus} {_goalName} ({_description}) -- Currently completed: {_completedCount}/{_targetGoal}");
     }
 
@@ -61,5 +61,10 @@ public class ChecklistGoal : Goal
     public int GetCompletedCount()
     {
         return _completedCount;
+    }
+
+    public void SetCompletedCount(int completedCount)
+    {
+        _completedCount = completedCount;
     }
 }

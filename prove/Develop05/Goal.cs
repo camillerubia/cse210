@@ -30,7 +30,7 @@ public abstract class Goal
     // Displays each goal when user chooses List Goal option in the main menu.
     public virtual void DisplayGoal()
     {
-        string goalStatus = GoalStatus();
+        string goalStatus = _completed ? "[X]" : "[ ]";
         Console.WriteLine($"{goalStatus} {_goalName} ({_description})");
     }
 
@@ -45,20 +45,6 @@ public abstract class Goal
     public int GetPoints()
     {
         return _points;
-    }
-
-    // Determines the marker for each goal completed.
-    public virtual string GoalStatus()
-    {
-        if (_completed)
-        {
-            _goalStatus = "[X]";
-        }
-        else
-        {
-            _goalStatus = "[ ]";
-        }
-        return _goalStatus;
     }
 
     public virtual string GetGoalName()

@@ -14,8 +14,9 @@ public class EternalGoal : Goal
     }
 
     // Overrides the inherited method to set the marker blank.
-    public override string GoalStatus()
+    public override void DisplayGoal()
     {
-        return _goalStatus = "[ ]";
+        string goalStatus = "[ ]";
+        Console.WriteLine($"{goalStatus} {_goalName} ({_description})");
     }
 }
