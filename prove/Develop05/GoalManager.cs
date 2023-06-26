@@ -18,47 +18,55 @@ public class GoalManager
 
     public void CreateGoal(int goalType)
     {
-        Console.Clear();
-        Console.Write("What is the name of your goal? ");
-        string goalName = Console.ReadLine();
-
-        Console.Write("What is a short description of it? ");
-        string description = Console.ReadLine();
-
-        Console.Write("What is the amount of points associated with this goal? ");
-        int points = int.Parse(Console.ReadLine());
-
-
-        switch (goalType)
+        try
         {
-            case 1:
-                goals.Add(new SimpleGoal(goalName, description, points));
-                break;
-            case 2:
-                goals.Add(new EternalGoal(goalName, description, points));
-                break;
-            case 3:
-                Console.Write("How many times does this goal need to be accomplished for a bonus? ");
-                int targetGoal = int.Parse(Console.ReadLine());
-                Console.Write("What is the bonus for accomplishing it that many times? ");
-                int bonusPoints = int.Parse(Console.ReadLine());
-                goals.Add(new ChecklistGoal(goalName, description, points, targetGoal, bonusPoints));
-                break;
-            default:
-                Console.WriteLine("Please choose within the menu options only");
-                break;
+            Console.Clear();
+            Console.Write("What is the name of your goal? ");
+            string goalName = Console.ReadLine();
+
+            Console.Write("What is a short description of it? ");
+            string description = Console.ReadLine();
+
+            Console.Write("What is the amount of points associated with this goal? ");
+            int points = int.Parse(Console.ReadLine());
+
+            switch (goalType)
+            {
+                case 1:
+                    goals.Add(new SimpleGoal(goalName, description, points));
+                    break;
+                case 2:
+                    goals.Add(new EternalGoal(goalName, description, points));
+                    break;
+                case 3:
+                    Console.Write("How many times does this goal need to be accomplished for a bonus? ");
+                    int targetGoal = int.Parse(Console.ReadLine());
+                    Console.Write("What is the bonus for accomplishing it that many times? ");
+                    int bonusPoints = int.Parse(Console.ReadLine());
+                    goals.Add(new ChecklistGoal(goalName, description, points, targetGoal, bonusPoints));
+                    break;
+                default:
+                    Console.WriteLine("Please choose within the menu options only");
+                    break;
+            }
+        }
+        catch (FormatException)
+        {
+            Console.Clear();
+            Console.WriteLine("Please input the correct type.");
         }
     }
 
     public void ListGoals()
     {
-        Console.WriteLine("The goals are:");
+        Console.WriteLine("The goals are:\n");
 
         for (int i = 0; i < goals.Count; i++)
         {
             Console.Write($"{i+1}. ");
             goals[i].DisplayGoal();
         }
+        Console.WriteLine();
     }
 
     private void GetFilename()
@@ -239,7 +247,7 @@ public class GoalManager
             {
                 case 1:
                     Console.Clear();
-                    Console.WriteLine("The types of Goals are:");
+                    Console.WriteLine("The types of Goals are:\n");
 
                     // A loop that iterates through the List above to display in numbered format.
                     for (int i = 0; i < goalTypes.Count; i++)
@@ -247,7 +255,7 @@ public class GoalManager
                         Console.WriteLine($"{i+1}. {goalTypes[i]}");
                     }
 
-                    Console.Write("Which type of goal would you like to create? ");
+                    Console.Write("\nWhich type of goal would you like to create? ");
                     int goalType = int.Parse(Console.ReadLine());
 
                     CreateGoal(goalType);

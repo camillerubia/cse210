@@ -30,29 +30,30 @@ public abstract class Goal
     // Displays each goal when user chooses List Goal option in the main menu.
     public virtual void DisplayGoal()
     {
+        // // A ternary operator that determines the goal status based on its completion.
         string goalStatus = _completed ? "[X]" : "[ ]";
         Console.WriteLine($"{goalStatus} {_goalName} ({_description})");
     }
 
-    // Sets the boolean to true when method is called and displays message.
+    // Marks the boolean to true when method is called and displays message.
     public virtual void CompleteGoal()
     {
         _completed = true;
-        Console.WriteLine($"Congratulations! You have earned {_points} points!");
+        Console.WriteLine($"\nCongratulations! You have earned {_points} points!\n");
     }
 
-    // Allows external source to access the points for each goal type.
+    // Allows external source to access the points, goal name and description for each goal type.
     public int GetPoints()
     {
         return _points;
     }
 
-    public virtual string GetGoalName()
+    public  string GetGoalName()
     {
         return _goalName;
     }
 
-    public virtual string GetDescription()
+    public  string GetDescription()
     {
         return _description;
     }

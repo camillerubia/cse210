@@ -1,0 +1,4 @@
+0
+SimpleGoal: S, jjdfgjfg, 1, False
+EternalGoal: ET, sfgfdgh, 2
+ChecklistGoal: CH, ghjfgh, 3, 3, 3, 0
