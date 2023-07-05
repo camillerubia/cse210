@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 
 public class Video
@@ -8,9 +9,15 @@ public class Video
     private int _length;
     private List<Comment> _comments;
 
-
+    public Video (string trackTitle, string author, int length)
+    {
+        _trackTitle = trackTitle;
+        _author = author;
+        _length = length;
+        _comments = new List<Comment>();
+    }
     private int GetCommentNumber()
     {
-        return _length;
+        return _comments.Count;
     }
 }
