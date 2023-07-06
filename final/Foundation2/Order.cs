@@ -3,8 +3,8 @@ using System;
 public class Order
 {
     private List<Product> _products;
-    private List<Customer> _customers;
-    private int _totalCost;
+    private Customer _customer;
+    private double _totalCost;
     private string _packingLabel;
     private string _shippingLabel;
     private int _shippingFee;
@@ -12,14 +12,46 @@ public class Order
     private int _outsideShipping = 35;
     private string _orderDetails;
 
-
-    public int ComputeTotalCost()
+    public Order (Customer customer)
     {
+        _customer = customer;
+        _products = new List<Product>();
+    }
+
+    public void AddProduct(Product product)
+    {
+        _products.Add(product);
+    }
+
+    public double GetTotalPrice()
+    {
+        foreach (Product product in _products)
+        {
+            _totalCost += product.GetTotalPrice();
+        }
+
+        _totalCost += _customer.GetAddress().IsUSA() ? _usShipping : _outsideShipping;
+
         return _totalCost;
+    }
+
+    public string GetPackingLabel()
+    {
+        foreach (Product product in _products)
+        {
+            _packingLabel = product.GetProductDetails();
+        }
+
+        return _packingLabel;
+    }
+
+    public string GetShippingLabel()
+    {
+        return _shippingLabel = _customer.GetCustomerDetails();;
     }
 
     public string OrderDetails()
     {
-        return _orderDetails;
+        return _orderDetails = $"{_shippingLabel}\n{_packingLabel}\nTotal Cost: {_totalCost}";
     }
 }

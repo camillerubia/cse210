@@ -9,7 +9,6 @@ public class Address
     private string _country;
     private string _address;
 
-
     public Address(string street, string city, string stateProvince, string country)
     {
         _street = street;

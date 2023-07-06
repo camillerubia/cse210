@@ -13,8 +13,14 @@ public class Customer
         _address = address;
     }
 
+    public Address GetAddress()
+    {
+        return _address;
+    }
+
     public string GetCustomerDetails()
     {
+        _customerDetails = $"{_customerName}\n{_address.GetAddress()}";
         return _customerDetails;
     }
 }

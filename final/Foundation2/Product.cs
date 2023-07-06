@@ -3,17 +3,16 @@ using System;
 public class Product
 {
     private string _productName;
-    private string _product;
     private int _id;
-    private int _price;
+    private double _price;
     private int _quantity;
-    private int _totalPrice;
+    private double _totalPrice;
     private string _productDetails;
 
-    public Product (string name, string product, int id, int price, int quantity)
+
+    public Product (string productName, int id, double price, int quantity)
     {
-        _productName = name;
-        _product = product;
+        _productName = productName;
         _id = id;
         _price = price;
         _quantity = quantity;
@@ -21,10 +20,10 @@ public class Product
 
     public string GetProductDetails()
     {
-        return _productDetails;
+        return _productDetails = $"{_id} {_productName} - {_quantity}X {_price}";
     }
 
-    public int GetTotalPrice()
+    public double GetTotalPrice()
     {
         return _totalPrice = _price * _quantity;
     }
