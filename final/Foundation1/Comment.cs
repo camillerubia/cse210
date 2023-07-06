@@ -3,14 +3,15 @@ using System;
 
 public class Comment
 {
-    private string _completeComment;
-    private string _commenterName;
-    private string _commentText;
-    private string _comment;
+    public string _completeComment;
+    public string _commenterName;
+    public string _commentText;
+    public string _comment;
 
     public Comment (string commenterName, string text)
     {
-
+        _commenterName = commenterName;
+        _commentText = text;
     }
     public string GetComment()
     {
