@@ -12,11 +12,19 @@ public class Address
 
     public Address(string street, string city, string stateProvince, string country)
     {
-
+        _street = street;
+        _city = city;
+        _stateProvince = stateProvince;
+        _country = country;
     }
 
+    public bool IsUSA()
+    {
+        bool checker;
+        return checker = _country.Contains("USA");
+    }
     public string GetAddress()
     {
-        return _address;
+        return _address = $"{_street}, {_city}, {_stateProvince}, {_country}";
     }
 }
