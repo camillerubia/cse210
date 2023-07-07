@@ -5,14 +5,14 @@ class Program
     static void Main(string[] args)
     {
         Console.Clear();
-        Console.WriteLine("Hello Foundation2 World!");
+        Console.WriteLine("Hello Foundation2 World!\n");
 
         // Create customers
-        Address customerAddress1 = new Address("123 Main St", "City1", "State1", "USA");
-        Customer customer1 = new Customer("John Doe", customerAddress1);
+        Address customerAddress1 = new Address("420 Jackson St", "Albany", "Indiana", "USA");
+        Customer customer1 = new Customer("Jessica Pearson", customerAddress1);
 
-        Address customerAddress2 = new Address("456 Elm St", "City2", "State2", "Canada");
-        Customer customer2 = new Customer("Jane Smith", customerAddress2);
+        Address customerAddress2 = new Address("191-1136 Okushumbetsu", "Teshikaga-cho Kawakami-gun", "Hokkaido", "Japan");
+        Customer customer2 = new Customer("Katrina Bennett", customerAddress2);
 
         // Create products
         Product product1 = new Product("Product1", "PH001", 10.99, 2);
@@ -29,20 +29,22 @@ class Program
         order2.AddProduct(product3);
 
         // Display packing labels, shipping labels, and total prices for the orders
-        Console.WriteLine("Order 1 - Packing Label:");
+        Console.WriteLine("---------------------------------");
+        Console.WriteLine("Order 1 - Packing Label:\n");
         order1.GetPackingLabel();
-        Console.WriteLine("Order 1 - Total Price: $" + order1.GetTotalPrice());
+        Console.WriteLine($"Order 1 - Total Price: ${order1.GetTotalPrice()}");
 
-        Console.WriteLine("\nOrder 1 - Shipping Label:");
+        Console.WriteLine("\nOrder 1 - Shipping Label:\n");
         Console.WriteLine(order1.GetShippingLabel());
-        
-        Console.WriteLine();
+        Console.WriteLine("---------------------------------\n");
 
-        Console.WriteLine("Order 2 - Packing Label:");
+        Console.WriteLine("---------------------------------");
+        Console.WriteLine("Order 2 - Packing Label:\n");
         order2.GetPackingLabel();
-        Console.WriteLine("Order 2 - Total Price: $" + order2.GetTotalPrice());
+        Console.WriteLine($"Order 2 - Total Price: ${order2.GetTotalPrice()}");
 
-        Console.WriteLine("\nOrder 2 - Shipping Label:");
+        Console.WriteLine("\nOrder 2 - Shipping Label:\n");
         Console.WriteLine(order2.GetShippingLabel());
+        Console.WriteLine("---------------------------------\n");
     }
 }

@@ -19,7 +19,7 @@ public class Product
 
     public string GetProductDetails()
     {
-        return _productDetails = $"{_id} {_productName} - {_quantity}X {_price}";
+        return _productDetails = $"{_id}| {_productName} - {_quantity}X {_price}";
     }
 
     public double GetTotalPrice()
