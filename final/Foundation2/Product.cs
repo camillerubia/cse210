@@ -3,14 +3,13 @@ using System;
 public class Product
 {
     private string _productName;
-    private int _id;
+    private string _id;
     private double _price;
     private int _quantity;
     private double _totalPrice;
     private string _productDetails;
 
-
-    public Product (string productName, int id, double price, int quantity)
+    public Product (string productName, string id, double price, int quantity)
     {
         _productName = productName;
         _id = id;

@@ -4,6 +4,7 @@ class Program
 {
     static void Main(string[] args)
     {
+        Console.Clear();
         Console.WriteLine("Hello Foundation2 World!");
 
         // Create customers
@@ -14,9 +15,9 @@ class Program
         Customer customer2 = new Customer("Jane Smith", customerAddress2);
 
         // Create products
-        Product product1 = new Product("Product1", 001, 10.99, 2);
-        Product product2 = new Product("Product2", 002, 5.99, 3);
-        Product product3 = new Product("Product3", 003, 7.49, 1);
+        Product product1 = new Product("Product1", "PH001", 10.99, 2);
+        Product product2 = new Product("Product2", "PH002", 5.99, 3);
+        Product product3 = new Product("Product3", "PH003", 7.49, 1);
 
         // Create orders
         Order order1 = new Order(customer1);
@@ -29,23 +30,19 @@ class Program
 
         // Display packing labels, shipping labels, and total prices for the orders
         Console.WriteLine("Order 1 - Packing Label:");
-        Console.WriteLine(order1.GetPackingLabel());
-
-        Console.WriteLine("Order 1 - Shipping Label:");
-        Console.WriteLine(order1.GetShippingLabel());
-
+        order1.GetPackingLabel();
         Console.WriteLine("Order 1 - Total Price: $" + order1.GetTotalPrice());
 
+        Console.WriteLine("\nOrder 1 - Shipping Label:");
+        Console.WriteLine(order1.GetShippingLabel());
+        
         Console.WriteLine();
 
         Console.WriteLine("Order 2 - Packing Label:");
-        Console.WriteLine(order2.GetPackingLabel());
-
-        Console.WriteLine("Order 2 - Shipping Label:");
-        Console.WriteLine(order2.GetShippingLabel());
-
+        order2.GetPackingLabel();
         Console.WriteLine("Order 2 - Total Price: $" + order2.GetTotalPrice());
 
-
+        Console.WriteLine("\nOrder 2 - Shipping Label:");
+        Console.WriteLine(order2.GetShippingLabel());
     }
 }

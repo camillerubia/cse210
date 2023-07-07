@@ -7,7 +7,6 @@ public class Order
     private double _totalCost;
     private string _packingLabel;
     private string _shippingLabel;
-    private int _shippingFee;
     private int _usShipping = 5;
     private int _outsideShipping = 35;
     private string _orderDetails;
@@ -35,14 +34,12 @@ public class Order
         return _totalCost;
     }
 
-    public string GetPackingLabel()
+    public void GetPackingLabel()
     {
         foreach (Product product in _products)
         {
-            _packingLabel = product.GetProductDetails();
+            Console.WriteLine(_packingLabel = product.GetProductDetails());
         }
-
-        return _packingLabel;
     }
 
     public string GetShippingLabel()

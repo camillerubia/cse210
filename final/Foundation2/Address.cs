@@ -22,6 +22,7 @@ public class Address
         bool checker;
         return checker = _country.Contains("USA");
     }
+    
     public string GetAddress()
     {
         return _address = $"{_street}, {_city}, {_stateProvince}, {_country}";
