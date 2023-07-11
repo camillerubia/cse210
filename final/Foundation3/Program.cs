@@ -29,7 +29,5 @@ class Program
         outdoor.StandardDetails();
         outdoor.FullDetails();
         outdoor.ShortDescription();
-
-
     }
 }
