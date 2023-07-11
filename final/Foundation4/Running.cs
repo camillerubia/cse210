@@ -2,9 +2,9 @@ using System;
 
 public class Running : Activity
 {
-    public Running(string date, int activityLength) : base (date, activityLength)
+    public Running(int activityLength, int distance) : base (activityLength)
     {
-
+        _distance = distance;
     }
 
     public override int CalculateDistance()
@@ -14,11 +14,7 @@ public class Running : Activity
 
     public override int CalculateSpeed()
     {
-        throw new NotImplementedException();
-    }
-
-    public override int CalculatePace()
-    {
-        throw new NotImplementedException();
+       _speed = (_distance / _activityLength) * 60;
+       return _speed;
     }
 }

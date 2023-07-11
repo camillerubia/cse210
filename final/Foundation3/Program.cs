@@ -7,7 +7,6 @@ class Program
         Console.Clear();
         Console.WriteLine("Hello Foundation3 World!");
 
-
         Address lectureAddress = new Address("12St", "Corazon", "Japan");
         Lecture lecture = new Lecture("Lecture event", "lecturessss", "May 30", "7:00AM", lectureAddress, "John Bay", 39);
         Console.WriteLine("\n---------------LECTURE---------------");

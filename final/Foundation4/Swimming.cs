@@ -2,22 +2,19 @@ using System;
 
 public class Swimming : Activity
 {
-    public Swimming(string date, int activityLength) : base (date, activityLength)
+    private int _lap;
+    public Swimming(int activityLength, int lap) : base (activityLength)
     {
-
+        _lap = lap;
     }
 
     public override int CalculateDistance()
     {
-        throw new NotImplementedException();
+        _distance = _lap * 50 / 1000;
+        return _distance;
     }
 
     public override int CalculateSpeed()
-    {
-        throw new NotImplementedException();
-    }
-
-    public override int CalculatePace()
     {
         throw new NotImplementedException();
     }
