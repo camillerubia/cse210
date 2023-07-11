@@ -6,14 +6,4 @@ public class Cycling : Activity
     {
         _speed = speed;
     }
-
-    public override int CalculateDistance()
-    {
-        throw new NotImplementedException();
-    }
-
-    public override int CalculateSpeed()
-    {
-        throw new NotImplementedException();
-    }
 }

@@ -8,14 +8,9 @@ public class Swimming : Activity
         _lap = lap;
     }
 
-    public override int CalculateDistance()
+    public override double CalculateDistance()
     {
         _distance = _lap * 50 / 1000;
         return _distance;
-    }
-
-    public override int CalculateSpeed()
-    {
-        throw new NotImplementedException();
     }
 }

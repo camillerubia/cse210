@@ -4,11 +4,11 @@ public abstract class Activity
 {
     protected string _activityName;
     static DateTime dateNow = DateTime.Now;
-    protected string _date = dateNow.ToShortDateString();
+    protected string _date = dateNow.ToString();
     protected int _activityLength;
-    protected int _distance;
-    protected int _speed;
-    protected int _pace;
+    protected double _distance;
+    protected double _speed;
+    protected double _pace;
     protected string _activityType;
 
     public Activity(int activityLength)
@@ -17,15 +17,24 @@ public abstract class Activity
         _activityType = GetType().Name;
     }
 
-    public abstract int CalculateDistance();
-    public abstract int CalculateSpeed();
-    protected int CalculatePace()
+    public virtual double CalculateDistance()
+    {
+        return _distance;
+    }
+    public virtual double CalculateSpeed()
+    {
+        return _speed = 60 / _pace;
+    }
+    public virtual double CalculatePace()
     {
         return _pace = 60 / _speed;
     }
 
     public void GetSummary()
     {
-        Console.WriteLine($"{_date} {_activityType} - Distance: {_distance}km, Speed {_speed}mph, Pace {_pace}min per km");
+        CalculateDistance();
+        CalculateSpeed();
+        CalculatePace();
+        Console.WriteLine($"{_date} {_activityType} ({_activityLength}) - Distance: {_distance} miles, Speed: {_speed} mph, Pace: {_pace} min per mile");
     }
 }
