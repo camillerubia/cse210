@@ -20,11 +20,6 @@ public abstract class Event
         _type = GetType().Name;
     }
 
-    public Event()
-    {
-
-    }
-
     public void StandardDetails()
     {
         Console.WriteLine($"\nEvent Title: {_eventTitle}");

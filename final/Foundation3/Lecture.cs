@@ -11,11 +11,6 @@ public class Lecture : Event
         _capacity = capacity;
     }
 
-    public Lecture(string speaker, int capacity)
-    {
-        
-    }
-
     public override void FullDetails()
     {
         base.StandardDetails();
