@@ -6,4 +6,9 @@ public class Cycling : Activity
     {
         _speed = speed;
     }
+
+    public override float CalculateSpeed()
+    {
+        return _speed;
+    }
 }

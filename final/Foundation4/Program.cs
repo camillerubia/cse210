@@ -10,5 +10,11 @@ class Program
 
         Running run = new Running(30, 3);
         run.GetSummary();
+
+        Cycling cycle = new Cycling(30, 10);
+        cycle.GetSummary();
+
+        Swimming swim = new Swimming(30, 5);
+        swim.GetSummary();
     }
 }

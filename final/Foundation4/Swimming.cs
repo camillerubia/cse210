@@ -8,9 +8,9 @@ public class Swimming : Activity
         _lap = lap;
     }
 
-    public override double CalculateDistance()
+    public override float CalculateDistance()
     {
-        _distance = _lap * 50 / 1000;
+        _distance = _lap * 50 / 1000f;
         return _distance;
     }
 }
