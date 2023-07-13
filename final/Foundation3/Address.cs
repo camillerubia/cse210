@@ -5,7 +5,6 @@ public class Address
     private string _street;
     private string _city;
     private string _stateProvince;
-    private string _address;
 
     public Address(string street, string city, string stateProvince)
     {
@@ -16,6 +15,6 @@ public class Address
 
     public string GetAddress()
     {
-        return _address = $"{_street}, {_city}, {_stateProvince}";
+        return $"{_street}, {_city}, {_stateProvince}";
     }
 }

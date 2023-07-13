@@ -9,7 +9,6 @@ public class Order
     private string _shippingLabel;
     private int _usShipping = 5;
     private int _outsideShipping = 35;
-    private string _orderDetails;
 
     public Order (Customer customer)
     {
@@ -45,10 +44,5 @@ public class Order
     public string GetShippingLabel()
     {
         return _shippingLabel = _customer.GetCustomerDetails();;
-    }
-
-    public string OrderDetails()
-    {
-        return _orderDetails = $"{_shippingLabel}\n{_packingLabel}\nTotal Cost: {_totalCost}";
     }
 }
