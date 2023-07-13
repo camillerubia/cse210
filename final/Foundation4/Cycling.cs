@@ -11,4 +11,9 @@ public class Cycling : Activity
     {
         return _speed;
     }
+
+    public override float CalculateDistance()
+    {
+        return _distance = _speed * _activityLength;
+    }
 }
