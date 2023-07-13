@@ -5,25 +5,22 @@ public class Product
     private string _productName;
     private string _id;
     private double _price;
-    private int _quantity;
-    private double _totalPrice;
     private string _productDetails;
 
-    public Product (string productName, string id, double price, int quantity)
+    public Product (string productName, string id, double price)
     {
         _productName = productName;
         _id = id;
         _price = price;
-        _quantity = quantity;
     }
 
-    public string GetProductDetails()
+    public string GetProductDetails(int quantity)
     {
-        return _productDetails = $"{_id}| {_productName} - {_quantity}X {_price}";
+        return _productDetails = $"{_id}| {_productName} - {quantity}x ${_price}";
     }
 
-    public double GetTotalPrice()
+    public double GetProductPrice()
     {
-        return _totalPrice = _price * _quantity;
+        return _price;
     }
 }

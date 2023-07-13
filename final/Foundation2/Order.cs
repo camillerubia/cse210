@@ -2,7 +2,7 @@ using System;
 
 public class Order
 {
-    private List<Product> _products;
+    private List<(Product product, int quantity)> _products; 
     private Customer _customer;
     private double _totalCost;
     private string _packingLabel;
@@ -13,36 +13,37 @@ public class Order
     public Order (Customer customer)
     {
         _customer = customer;
-        _products = new List<Product>();
+        _products = new List<(Product product, int quantity)>();
     }
 
-    public void AddProduct(Product product)
+    public void AddProduct(Product product, int quantity)
     {
-        _products.Add(product);
+        _products.Add((product, quantity));
     }
 
     public double GetTotalPrice()
     {
-        foreach (Product product in _products)
+        _totalCost = 0;
+        foreach (var (product, quantity) in _products)
         {
-            _totalCost += product.GetTotalPrice();
+            _totalCost += product.GetProductPrice() * quantity;
         }
 
         _totalCost += _customer.GetAddress().IsUSA() ? _usShipping : _outsideShipping;
 
-        return _totalCost;
-    }
-
-    public void GetPackingLabel()
-    {
-        foreach (Product product in _products)
-        {
-            Console.WriteLine(_packingLabel = product.GetProductDetails());
-        }
+        return Math.Round(_totalCost, 2);
     }
 
     public string GetShippingLabel()
     {
         return _shippingLabel = _customer.GetCustomerDetails();;
+    }
+
+    public void GetPackingLabel()
+    {
+        foreach (var (product, quantity) in _products)
+        {
+            Console.WriteLine(_packingLabel = product.GetProductDetails(quantity));
+        }
     }
 }
