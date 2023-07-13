@@ -7,13 +7,12 @@ public class Running : Activity
         _distance = distance;
     }
 
-    public override float CalculateSpeed()
+    public override double CalculateSpeed()
     {
-       _speed = (_distance / _activityLength) * 60;
-       return _speed;
+       return _speed = (_distance / _activityLength) * 60;
     }
 
-    public override float CalculatePace()
+    public override double CalculatePace()
     {
         return _pace = _activityLength / _distance;
     }

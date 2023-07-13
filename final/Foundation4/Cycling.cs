@@ -7,13 +7,13 @@ public class Cycling : Activity
         _speed = speed;
     }
 
-    public override float CalculateSpeed()
+    public override double CalculateSpeed()
     {
         return _speed;
     }
 
-    public override float CalculateDistance()
+    public override double CalculateDistance()
     {
-        return _distance = _speed * _activityLength;
+        return _distance = (_speed / 60) * _activityLength;
     }
 }
