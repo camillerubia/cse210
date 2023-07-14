@@ -6,15 +6,23 @@ class Program
     {
         Console.Clear();
         Console.WriteLine("Hello Foundation4 World!");
+        // Create a list of activities
+        List<Activity> activities = new List<Activity>();
 
-
+        // Instantiate each activity and pass in required parameters then add to list
         Running run = new Running(30, 3);
-        run.GetSummary();
+        activities.Add(run);
 
         Cycling cycle = new Cycling(30, 10);
-        cycle.GetSummary();
+        activities.Add(cycle);
 
         Swimming swim = new Swimming(30, 5);
-        swim.GetSummary();
+        activities.Add(swim);
+
+        // Iterate through the list of activities and display summary
+        foreach (Activity activity in activities)
+        {
+            activity.GetSummary();
+        }
     }
 }
