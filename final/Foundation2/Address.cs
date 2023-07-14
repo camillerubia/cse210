@@ -7,7 +7,7 @@ using System;
 
 public class Address
 {
-    // Fields to store street, city, state/provincce and country
+    // Fields to store street, city, state/province and country
     private string _street;
     private string _city;
     private string _stateProvince;
